@@ -1,0 +1,136 @@
+1.The main purpose of any programming language is to slove a problem
+
+2.computer contains keyboard,mouse, monitor,cpu.... these are the pereferable devices which help us to interacting with computer
+3.computer is nothing but processer(which have all the system data like word, notepad,graphics...)
+
+
+4.Operating system is a way to interact with proceser.There are diffrenent Operating systems they are DOS COMMANDS,Command prompt
+for day to day use use DOS commands are not comfortable so they comeup with windows,MAC,Linux. each one have their own capability.
+5.On Windows if we want anything open on the browser search it and download
+for example:  i have custom requriement like the student is pass or fail on the exam for doing this we need some computing capability.
+In order do thatwe have 2 ways 
+I)directly interactwith the processor and II) have some other languages that can interact with processor indirectly 
+eg:watching a unkown launguage moviw with known subtitles.
+
+
+6.computer understands only the binary language(0's and 1's) as humans we cant talk to the computer with 1's and 0's so that is the reason
+we have many programming languages like c,c++,java,.net,python,datascience....
+earlier we use the languages like cobal,pascal most of them are depreciated because of less usage.
+Now presently we are using the languages like java,python,c++,.net.....
+The commomn agenda of all these programmimg languages is to get the user task completed by interacting with processor.
+each of these languages have differentset of features and their own capabilites.
+
+
+			WHY JAVA
+			------------
+
+7.compare to c,c++ JAVA have more features, on java we have OOPS concepts,java is a platform independent language,
+java have garbage collcters.java dosen't have pointers
+eg:the buyer is purchasing the for 7k rupees having 10k features and another phone with 15k features
+we can pick the 15k features phone becuse it have more features
+
+
+8.c,c++ have there own pro's and con's. There are certain areas java is very strong, there are certain areasc,c++ are strong.
+on c language we don't have OOPS concepts
+c++ have OOPS concepts but the c++ platform-dependent language.
+for desigining any web application python is the strongest language.
+9.platform is the combination of O.S and processer(platform=O.S+processor)
+On c or c++ we have the source code file we have to convert that source code into a code which processer can understand
+				
+			source code,compiler,processer,bytecode,interpreter,platform
+		-------------------------------------------------------------------------------
+10.on programming languages we have certain Keywords.These Keywords are simple english Keywords we can write in
+other languages also like japanse,chinese..we are from India so we can use the English language
+
+11.source-code is the human readable form of a program written by humans.
+
+12.compiler will do thhe task the source-code translates to the binary(0's,1's).compilier is platform independent
+on c,c++ the compilers if the source-code is compiling the .obj file gets generated.
+If we that on my computer the compiler is looking for the processer first it has to understand the exact processer 
+and which O.S currently using there is a chance that the O.S and  differnt processer will get
+eg:linux+interpl--->difficult to run because of the combination
+
+
+
+13.The MAC have different binary and intelchips windows have have different OS and processer,linux have different
+for suppose the OS is Mac and the processer is windows the compliation get very difficulty.
+
+14.Java will sloving compile once and run anywhere that means we are tring to compile the source code and there will be an intermeditary file
+which is eligible for running anywhere.
+
+15.Byte-code is the intermeaditary code generated after compiling java source-code.
+Byte-code is the primary output of the java compiler
+Byte-code in java means platform-independent independent intermediate code
+
+
+                         |-----------------------|
+                         |   sourcecode          |.java file
+                         -------------------------
+				  |
+ 			 |-----------------------|
+                         |   compiler            |
+                         -------------------------
+				|
+			 |-----------------------|
+                         |   bytecode            |.classfile
+                         -------------------------
+				|
+
+      ---------------------------------------------------------------------------------------------------
+             |                            |                        |
+          -------------           -----------                  ----------
+          |JVM WINDOWS|           |JVM LINUX|                   |JVM MAC|
+          -------------           ------------                  ----------
+            |                      |                               |
+        MACHINECODE              MACHINECODE                    MACHINECODE
+
+
+16.The source-code(.java file)will compile by the compiler and get the byte-code(.class file).
+The Byte-code is source of everything which the interpreter take and converts them into machinecode.
+eg:java is like cooked food having all ingredents whereas c++ is have all ingredents but the food is not prepare.
+
+
+17.An Interpreter code in java is a code program that executes bytecode instructions
+
+
+18.platform is a combination of OS and processer[PLATFORM= O.S+PROCESSER]
+-->Compiler is responsible for generating the byte-code.compiler is platform independent
+-->JVM 	OR THE INTERPRETER TAKES THE RESPONSIBILITY THE BYTE-CODE CONVERTS TO THE PROCESSER UNDERSTANDABLITY LANGUAGE
+JVM is platform dependent..
+
+
+
+                    			JVM,javac,JDK,JRE
+			-----------------------------------------------------------
+19.JVM(java virtual machine)is taking the task of translating the byte-code to machinecodethe computer processer can understand and executes the program
+java becomes independent because of the byte-code
+JVM is an abstract machine that excutes java byte-code
+JVM is a part of JRE.
+JVM considered platform-dependent because each OS has a different JVM implementation
+
+
+20.when you compile the java program the byte-code is generated.The compiler is generated a code independent of processer and OS.
+java compiler(javac) is machine independent that meansit will generates the code which is independent of your processer.
+Java compiler is not included in JRE
+
+
+21.JDK(Java Devlopement Kit) is used for developing java applications it includes tools needed for developement it is a combination of JRE and developement tools
+
+22.JRE(Java Runtime Environment)provides the necessary environment to run java applicxations it includes JVM,Java class librarires
+JRE is a part of JDK
+
+23.Libraries means a set of file which can do the specific task.`
+
+
+					Imporatnt points
+				--------------------------------------
+1.Java is platform independent because byte-code runs on a platform specific JVM
+2.C++ language allows direct use of pointers
+3.Byte-code is the primary output of the java compiler
+4.Byte-code in java means platform-independent intermediate code
+5.JVM considered platform-dependent because each OS has a different JVM implementation
+6.To locate java tools like javac and java from any directory
+7.compiler converts all code to byte-code before execution
+8.java follows compilation to byte-code followed by interpretation by JVM
+9.Java compiler is not included in JRE
+10.JRE is a part of JDK
