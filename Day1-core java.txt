@@ -1,0 +1,37 @@
+TEKGRADES:-
+Day 1 --Core java 
+
+Java is a general purpose programming language ,mainly it works on the oops concepts
+Java is a multi-paradigm language
+
+Simple Program:
+=============
+class A
+{
+public static void main(string[]args)
+{
+System.out.println("HelloWorld");
+}
+}//HelloWorld
+
+Execution of the java program:-
+========================
+first code is written in the English language that is high level language and saved in .java file then after using compiler code is translated into byte code and saved in .class file then after using interpreter code is translated into machine code
+Here,
+complier is used to translate the high-level language to machine -level language and it is platform independent(write once ,run everywhere)
+
+Interpreter act as a JVM java virtual machine is a platform dependent
+
+JRE-java run time environment is environment that provides to run the program execution
+
+JDK java development kit which contains the JRE and JVM used for developing the java applications
+
+
+DAY 2( 5-6-2025)- Java :--
+=====================
+Git is a software  which is said to be a historical collection of data which stores all the versions of data
+
+Git is a open source  and files local system and responsible for maintaining of version control 
+
+GitHub is UI version of Git
+
