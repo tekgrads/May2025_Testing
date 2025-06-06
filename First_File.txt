@@ -1,3 +1,32 @@
+Programming Languages are used to complete users task.
+Python provides easier syntax and faster prototyping.
+C/C++ is sed for system-level and performance-critical applications.
+Java is used for full stack development, Enterprise environments and large applications.
 
-This is my first file in development branch. and im doing changes for feature 123
+Java Installation - 
+Go to chrome and search 'download java'.
+Download JDK 24 version.
+To check installation go to cmd prompt and type "java --version".
+Set the system environment(environmental variables -> path).
+There are two types - User variable and System variable.
+Add bin path on system variable
+
+Byte Code - Is a source of everything
+Bytecode is the compiled form of your .java source code file.
+When you compile a Java program using javac, the Java compiler translates the code into bytecode, which is stored in a class file.
+This bytecode is platform-independent.
+
+Intrepreter - An interpreter is a type of program that reads and executes code line by line, rather than compiling the entire code into machine language at once.
+It translates high-level code (like Python, JavaScript, etc.) into machine code, but one line at a time.
+
+JVM(Java virtual machine) - The engine that runs Java bytecode.
+Process of Converting byte code to machine understandable code.
+JVM is a part of JRE.
+
+JRE(Java runtime environment) - It is a package of JVM, java class libraries, files.
+Provides the runtime environment to run Java applications.
+
+JDK(Java development kit) - A full development package for Java developers.
+JDK is a full development package for java developers.
+JDK includes JRE, java compiler, debugger and other development tools
 
