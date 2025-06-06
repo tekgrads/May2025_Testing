@@ -22,7 +22,7 @@
   2. Use **programming languages** that communicate with the processor on our behalf.
     - Analogy: Watching a foreign movie with **subtitles**.
 
-## 6. Binary Language and Programming
+## 6. Binary Language and Programming 123
 - Computers understand only **binary language (0s and 1s)**.
 - Humans can't communicate in binary, so we use programming languages:  
   Examples: `C`, `C++`, `Java`, `.NET`, `Python`, `Data Science`, etc.
