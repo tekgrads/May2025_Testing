@@ -49,7 +49,7 @@ Java was designed to **overcome platform dependency** with features like:
 
 ---
 
-## Java Toolkits
+## Java Toolkits 
 
 ### JDK – Java Development Kit (Developer side)
 - A full software development kit to **write, compile, and run** Java programs.
