@@ -8,7 +8,7 @@
 ## ☕ Why Java?
 
 - ✅ **Platform Independent**
-- ✅ Source code ➡️ compiled once ➡️ run **anywhere**
+- ✅ Source code➡️ compiled once ➡️ run **anywhere**
 - ✅ Uses **bytecode** as intermediate form
 - ✅ JVM interprets bytecode into machine code
 
