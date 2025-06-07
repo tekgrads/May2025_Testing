@@ -1,0 +1,78 @@
+
+# 📝 TG Notes Day 1 – 01/06/2025
+
+## Topics Covered:
+1. Why Java when there is already C++?
+2. How to set up JDK?
+3. What are Environment Variables?
+4. JDK vs JRE vs JVM?
+
+---
+
+## 1. Why Java when there is already C++?
+
+- **Platform Independence**  
+- **Bytecode and JVM**  
+- **Reusability through OOP**  
+- **Automatic Memory Management**  
+
+---
+
+## 2. How to Set Up JDK
+
+1. Download JDK from Oracle or OpenJDK website.  
+2. Install JDK on your system.  
+3. Set `JAVA_HOME` environment variable.  
+4. Add JDK's `bin` directory to system `PATH`.  
+5. Verify installation using `java -version` in terminal.  
+
+---
+
+## 3. Environment Variables
+
+Environment variables are system-wide settings that define configuration values, like paths and system behavior.
+
+- In Java, variables like `JAVA_HOME` and `PATH` help the system locate the JDK and run Java programs.  
+- Think of them as **global shortcuts** to important tools or files.  
+- `JAVA_HOME` helps tools locate the JDK.  
+- `PATH` allows you to run Java commands from anywhere in the terminal.  
+
+---
+
+## 4. JDK vs JRE vs JVM — *A Kitchen Analogy*
+
+| Term    | Analogy         | Explanation                                                        |
+|---------|------------------|--------------------------------------------------------------------|
+| **JVM** | Microwave        | It runs (heats) your Java program (food).                         |
+| **JRE** | Kitchen          | Includes the microwave and items to serve food, but not cook new recipes. |
+| **JDK** | Cooking School   | Full setup to create new dishes: kitchen + recipes + utensils (compiler, debugger, etc). |
+
+---
+
+## Visual Overview: JDK vs JRE vs JVM
+
+```
++------------------------------+
+|             JDK             |
+|  (Tools for Developing Apps)|
+|  +------------------------+ |
+|  |          JRE           | |
+|  |  +------------------+  | |
+|  |  |      JVM         |  | |
+|  |  | +--------------+ |  | |
+|  |  | | Heap Memory  | |  | |
+|  |  | | Stack Memory | |  | |
+|  |  | | Non-Heap Mem | |  | |
+|  |  | | PC Register  | |  | |
+|  |  | +--------------+ |  | |
+|  |  |     + JIT         |  |
+|  |  +------------------+  | |
+|  |                        | |
+|  | Java Class Libraries   | |
+|  | (java.lang, java.io,   | |
+|  |  java.util, etc.)      | |
+|  | Java Standard Ext.     | |
+|  | (JavaFX, JCE, etc.)    | |
+|  +------------------------+ |
++------------------------------+
+```
