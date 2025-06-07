@@ -103,9 +103,7 @@ public class Student {
 An array is a group of values stored in a single variable name, accessed using indexes.
 
 💻 Example:
-java
-Copy
-Edit
+
 class A {
     public static void main(String args[]) {
         System.out.println("Hello World " + args[0]);
@@ -116,6 +114,4 @@ class A {
 }
 ✅ Arrays, data types, and access specifiers are foundational concepts that every Java programmer should understand.
 
-yaml
-Copy
-Edit
+
