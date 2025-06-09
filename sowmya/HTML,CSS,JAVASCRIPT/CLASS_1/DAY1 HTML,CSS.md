@@ -1,168 +1,171 @@
-# HTML and CSS Markdown Guide for GitHub
+# HTML & CSS Guide for Git (Markdown Format)
 
-## HTML
+---
 
-**HTML (HyperText Markup Language)** is the standard markup language for creating web pages.
+## 1. HTML
 
-* Used to structure content.
-* Webpages are built using HTML tags.
+**HTML** stands for **HyperText Markup Language**. It is used to create webpages using HTML tags.
 
-### Basic HTML Tags
-
-| Tag              | Description            |
-| ---------------- | ---------------------- |
-| `<head>`         | Metadata container     |
-| `<title>`        | Page title             |
-| `<body>`         | Page content container |
-| `<img>`          | Inserts an image       |
-| `<video>`        | Embeds a video         |
-| `<h1>` to `<h6>` | Headings               |
-| `<br>`           | Line break             |
-| `<b>`            | Bold text              |
-| `<i>`            | Italic text            |
-| `<u>`            | Underline text         |
-| `<li>`           | List item              |
-| `<ol>`           | Ordered list           |
-| `<ul>`           | Unordered list         |
-| `<table>`        | Table element          |
-| `<tr>`           | Table row              |
-| `<td>`           | Table cell             |
-| `<th>`           | Table header           |
-| `<tbody>`        | Table body             |
-| `<tfoot>`        | Table footer           |
-| `<a>`            | Hyperlink              |
-| `<form>`         | Form element           |
-| `<hr>`           | Horizontal line        |
-| `<caption>`      | Table caption          |
-| `<div>`          | Document section       |
-
-### HTML Sample
+### Example:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <video src="video4.mp4" controls></video>
+  <video src="video4.mp4" controls></video>
 </body>
 </html>
 ```
 
-## HTML Forms
+---
+
+## 2. CSS
+
+**CSS** stands for **Cascading Style Sheets**. It is used to style webpages by adding colors, backgrounds, fonts, and more.
+
+### Linking CSS:
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forms - Lets learn it</title>
-</head>
-<body>
-    <h1>WEB DESIGNING PAGE</h1>
-    <form method="post">
-        <div>
-            <label for="username">Enter your Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" autofocus>
-        </div>
-
-        <div>
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label>
-        </div>
-
-        <div>
-            <input type="checkbox" id="subscribe" name="subscribe" value="yes">
-            <label for="subscribe">Subscribe to newsletter</label>
-        </div>
-
-        <div>
-            <label for="comment">Enter your comment</label>
-            <br>
-            <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
-        </div>
-
-        <div>
-            <select name="fruits">
-                <option value="apple">Apple</option>
-                <option value="banana">Banana</option>
-                <option value="cherry">Cherry</option>
-            </select>
-        </div>
-    </form>
-</body>
-</html>
+<link rel="stylesheet" href="style.css">
 ```
 
-### Notes
+---
 
-* Form method should be `post`.
-* `label for` must match the `input id`.
-* Use the same `name` for related radio inputs.
-* Use `<select>` with `<option>` for dropdowns.
+## 3. Important HTML Tags
 
-## CSS
+| Tag              | Description                             |
+| ---------------- | --------------------------------------- |
+| `<head>`         | Defines the head section of the webpage |
+| `<title>`        | Sets the title of the webpage           |
+| `<body>`         | Main content of the webpage             |
+| `<img>`          | Adds an image                           |
+| `<video>`        | Adds a video                            |
+| `<h1>` to `<h6>` | Headings                                |
+| `<br>`           | Line break                              |
+| `<b>`            | Bold text                               |
+| `<i>`            | Italic text                             |
+| `<u>`            | Underlined text                         |
+| `<li>`           | List item                               |
+| `<ol>`           | Ordered list                            |
+| `<ul>`           | Unordered list                          |
+| `<table>`        | Table                                   |
+| `<tr>`           | Table row                               |
+| `<td>`           | Table data                              |
+| `<tbody>`        | Table body                              |
+| `<tfoot>`        | Table footer                            |
+| `<th>`           | Table header                            |
+| `<a>`            | Hyperlink                               |
+| `<form>`         | Form creation                           |
+| `<hr>`           | Horizontal line                         |
+| `<caption>`      | Table caption                           |
+| `<div>`          | Division or section                     |
 
-**CSS (Cascading Style Sheets)** is used to style HTML documents.
+---
 
-* Controls color, layout, fonts, spacing, etc.
-* Linked using: `<link rel="stylesheet" href="style.css">`
+## 4. HTML Form Example
 
-### CSS Syntax
+```html
+<form method="post">
+  <div>
+    <label for="username">Enter your Username</label>
+    <input type="text" id="username" name="username" placeholder="Enter your username" autofocus>
+  </div>
+
+  <div>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+    <label for="subscribe">Subscribe to newsletter</label>
+  </div>
+
+  <div>
+    <label for="comment">Enter your comment</label><br>
+    <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+  </div>
+
+  <div>
+    <select name="fruits">
+      <option value="apple">Apple</option>
+      <option value="banana">Banana</option>
+      <option value="cherry">Cherry</option>
+    </select>
+  </div>
+</form>
+```
+
+---
+
+## 5. CSS Example
+
+**Create a new file named `style.css` and link it in your HTML file.**
 
 ```css
-/* Style for all paragraphs */
 p {
   background-color: aquamarine;
 }
 
-/* Style for links */
 a {
   background-color: rgb(242, 160, 122);
 }
 
-/* Style for divs */
 div {
   background-color: yellow;
 }
 
-/* Class selector */
 .bg-yellow {
-  background-color: yellow;
+  background-color: yellow; /* class style */
 }
 
-/* ID selector */
 #firstdiv {
-  background-color: red;
+  background-color: red; /* id style */
 }
 ```
 
-### Types of CSS
+---
 
-1. **Inline CSS** – Style written directly in the HTML tag:
+## 6. Types of CSS
 
-   ```html
-   <p style="color:red;font-size:20px;">Text</p>
-   ```
+### 1. Inline CSS
 
-2. **Internal CSS** – CSS inside a `<style>` block within the HTML file:
+Used directly in the HTML tag.
 
-   ```html
-   <style>
-     .main {
-       background-color: red;
-     }
-   </style>
-   ```
+```html
+<p style="color: red; font-size: 20px;">Text</p>
+```
 
-3. **External CSS** – CSS in a separate `.css` file linked to the HTML:
+### 2. Internal CSS
 
-   ```html
-   <link rel="stylesheet" href="style.css">
-   ```
+Defined within `<style>` tags in the HTML file.
+
+```html
+<head>
+  <style>
+    .main {
+      background-color: red;
+    }
+  </style>
+</head>
+```
+
+### 3. External CSS
+
+Defined in a separate `.css` file and linked to the HTML.
+
+```css
+/* style.css */
+p {
+  background-color: aquamarine;
+}
+```
+
+---
