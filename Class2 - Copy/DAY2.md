@@ -1,6 +1,7 @@
 # Git & GitHub Overview
 
 ## Git: Version Control
+
 - Git is a **version control system** used to **track changes** in files over time.
 - It allows users to interact via **command prompts (CLI)**.
 - Helps maintain a **history of changes** to code/files.
