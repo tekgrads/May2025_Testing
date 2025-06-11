@@ -39,4 +39,6 @@ Provides the runtime environment to run Java applications.
 JDK(Java development kit) - A full development package for Java developers.
 JDK is a full development package for java developers.
 JDK includes JRE, java compiler, debugger and other development tools.
+This is development
+
 
