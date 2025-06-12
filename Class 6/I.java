@@ -5,15 +5,20 @@ int i;
 //same name difeerent forms 
 
  I(int i) { 
+  //  this();
+    //compiler check it this is the first statement in the constructor //super
+    // if this is not the first statement, then it will call the instance initializer block
     System.out.println("Parameterized constructor called I(int i)");
     this.i = i; //tIis
     System.out.println("Instance variable i initialized to: " + this.i);
 }
 
- I() {       
-    System.out.println("Non-parameterized constructor called I()");  
-    this(10);
-    System.out.println("Instance variable i initialized to: " + i);
+ I() {    
+    this(10); // this should always be the first statement in a constructor //super
+    // will not be a call to the instance initializer block, as the call to another constructor is the first statement 
+    System.out.println("Non-parameterized constructor called I()");   
+     
+    System.out.println("Instance variable i initialized to: " + this.i);
 }
 
 
