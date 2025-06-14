@@ -1,0 +1,71 @@
+# Day 4: CORE JAVA
+
+## Local and Global Variables
+
+### Local Variables
+- Declared **inside** methods, blocks, or constructors.
+- Can be used **only within the scope** of the block or method.
+
+```java
+class A {
+    public void a() {
+        int i = 0;
+        System.out.println("value of: " + i);
+    }
+}
+
+##Global Variables
+Declared outside methods, but inside the class.
+
+Can be accessed anywhere within the class.
+
+class B {
+    static int j = 10;
+
+    public static void main(String[] args) {
+        System.out.println("value of: " + j);
+        B obj = new B();
+        obj.details();
+    }
+
+    public void details() {
+        System.out.println("value of " + B.j + " is integer");
+    }
+}
+##Static Initialization Block
+Used to initialize static variables.
+Runs once when the class is loaded into memory.
+public class Demo {
+    static int number;
+
+    static {
+        number = 9;
+        System.out.println("static block is executed");
+    }
+}
+###Multiple Classes with Static Initialization Blocks
+Each class has its own static block.
+Executed when the respective class is first used.
+class Z {
+    static {
+        System.out.println("static Z block is executed");
+    }
+}
+
+class Y {
+    static {
+        System.out.println("static Y block is executed");
+    }
+}
+###Object Creation in Java
+Student s1 = new Student();
+s1 is a reference to the Student class.
+
+Multiple objects can be created from the same class.
+
+###Orphan Object
+An object no longer referenced is called an orphan object.
+These are automatically cleaned up by the garbage collector.
+Student s1 = new Student();
+s1 = null; // `s1` becomes an orphan object
+
