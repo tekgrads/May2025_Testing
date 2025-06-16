@@ -264,3 +264,114 @@ For blocks:
 ---
 
 
+
+# CSS Pseudo Selectors Guide
+
+## 🎯 What are Pseudo Selectors?
+
+Pseudo-classes in CSS are used to define a special state of an element.
+
+### 🔸 Common Pseudo-classes
+
+* `:hover` — Applies styles when the mouse pointer hovers over the element.
+* `:focus` — Applies styles when the element (like input) gains focus.
+* `:active` — Applies styles when the element is being activated (e.g., clicked).
+* `:visited` — Applies styles to links that have been visited.
+* `:link` — Applies styles to unvisited links.
+* `:first-child` — Selects the first child element of its parent.
+* `:nth-child(n)` — Selects the nth child element of its parent.
+
+---
+
+## 🧾 Example HTML with CSS Pseudo Selectors
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Selectors</title>
+  <style>
+    /* Element Selector */
+    div {
+      /* background-color: red; */
+    }
+
+    /* Class Selector */
+    .red {
+      background-color: red;
+    }
+
+    /* ID Selector */
+    #green {
+      background-color: green;
+    }
+
+    /* Child Selector */
+    div > p {
+      color: blue;
+      background-color: brown;
+    }
+
+    /* Descendant Selector */
+    div p {
+      color: blue;
+      background-color: brown;
+    }
+
+    /* Universal Selector */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Pseudo Selectors */
+    a:visited {
+      color: yellow;
+    }
+
+    a:link {
+      color: green;
+    }
+
+    a:active {
+      background-color: red;
+    }
+
+    a:hover {
+      background-color: yellow;
+    }
+
+    p:first-child {
+      background-color: aqua;
+    }
+  </style>
+</head>
+<body>
+  <main class="one">
+    <p>I am first</p>
+    <p>I am second</p>
+  </main>
+
+  <div class="red">
+    I am a div
+    <article>
+      <p>I am a para inside div</p>
+    </article>
+  </div>
+
+  <div id="green">
+    I am another div
+  </div>
+
+  <a href="https://www.google.com">Go to Google</a>
+  <a href="https://www.facebook2.com">Go to Facebook</a>
+</body>
+</html>
+```
+
+---
+
+
+
