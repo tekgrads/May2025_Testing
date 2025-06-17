@@ -642,3 +642,226 @@ There are **4 types** of access specifiers in Java:
 
 Java’s access modifiers are a powerful way to control how the members of your classes are accessed and used. 
 Proper use of access modifiers enhances code encapsulation, modularity, and reusability.
+
+
+
+
+
+# Java Packages and Access Modifiers
+
+## 1. Private Access Modifier
+
+**Usage:** Accessible only within the same class.
+
+### Example Program
+
+**TestPrivate.java**
+
+```java
+class TestPrivate {
+    private static int i = 10;
+    private int j = 20;
+
+    static void printIvalue() {
+        System.out.println("i value is " + i);
+    }
+
+    void printJvalue() {
+        System.out.println("j value is " + this.j);
+    }
+}
+```
+
+**PrivateAccess.java**
+
+```java
+class PrivateAccess {
+    public static void main(String[] args) {
+        TestPrivate t = new TestPrivate();
+        System.out.println("i value is " + TestPrivate.i); // ❌ error
+        System.out.println("j value is " + t.j);           // ❌ error
+    }
+}
+```
+
+**Errors:**
+
+```
+i has private access in TestPrivate
+j has private access in TestPrivate
+non-static variable this cannot be referenced from a static context
+```
+
+### Correct Way Using Methods
+
+```java
+class PrivateAccess {
+    public static void main(String[] args) {
+        TestPrivate t = new TestPrivate();
+        TestPrivate.printIvalue();
+        t.printJvalue();
+    }
+}
+```
+
+**Output:**
+
+```
+i value is 10
+j value is 20
+```
+
+---
+
+## 2. Public Access Modifier
+
+**Usage:** Accessible from any class, even outside packages.
+
+### Example Program
+
+**pack1/TestPublic.java**
+
+```java
+package pack1;
+
+public class TestPublic {
+    private static int i = 10;
+    private int j = 20;
+
+    public static void printIvalue() {
+        System.out.println("i value is " + i);
+    }
+
+    public void printJvalue() {
+        System.out.println("j value is " + this.j);
+    }
+}
+```
+
+**pack1/PublicAccess.java**
+
+```java
+package pack1;
+
+public class PublicAccess {
+    public static void main(String[] args) {
+        TestPublic t = new TestPublic();
+        TestPublic.printIvalue();
+        t.printJvalue();
+    }
+}
+```
+
+**Output:**
+
+```
+i value is 10
+j value is 20
+```
+
+---
+
+## 3. Protected Access Modifier
+
+**Usage:** Accessible within the same package or subclasses in other packages.
+
+### Project Structure
+
+```
+project/
+├── mainpkg/
+│   └── SuperClass.java
+└── subpkg/
+    └── SubClass.java
+```
+
+### Example Code
+
+**main1/SuperClass.java**
+
+```java
+package main1;
+
+public class SuperClass {
+    protected void display() {
+        System.out.println("This is a protected method in SuperClass.");
+    }
+}
+```
+
+**sub1/SubClass.java**
+
+```java
+package sub1;
+
+import main1.SuperClass;
+
+public class SubClass extends SuperClass {
+    public void callDisplay() {
+        display();
+    }
+
+    public static void main(String[] args) {
+        SubClass obj = new SubClass();
+        obj.callDisplay();
+    }
+}
+```
+
+**Output:**
+
+```
+This is a protected method in SuperClass.
+```
+
+> ❌ Cannot access `display()` using a `SuperClass` object directly in a different package.
+
+---
+
+## 4. Default Access Modifier (Package-Private)
+
+**Usage:** Accessible only within the same package.
+
+### Project Structure
+
+```
+project/
+├── main1/
+│   └── DefaultClass.java
+└── otherpkg/
+    └── OtherClass.java
+```
+
+**main1/DefaultClass.java**
+
+```java
+package main1;
+
+class DefaultClass {
+    void showMessage() {
+        System.out.println("This is a default method in DefaultClass.");
+    }
+}
+```
+
+**otherpkg/OtherClass.java**
+
+```java
+package otherpkg;
+
+import main1.DefaultClass; // ❌ Compile error
+
+public class OtherClass {
+    public static void main(String[] args) {
+        DefaultClass obj = new DefaultClass(); // ❌
+        obj.showMessage();                     // ❌
+    }
+}
+```
+
+> ✅ This works if both classes are in the same package.
+
+---
+
+
+
