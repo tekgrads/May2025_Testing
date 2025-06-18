@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         // Creating an object of SavingsAccount
-        SavingsAccount sa = new SavingsAccount(1001, "Alice Johnson", 5000.0, "XYZ Bank", 4.5);
+        SavingsAccount sa = new SavingsAccount(1001, "Anusha", 5000.0, "Union Bank of India", 4.5);
 
         // Accessing fields from BankAccount and SavingsAccount
         System.out.println("\nAccessing fields:");
