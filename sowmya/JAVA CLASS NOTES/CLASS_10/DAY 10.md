@@ -321,6 +321,74 @@ method4 on abstract class
 
 ---
 
+
+
+# Example 7: Static Methods in Child Class (Markdown for Git)
+
+> **Note:** Static members **cannot be overridden** in Java.
+
+
+```java
+// Placing static members in the child class
+// Static members cannot be overridden
+
+abstract class A {
+    abstract void m1();
+
+    static void m2() {
+        System.out.println("the static method2 on abstract class");
+    }
+
+    void m3() {
+        System.out.println("the concrete method on abstract class");
+    }
+}
+
+class B extends A {
+    @Override
+    void m1() {
+        System.out.println("the method1 on class B");
+    }
+
+    // This does not override m2 from class A
+    static void m2() {
+        System.out.println("the static method on class B");
+    }
+
+    @Override
+    void m3() {
+        System.out.println("the concrete method on class B");
+    }
+}
+
+public class Main7 {
+    public static void main(String[] args) {
+        B b = new B();
+        b.m1();
+
+        // Static method calls
+        A.m2();  // Calls A's static method
+        b.m2();  // Calls B's static method (not override)
+
+        b.m3();
+    }
+}
+```
+
+## Output
+
+```
+the method1 on class B
+the static method2 on abstract class
+the static method on class B
+the concrete method on class B
+```
+
+---
+
+This Markdown format is ideal for including in a GitHub README or any documentation tracked with Git.
+
+
 ## INTERFACES
 
 Interfaces in Java help avoid multiple inheritance issues by allowing classes to implement multiple interfaces.
