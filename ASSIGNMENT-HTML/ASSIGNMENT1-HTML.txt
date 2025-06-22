@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSIGNMENT</title>
+</head>
+
+<body>
+<h2>VIDEOS</h2>
+<div>
+
+<div>
+ <iframe width="220" height="220" src="https://www.youtube.com/embed/QC8iQqtG0hg?si=vuij764oCBZwqDPe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="220" height="220" src="https://www.youtube.com/embed/K87aFjB7Ff0?si=xuaGrd_ZcYTslIrU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="220" height="220 "src="https://www.youtube.com/embed/MFLVmAE4cqg?si=FZqSyCqNOhdFpb6k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+</div>
+
+<div>
+
+
+<div>
+<iframe width="220" height="220" src="https://www.youtube.com/embed/-oOoTIuoL8M?si=nFuus1uZpEpyudeU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="220" height="220" src="https://www.youtube.com/embed/FaU8BkqmXzo?si=EoFw_KQrvqBxEufr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="220" height="220" src="https://www.youtube.com/embed/Eoo4HzILB-M?si=9o5zRRySY1LHv7kF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+</div>
+
+<h2>AUDIOS</h2>
+ <div>
+ <audio controls>
+  <audio src="1.mp3" controls></audio>
+  <audio src="2.mp3" controls></audio>
+  <audio src="3.mp3" controls></audio>
+</div>
+<div>
+  <audio src="4.mp3" controls></audio>
+  <audio src="5.mp3" controls></audio>
+  <audio src="6.mp3" controls></audio> 
+</div>
+
+</body>
+</html>
+
