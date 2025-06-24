@@ -390,3 +390,31 @@ method1 on b class
 Anonymous Inner Class m1
 
 ```
+## 8.use of parseInt
+
+
+###example program
+
+
+```java
+
+public class Main1 {
+
+    public static void main(String[] args) {
+        System.out.println("Strted the program");
+        String age = "90";  
+        Integer num = Integer.parseInt(age);
+        System.out.println(+num);
+         System.out.println("End Of program");
+    } 
+} 
+```
+
+
+output
+```
+Strted the program
+90
+End Of program
+
+```
