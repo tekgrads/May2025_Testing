@@ -81,8 +81,11 @@ public class CountryEnumExample {
     }
 
     public static void main(String[] args) {
+
+ 		System.out.println("List of Countries and their Codes:");
         for (Country country : Country.values()) {
-            System.out.println("Country: " + country.getName() + ", Code: " + country.getCode());
+            System.out.println("Country name is: " + country.getName() + ", Code: " + country.getCode());
+
         }
     }
 }
