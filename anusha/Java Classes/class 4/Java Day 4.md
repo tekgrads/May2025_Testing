@@ -1,58 +1,69 @@
-Java Day 4
-🧮 Variables in Java
-🔹 Local Variables
-Variables declared inside a method.
 
-They must be initialized before use.
+# Java Day 4 🧮
 
-🔹 Global Variables
-Variables declared outside any method (typically inside a class but outside methods).
+## Variables in Java
 
-They have class-level scope and can be accessed by all methods of the class.
+### 🔹 Local Variables
+- Variables declared **inside a method**.
+- They must be **initialized before use**.
 
-🔁 Increment Operators in Java
+### 🔹 Global Variables
+- Variables declared **outside any method** (typically inside a class but outside methods).
+- They have **class-level scope** and can be accessed by all methods of the class.
+
+---
+
+## 🔁 Increment Operators in Java
+
 Java provides two types of increment operators that increase a variable's value by 1.
 
-1. Pre-Increment (++x)
-Increases first, then uses the updated value.
-int x = 5;
-int y = ++x;  // x becomes 6, then y is assigned 6
-Result:
-x = 6
-y = 6
-2. Post-Increment (x++)
-Uses current value first, then increases it.
-int x = 5;
-int y = x++;  // y is assigned 5, then x becomes 6
-Result:
-x = 6
-y = 5
+### ➕ Pre-Increment (`++x`)
+- Increases first, then uses the updated value.
 
-➖ Decrement Operators in Java
+```java
+int x = 5;
+int y = ++x; // x becomes 6, then y is assigned 6
+// Result: x = 6, y = 6
+```
+
+### ➕ Post-Increment (`x++`)
+- Uses current value first, then increases it.
+
+```java
+int x = 5;
+int y = x++; // y is assigned 5, then x becomes 6
+// Result: x = 6, y = 5
+```
+
+---
+
+## ➖ Decrement Operators in Java
+
 Java also provides two decrement operators to decrease a variable’s value by 1.
 
-1. Pre-Decrement (--x)
-Decreases first, then uses the updated value.
+### ➖ Pre-Decrement (`--x`)
+- Decreases first, then uses the updated value.
 
-
+```java
 int x = 5;
-int y = --x;  // x becomes 4, then y is assigned 4
-Result:
+int y = --x; // x becomes 4, then y is assigned 4
+// Result: x = 4, y = 4
+```
 
+### ➖ Post-Decrement (`x--`)
+- Uses current value first, then decreases it.
 
-x = 4
-y = 4
-2. Post-Decrement (x--)
-Uses current value first, then decreases it.
-
+```java
 int x = 5;
-int y = x--;  // y is assigned 5, then x becomes 4
-Result:
-x = 4
-y = 5
+int y = x--; // y is assigned 5, then x becomes 4
+// Result: x = 4, y = 5
+```
 
-💻 Code Example
+---
 
+## 💻 Code Example
+
+```java
 public class A {
     public static void main(String args[]) {
         int i = 0;
@@ -70,13 +81,14 @@ public class A {
         System.out.println("i = " + i);
     }
 }
-📝 Output:
+```
 
+### 📝 Output:
+```
 j = 0
 i = 1
 i = 2
 k = 1
 l = 2
 i = 1
-
-
+```

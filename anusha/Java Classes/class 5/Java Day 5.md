@@ -1,11 +1,15 @@
-📘 Java Notes: Static Initialization Blocks, Object Creation, Memory Concepts & Variable Access
-🔹 1. Static Initialization Blocks
-What is it?
-A block of code that runs once when the class is loaded.
 
-Used to initialize static variables.
+# 📘 Java Notes: Static Initialization Blocks, Object Creation, Memory Concepts & Variable Access
 
-Syntax:
+---
+
+## 🔹 1. Static Initialization Blocks
+
+### What is it?
+A block of code that runs once when the class is loaded. Used to initialize static variables.
+
+### 🧾 Syntax:
+```java
 class Example {
     static int x;
 
@@ -14,18 +18,24 @@ class Example {
         System.out.println("Static block executed");
     }
 }
-Key Points:
-Runs before the main method (if class is loaded).
-Useful for complex static initializations.
-🔹 2. Object Creation in Java
-🛠️ How to Create an Object:
-java
-Copy
-Edit
+```
+
+### ✅ Key Points:
+- Runs before the main method (if class is loaded).
+- Useful for complex static initializations.
+
+---
+
+## 🔹 2. Object Creation in Java 🛠️
+
+### How to Create an Object:
+```java
 ClassName obj = new ClassName();
+```
 This line creates an object of a class.
 
-📘 Example:
+### 📘 Example:
+```java
 class Bus {
     void drive() {
         System.out.println("Bus is driving");
@@ -34,52 +44,65 @@ class Bus {
 
 public class Main {
     public static void main(String[] args) {
-        Bus myBus = new Bus();  // Object creation
-        myBus.drive();          // Method call using the object
+        Bus myBus = new Bus(); // Object creation
+        myBus.drive(); // Method call using the object
     }
 }
-Key Points to Remember:
-✅ Object is created using the new keyword.
+```
 
-🧠 Memory for the object is allocated in the Heap.
+### ✅ Key Points to Remember:
+- Object is created using the `new` keyword.
+- Memory for the object is allocated in the Heap.
+- Access class variables and methods via `objectName.methodName()`.
 
-🔓 You can access the class’s variables and methods through the object using objectName.methodName().
+---
 
-🔹 3. Out of Memory Error (OOM)
-🧠 What is it?
-Happens when the JVM runs out of heap memory.
+## 🔹 3. Out of Memory Error (OOM) 🧠
 
-Cannot create new objects because there's no space left.
+### What is it?
+Happens when the JVM runs out of heap memory. Cannot create new objects because there's no space left.
 
-❌ Common Causes:
-Creating too many objects without releasing them.
+### ❌ Common Causes:
+- Creating too many objects without releasing them.
+- Memory leaks (objects not garbage collected because they are still referenced).
 
-Memory leaks (objects not garbage collected because they are still referenced).
-
-⚠️ Error Message:
+### ⚠️ Error Message:
+```
 java.lang.OutOfMemoryError: Java heap space
-🔹 4. Execution Order of Multiple Static Blocks
-📘 Example:
+```
+
+---
+
+## 🔹 4. Execution Order of Multiple Static Blocks
+
+### 📘 Example:
+```java
 class Demo {
-    static {
-        System.out.println("Static Block 1");
-    }
-    static {
-        System.out.println("Static Block 2");
-    }
+    static { System.out.println("Static Block 1"); }
+    static { System.out.println("Static Block 2"); }
+
     public static void main(String[] args) {
         System.out.println("Main Method");
     }
 }
-📤 Output:
-Static Block 1  
-Static Block 2  
-Main Method
-✅ Key Point:
-Static blocks execute in the order they appear in the class, and before the main method.
+```
 
-🔹 5. Accessing Local and Global Variables
-📘 Example:
+### 📤 Output:
+```
+Static Block 1
+Static Block 2
+Main Method
+```
+
+### ✅ Key Point:
+Static blocks execute in the order they appear in the class, and **before the main method**.
+
+---
+
+## 🔹 5. Accessing Local and Global Variables
+
+### 📘 Example:
+```java
 class Example {
     int globalVar = 100; // global variable
 
@@ -89,17 +112,27 @@ class Example {
         System.out.println(globalVar); // ✅ Global
     }
 }
+```
 
-🔹 6. Orphan Objects
-🧠 What is it?
+---
+
+## 🔹 6. Orphan Objects 🧠
+
+### What is it?
 An object that is created but has no reference variable pointing to it.
 
-🧹 Example:
+### 🧹 Example:
+```java
 new Example(); // Orphan object
-These objects are eligible for Garbage Collection (GC).
+```
+These objects are eligible for **Garbage Collection (GC)**.
 
-🔹 7. Accessing Variables Across Classes
-📘 Example 1: Using Object Reference
+---
+
+## 🔹 7. Accessing Variables Across Classes
+
+### 📘 Example 1: Using Object Reference
+```java
 class A {
     int x = 20;
 }
@@ -107,10 +140,13 @@ class A {
 class B {
     public static void main(String[] args) {
         A obj = new A();
-        System.out.println(obj.x);  // Accessing variable from class A
+        System.out.println(obj.x); // Accessing variable from class A
     }
 }
-📘 Example 2: Accessing Static Variable
+```
+
+### 📘 Example 2: Accessing Static Variable
+```java
 class A {
     static int x = 100;
 }
@@ -120,5 +156,4 @@ class B {
         System.out.println(A.x); // No object needed
     }
 }
-
-
+```
