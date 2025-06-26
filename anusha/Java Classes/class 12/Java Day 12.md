@@ -1,16 +1,28 @@
-📘 Enums in Java
-Enums (short for Enumerations ) are a special data type that enables a variable to be a set of predefined constants. They are used when you have a fixed list of values that a variable can take.
 
-✅ Key Points About Enums
-Defined using the enum keyword.
-Each enum constant is a public, static, and final instance of the enum type.
-Enums can contain:
-Fields
-Constructors
-Methods
-Enums can implement interfaces but cannot extend classes.
-🔹 1. Enum for Days
-💡 Example: Enum with Days of the Week
+
+---
+
+## ✅ Enums in Java
+
+Enums (short for Enumerations) are a special data type that enables a variable to be a set of predefined constants. They are used when you have a fixed list of values that a variable can take.
+
+### ✅ Key Points About Enums
+
+- Defined using the `enum` keyword.
+- Each enum constant is a `public static final` instance of the enum type.
+- Enums can contain:
+  - Fields
+  - Constructors
+  - Methods
+- Enums can implement interfaces but **cannot extend classes**.
+
+---
+
+### 🔹 1. Enum for Days
+
+💡 **Example: Enum with Days of the Week**
+
+```java
 enum Day {
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
 }
@@ -21,15 +33,20 @@ public class Main {
         System.out.println("Today is " + today);
     }
 }
+```
+
 ✅ Output:
-
+```
 Today is FRIDAY
+```
 
+---
 
-🔹 2. Enum with Properties
-Enums can also have fields, constructors, and methods.
+### 🔹 2. Enum with Properties
 
-💡 Example: Enum with Properties (Level)
+💡 **Example: Enum with Properties (Level)**
+
+```java
 enum Level {
     LOW(1),
     MEDIUM(2),
@@ -53,23 +70,30 @@ public class Main2 {
         System.out.println("Level Code: " + myVar.getLevelCode());
     }
 }
+```
+
 ✅ Output:
+```
 Selected Level: HIGH
 Level Code: 3
+```
 
-🔹 3. Wrapper Classes
+---
+
+## 🔹 3. Wrapper Classes
+
 Wrapper classes allow primitive types to be used as objects.
 
-int
-Integer
-char
-Character
-boolean
-Boolean
-double
-Double
+| Primitive | Wrapper     |
+|----------|-------------|
+| int      | Integer     |
+| char     | Character   |
+| boolean  | Boolean     |
+| double   | Double      |
 
-💡 Example:
+💡 **Example:**
+
+```java
 public class WrapperExample {
     public static void main(String[] args) {
         int i = 50;
@@ -78,13 +102,18 @@ public class WrapperExample {
         System.out.println("Value: " + j);
     }
 }
+```
 
+---
 
-🔹 4. Autoboxing & Unboxing
-Autoboxing: Automatically converts primitive types to their wrapper classes.
-Unboxing: Automatically extracts value from a wrapper object.
+## 🔹 4. Autoboxing & Unboxing
 
-💡 Example:
+- **Autoboxing**: Automatically converts primitive types to their wrapper classes.
+- **Unboxing**: Automatically extracts value from a wrapper object.
+
+💡 **Example:**
+
+```java
 public class AutoBoxing {
     public static void main(String[] args) {
         Integer num = 100; // Autoboxing
@@ -92,14 +121,22 @@ public class AutoBoxing {
         System.out.println("Value: " + val);
     }
 }
+```
+
 ✅ Output:
+```
 Value: 100
+```
 
+---
 
-🔹 5. Upcasting
+## 🔹 5. Upcasting
+
 Upcasting refers to casting a subclass reference to a superclass reference.
 
-💡 Example:
+💡 **Example:**
+
+```java
 class Animal {}
 class Dog extends Animal {}
 
@@ -109,14 +146,20 @@ public class UpcastingExample {
         System.out.println("Upcasting successful");
     }
 }
+```
+
 ✅ Output:
+```
 Upcasting successful
+```
 
+---
 
-🔹 6. Combined Wrapper Example
-Using wrapper classes in collections like ArrayList.
+## 🔹 6. Combined Wrapper Example
 
-💡 Example:
+💡 **Using wrapper classes in collections like ArrayList**
+
+```java
 import java.util.ArrayList;
 
 public class WrapperList {
@@ -130,15 +173,23 @@ public class WrapperList {
         }
     }
 }
+```
+
 ✅ Output:
+```
 10
 20
+```
 
+---
 
-🔹 7. Autowidening
+## 🔹 7. Autowidening
+
 Widening conversion happens automatically when assigning a smaller data type to a larger one.
 
-💡 Example:
+💡 **Example:**
+
+```java
 public class AutoWidening {
     public static void main(String[] args) {
         int i = 100;
@@ -146,14 +197,22 @@ public class AutoWidening {
         System.out.println("Double value: " + d);
     }
 }
+```
+
 ✅ Output:
+```
 Double value: 100.0
+```
 
+---
 
-🔹 8. Inner Classes
+## 🔹 8. Inner Classes
+
 An inner class is defined inside another class and has access to all members of the outer class.
 
-💡 Example:
+💡 **Example:**
+
+```java
 public class Outer {
     private String msg = "Hello from Inner Class!";
 
@@ -169,14 +228,22 @@ public class Outer {
         inner.print();
     }
 }
+```
+
 ✅ Output:
+```
 Hello from Inner Class!
+```
 
+---
 
-🔹 9. Parse Methods
+## 🔹 9. Parse Methods
+
 Parse methods convert strings to primitives.
 
-💡 Example:
+💡 **Example:**
+
+```java
 public class ParseExample {
     public static void main(String[] args) {
         String strNum = "123";
@@ -184,5 +251,11 @@ public class ParseExample {
         System.out.println("Number: " + (num + 1));
     }
 }
+```
+
 ✅ Output:
+```
 Number: 124
+```
+
+---
