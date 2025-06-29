@@ -26,10 +26,17 @@ public class InterThreadComm {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
 		synchronized(t) {
 		try {
 			System.out.println("Main thread calling wait");
-			t.wait();
+			t.wait(10000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
