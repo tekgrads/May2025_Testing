@@ -1,0 +1,70 @@
+
+01. What is the project architecture?
+	- Different layers or parts available in a project is called
+	  project architecture
+	  
+	- Every project is divided in to 3 layers or parts
+		1. UI (User Interface)
+		2. Programming
+		3. Data Base
+		
+	- User Interface 
+	   - UI is responsible to 
+		1. reading inputs from user and sending to programming layer and 
+		2. gathering output from the programming layer and display to user
+	
+	   - Hence UI has two parts 'Forms and Reports'
+		1. Forms   -> for reading input from user 
+		2. Reports -> for displaying output to user 
+
+	- Programming
+	   - Programming layer is responsible 
+		1. for reading inputs from UI
+		2. performing validations and calculations
+		3. generating results with the given inputs and 
+		4. throwing exceptions if inputs are wrong
+	     
+	   - Hence Programming has three parts
+		1. Validations     -> to check given values are correct or wrong
+		2. Calculations    -> to generate results
+		3. throwing errors -> when wrong values are passed 
+	  
+	- Data Base  
+	   - Data base is responsible to store data permanently
+	     later read, update and delete that data permanently
+	     
+	   - Hence Data base has two parts
+		1. Tables	-> for storing data
+		2. Procedures	-> for performing operations on stored data
+
+	  
+02. What is Full Stack Java?
+	- The process of developing one full project 
+	  end-to-end is called Full Stack Development 
+	
+03. What is the meaning of end-to-end project?
+	- A project's one end is UI and other end is DB
+	
+	- Developing a project from UI to programming to Data base
+	  is called Full Stack Development
+	  
+04. What is Full Stack Java Development?
+	- Developing a project by using Java and its frameworks 
+	  is called Full Stack Java Development
+	  
+05. How many different Full Stack Developments do we have?
+	- We have 5 different full stack developments
+		1. Full Stack Java, SpringBoot Development
+		2. Full Stack Python, dJango Development
+		3. Full Stack Python, Data Science Development
+		4. Full Stack .Net Development
+		5. Full Stack UI Development
+
+         - For all types of full stacks front-end UI is developed 
+           by using HTML, CSS, JS, BS and React
+	
+06. What is Full Stack Java Developer?
+	- A single developer who can develop complete project
+	  UI screens, Programs and Data base by using 
+	  Java and Spring Boot is called Full Stack Developer
+	

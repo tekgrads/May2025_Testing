@@ -1,0 +1,148 @@
+Java Programming Elements
+-------------------------------------------------
+
+	Java supports 8 programming elements
+	==============================================================================
+	Progrmming Elements		purpose
+	==============================================================================
+ 	  1. Module		-> for grouping packages
+	  2. Package		-> for grouping classes
+	  3. Class		-> for representing RWO in PW
+	  			   and for grouping variables and methods
+	  4. Variables		-> for representing values and allocating memory 
+	  5. Methods		-> for representing operations
+	  6. Constructors	-> for storing values on variables
+	  7. Blocks		-> also for storing values in variables
+	  8. Inner classes	-> for representing inner object of an outer object	
+	=================================================================================	
+	
+. Essential statements to develop, compile, execute and print some message on console?
+	- We have 3 essential statements	
+		1. class			-> for developing and compiling
+		2. main method			-> for executing
+		3. System.out.println(-);	-> for printing a value or message
+	
+	- The class is essential because Java is an OOP langauge,
+	  hence every program must starts with a class
+	
+	- The main method is essential because main method is the 
+	  initial point of execution of a class. JVM executes a class
+	  starts with main method.
+	  	Note: if class does not have main method,  
+		      JVM throws error: 'main method not found'
+
+	- The System.out.println(-); is essential because 
+	  in Java we can print any value or message only by using
+	  System.out.println(-);
+
+ Java program structure
+	- class contains main method, 
+	  main method contains S.o.println()  statement
+
+	class  <classname>  {
+
+		main method {
+			System.out.println("message");	
+		}
+	}
+		
+ Steps to develop a Java program?		
+    - Java program develop, compilation and execition
+      comes under 7 steps
+	1. Open editplus
+	2. Type Java code
+	3. Save this progarm with .java extension
+
+	4. Open command prompt
+	5. Change drive and directory path 
+	   to the project directory in which 
+	   java program is saved
+	
+	6. Compile java program by usign 'javac' tool
+	7. Execute byte code by using 'java' tool	 
+
+
+	
+. Compilation and Execution procedure
+     Compilation
+     ===========
+        - Converting source code to bytecode and 
+	  saving in bytecode in a new file with .class exetension
+	  is called compilation
+	- We compile a Java program by using compiler sofware 'javac' tool
+	- The command for compilation 
+		javac filename.java
+	- Compiler produces byte code and saved in 
+	  .class file with classname as file name
+	- for example:
+		javac  Example.java
+		  |->FirstProgram.class
+ 
+      Execution
+      ==========	
+        - Running Java byecode and generating output is called execution
+	- We run a Java program by using JVM by using 'java' tool
+	- JVM takes byte code from .class file
+	- The command for execution
+		java  classname
+	- JVM runs a class starts with main method and displays output
+	- For example:
+		java  FirstProgram
+		  |-> HKProgrammingWorld
+
+
+
+   class Test {
+      public static void main(String[] args) {
+ 	 System.out.println("HelloWorld!");
+      }	
+   }
+	
+ - In the above program the words 'class, public, static, void' are keywords. 
+   We must use them with all letters lower case, becuse they are created in 
+   Java language with all letters lower case.
+  
+ - The name 'main' is not a keyword, it is just a name of the method.
+   we must also use the all letters lower case, because it is also
+   predefined name
+  
+ - The names 'String, System' are predefined class names  
+   which are available as part of JDK software. We must use them
+   with first letter capital letter.
+  
+ - The names 'Test and args' are user defined names
+   we can use either same name or different name 
+   either with small letters or capital letters its our wish
+   but we can not use space in between words.
+  
+ - It is recommanded to place '{' in the same line of class and method
+   creation, we can place it in next line, but it is C language syntax style.
+  
+. Types of errors occured in the program
+	- In a program we will get 2 types of errors
+		1. Compiletime Errors	(CEs)
+		2. Runtime Errors	(REs)
+    
+	- An error that is occurred during a program compilation
+	  is called comile time error. A CE is occurred due to 
+	  syntax mistakes (wrong typing or wrong spelling). 
+	  The Compiler throws CEs.
+		For example: placing a statement without ends with ;
+		             is a syntax mistake
+    
+	- An error that is occurred during a program execition
+	  is called runtime error. A RE is occurred due to 
+	  logical mistakes (wrong value or wrong logic). 
+	  The JVM throws REs.
+		For example: main method is not avilable in the class
+		             is a logical mistake   
+
+
+	
+
+     
+
+
+	
+
+

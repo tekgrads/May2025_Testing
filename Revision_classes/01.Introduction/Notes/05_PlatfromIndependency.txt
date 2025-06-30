@@ -1,0 +1,59 @@
+What is a Platform, Platform dependency, Platform independency?
+     Platform
+      - A platform is a runtime environment in which a program is loaded & executed. 
+      - A platform can be software only platform or hardware only platform or both. 
+     
+      - A computer platform is both software and hardware based platform 
+        that is OS, processor and hardware devices (ram and hard disk) 
+ 
+      - A 'C and C++' programs platform is OS, it means 
+        'C and C++' programs are executed by OS directly
+
+      - A Java program platform is 'JVM', It means 
+       Java programs are not executed OS, they are executed 
+       by one special intermediate software called 'JVM'. 
+       
+	- Java program platform is JVM and JVM platform is OS 
+
+      - A Python program  platform is 'PVM'.
+      - A .Net   program  platform is 'CLR'.
+      - A HTML   page     platform is 'Browser'.
+      - A audio and video files    platform is 'Media player(VLC)'.
+
+     Platform Dependency
+      - A program that is developed in one OS, ex: windows,
+        if it can not execute in a different OS, ex: Linux or Mac,
+        We call this program as platform dependent program
+       
+      - The programming language using which we develop this program 
+        is called platform dependent programming language  
+
+
+     Platform Independency
+      - A program that is developed in one OS, ex: windows,
+        if it can be executed in different OS, ex: Linux or Mac, 
+        We call this program as platform independent program
+       
+      - The programming language using which we develop this program 
+        is called platform independent programming language.  
+
+	
+      - If a program or a software is directly executed by OS,
+        then this program or software is a platform dependent 
+	program and platform dependent software
+	
+      - If a program is executed by an intemediate software like 
+        JVM, PVM, CLR, Browser, then this program is a platform independent program 
+
+06. Different terminologies used in the programming languages?
+	refer the attached image
+
+07. Why C and C++ PLs are platform dependent?
+	- The C and C++ programs are compiled targetting to one particular OS
+
+	- Hence C and C++ programs compiled code contains ML of
+	  a particular OS whose format is not understandable to differnt OS
+	  and can not be executed by different OS, so C and C++ programs are 
+	  called platform dependent
+	  
+	- Below diagram shows C and C++ platform dependency

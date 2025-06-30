@@ -1,0 +1,31 @@
+01. What is Core Java?
+	- The Core Java is the main and the first course 
+	  in Full Stack Java 	
+	
+02. What will we learn as part of Core Java?
+    - As part of core java we will learn
+	1. Java languague concepts such as 
+		- Programming elements, keywords
+		- Data types, operators, control flow statements,	
+		- OOP concets, etc...
+		- Java Library (SH, EH, MT, Collections, etc...)
+		
+	2. Developing programs
+		- Addition, substraction, etc...
+		
+	3. Developing projects
+		- Bank, Online Shopping, Ticket Reservation, etc...
+		  but all those projects can be only stand-alone projects
+		  can not accessed from other computers via internet
+		  
+03. What is the diff bw Core Java, Adv Java & Spring, Spring Boot?
+	- by using Core Java, we can develop only stand-alone application
+	
+	- by using Adv Java, we can develop internet applications, 
+	  but its development is slow
+	  
+	- by using Spring and Spring Boot we can achieve fast developemnt
+	
+	- In companies all projects are web or intenet applications
+	- hence to develop and fast develop, in comparnies
+	  we use    [CJ     +   Spring Boot]
