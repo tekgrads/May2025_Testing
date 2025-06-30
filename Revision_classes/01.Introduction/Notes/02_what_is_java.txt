@@ -1,0 +1,92 @@
+01. What is Java?
+	- Java is a Platform Independent
+	  Object-Oriented programming language.
+	  
+02. Why Java is invented?	  
+	- Java was invented to achieve Platform Independency
+	  for developing internet based business application
+
+03. Differences b/w C, C++, Python and Java?
+	- Java was invented after C, C++ and Python
+
+	- C and C++ PLs are platform dependent, they can be used 
+	  only for developing stand-alone applications
+
+	- Python is manily invented for developing game applications
+	  with scripting style programming. It have more libraries
+	  for doing mathmatical calculations, it does not have 
+	  libraries for developing business applications
+	
+	- Hence for develop business applications and for accessing 
+	  them through internet Java is invented
+
+	- Nowdays in applications development both Java and Python 
+	  are being used
+   	   - Java is used for developing main appliction of the business
+	   - Python is used for developing Data Science, ML and AI based applictions
+	    
+	   - For example: 
+		- Google apps, Amazon, Bank Applications are developed by using Java
+
+                - AI tools -> Chatgpt, Google Assistant, Recommandation system, 
+		  etc.. are developed by using Python. Instagram is develop by using 
+		  Python and its frameword dJango.
+
+	- Where ever data searching and analization is required 
+	  there python is used because it has more 'mathmatical' libraries
+	  but not for business main application development
+
+	- For developing one complete application for a business 
+	  for reading data from user and for display a business products, 
+	  Java is used.
+
+04. Who invented Java?
+	- Java was invented by Mr. James Gosling
+	  in SUN Microsytems in the year 1991
+	  for developing network based applications
+	  
+	- The first version of Java 1.0 is relased 
+	  in the year 1995
+
+05. Types of applications?
+	- All available softwares or projects or applications
+	  are broadly divided into 2 types
+		1. Stand-alone applications
+		2. Internet applications
+
+	- An application that is installed in one computer
+	  and can be accessible only with in this computer
+	  and can't be accessible from remote computers via 
+	  network is called stand-alone application
+
+		For example: 
+		  Calculator, MS-Office, Antivirus, VLC, Game SWs... are SA.
+		  
+	 
+	
+	- An application that is installed in one computer
+	  and can be accessible from remote computers throughout 
+	  the world via network is called internet application
+	  
+		For example:
+		  Amazon, irctc, instagam, bookmyshow, youtube, gmail,
+		  
+	 
+	- A  SA is a single computer and single user application
+	- An IA is a multi computer and multi user application
+     
+	   Q1) Is browser a SA or IA?
+		- SA, because we install it in our computer
+		  and access it with in our computer 
+		  
+	   Q2) Is mobile app a SA or IA?
+		- SA, because we install it in our mobile
+		  and access it with in our mobile 
+
+		- For example: 
+		   - The whatsapp app, insta app, gmail app, youtube app
+		     installed in your mobile are stand-alone apps
+               
+	           - The the programs/the project available at server 
+		     and send data to display on the above mobile apps 
+		     are internet application

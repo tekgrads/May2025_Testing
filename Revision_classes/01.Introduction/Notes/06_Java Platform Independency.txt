@@ -1,0 +1,21 @@
+How Java achieved PI?
+	- In Java, program is not compiled targetting to any particular OS,
+	  Hence, the Java compiled code does not contain 'Machine Lanaguge code'.
+
+	- Java program is compiled into bytecode, 
+	  which is an intermediate language of all OS
+
+	- Then later this byte code is executed by JVM 
+	  by translating it into the current OS's ML code
+	  in which we are running this Java program
+	  
+	- Because we have separate JVM for every OS for running Java bytecode,
+	  the same compiled code, byte code, is executed in all OS 
+	  with the help of JVM
+
+	- Hence Java achieved PI, that is WORA(Write Once Run Anywhere).
+	
+
+
+08. Important facts on Java program and Java software?
+	
