@@ -1,0 +1,53 @@
+
+    What is a datatype?
+====================
+                A keyword that is used for creating a variable for storing single value or multiple values as one group is called a datatype.
+                 In java  we cannot create a varaiable or object without using datatype. It leads to compile time error.
+                 for example
+                                  class Test{
+                                                    a = 10;  // CE
+                                                    void m1(){
+                                                         b = 20;   //CE : cannot find symbol
+                                                      }
+                                              }
+            Types of data types
+=======================
+ - Java supports 2 types of database 
+	1. Primitive Data types (8)
+	2. Referenced Data types (8)
+
+ - Primitive Data types are keywords, 
+     they are used for creating a variable 
+	 for storing single value
+
+ - Referenced Data types are 'array or class', 
+     they are used for creating an object 
+	 for storing multiple values as one group
+
+Primitive datatypes
+===================================
+					
+1. byte
+2. short
+3. int
+4. long
+5. float
+6. double
+
+
+Referenced DataTypes
+======================
+1.  Array
+2.  class
+            i.     interface
+            ii.   abstract class
+            iii.  concrete class
+           iv.   final class
+           v.    enum
+           vi.  annotation   etc  
+
+3.  String 
+
+
+
+

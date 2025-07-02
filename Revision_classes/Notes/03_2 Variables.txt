@@ -1,0 +1,14 @@
+              Variables
+===================
+
+ What is a variable and what is the use of a variable?
+
+           A variable is a named memory location used for storing a value or obj reference temporarily during program execution.
+
+How can we create a variable?
+           It is created by using datatype either by using primitive datatype or referenced datatype.
+
+Limitations of variables
+====================
+   A varaibale can store only one value at a time. If we try to modify its values then old value is repleced by new value  and when we read variable we always
+get latest modified value.

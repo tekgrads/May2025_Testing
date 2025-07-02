@@ -1,0 +1,21 @@
+01. What is an identifier?
+  - A name of a programming element is technically called as identifier
+  - It means a class name, variable name, method name are commonly called identifier
+
+02. Why identifier?
+  - for accessing a class or a variable or a method from other methods of same class
+    or from other classes methods, we must use name.
+
+  - if PE does not have name we can not access it from other PEs.
+
+03. What will happen if we create a PE without name?
+  - it leads to CE: <identifier> expected
+
+	For example:   
+          class  {
+               int = 10;
+ 
+               void (){ 
+
+               }
+          }

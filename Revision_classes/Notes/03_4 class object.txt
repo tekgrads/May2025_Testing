@@ -1,0 +1,240 @@
+Working with a class
+===================
+1. The class is a user defined data type, it is a referenced data type. 
+
+2. It is used for storing multiple values of same type and different type 
+   as one group with a single name (classname or object name)
+   
+3. For storing values and objects we must declare variables inside this class 
+
+4. As many values and objects you want to store 
+   those many variables we must create as shown below
+ 
+5. Syntax for creating a class  
+	class <ClassNmae> {
+		---	
+		---  variables declaration statements	
+		---	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+6. Below program shows creating a class with the name Example	
+   to store different type of values
+   
+	class Example {
+	  //Declaring variables in class	
+		int		i1 = 5;
+		double	d1 = 6.7;
+		char	ch = 'a';
+		long[]	la = {8, 9};
+		String	s1 = "Hari";		
+		
+		public static void main(String[] args) {
+		  //Reading and printing values from class level variables
+			System.out.println(i1);	 //CE: non-static variable i1 c n b r f s c
+			System.out.println(d1);	 //CE: non-static variable d1 c n b r f s c
+		}
+			
+	}
+
+7. Inside a class, just by declaring variables  we cannot access them  
+   inside main method either for reading or for modifying, it leads to CE
+   because the variable created inside a class doesn't have memory by default.
+   
+8. We must request JVM to provide a memory to class level variables 
+   either by using 'static keyword or by using new keyword' 
+  
+9. Below program shows providing memory to the class level variables 
+   by using static keyword. We must apply static keyword to each 
+   variable separately.
+
+	class Example {
+
+	  //Declaring variables in class as static	
+		static int		i1 = 5;
+		static double	d1 = 6.7;
+		static char		ch = 'a';
+		static long[]	la = {8, 9};
+		static String	s1 = "Hari";		
+		
+		public static void main(String[] args) {
+		  //Reading and printing values from class level variables
+			System.out.println(i1);	 
+			System.out.println(d1);	 
+			System.out.println(ch);	 
+			System.out.println(la);	 
+			System.out.println(la[0]);	 
+			System.out.println(la[1]);	 
+			System.out.println(s1);	 
+		}
+	}
+
+10. The problems with static keyword
+	1. We must apply static keyword to each variable separately
+	2. It can not provide memory to all variables as one group
+	3. It provides only one copy memory in the life time of this class
+	4. Hence the program with static variables is a static nature program
+	   there is no much difference in creating mulitiple variables 
+	   inside a method and inside a class, becasue we cannot group them
+	   with single name
+	   
+11. Solution, provide memory by using 'new' keyword
+
+12. Providing memory by using 'new' keyword
+	1. We do not apply 'new' keyword to each variable separately
+	2. It provides memory to all variables as one group
+	3. It can provide memory to variables multiple copies
+	   as many times as we use 'new' keyword in the logic
+	   those many copies will be provided to the same variables
+	   declared in the class.
+	4. To all variables memory is provided as one group
+
+13. Below program shows providing memory by using 'new' keyword	
+		1. inside the class, donot declare variables as static
+		   leave them as non-static
+		   
+		2. in main method use new keyword to provide memory 
+		   to those non-static variables created inside this class
+
+	//Example.java
+	class Example {
+
+		int		i1 = 5;
+		double	d1 = 6.7;
+		char	ch = 'a';
+		long[]	la = {8, 9};
+		String	s1 = "Hari";		
+
+		public static void main(String[] args) {
+			//variable			object(group of variables and their values  
+			//	|				   |				of class Example)
+			// \|/				  \|/
+			Example    e1	  =  new Example();	    
+			
+			//printing object
+			System.out.println(e1);			//Example@1010   <- ClassName@hashcode
+			
+			//reading and printing object values
+			System.out.println(e1.i1);		//5
+			System.out.println(e1.d1);		//6.7
+			System.out.println(e1.ch);		//a
+			System.out.println(e1.la);		//[J@2020
+			System.out.println(e1.la[0]);	//8
+			System.out.println(e1.la[1]);	//9
+			System.out.println(e1.s1);		//Hari
+		}
+	}
+
+14. To provide memory to the variables declard inside a class
+    we must use either static or new or both
+
+ Q)What are the differences betwen static and new?
+ ============================================================================
+		static								new
+ ============================================================================
+	1. static provides only			1. it can provide 
+	   one copy memory to a			   mulitple copies of memories
+	   variable declared in class      to a variable declared in a class 
+	   
+	2. we must use it in			2. we must use it in 
+	   variable declaration			   method logic with class name
+	   for each variable			   common to all variables of a 
+	   separately					   class
+	   
+	3. It provides individual		3. It provides group memory
+	   memory to each variable                                  to all varibles of this class
+	   inside a class				   in the object
+	
+	4. A SV can be accessed in		4. A NSV can be accessed only in
+	   4 ways	                                                             one way by using object name/reference
+		1. directly by its name
+		2. directly using class name
+		3. directly using object ref
+		4. directly using null ref
+=============================================================================
+
+Assignment:
+	Recreate above Example class with both static and non-static variables
+	i1, d1 and la as static variables, ch and s1 as non-static variable
+	
+	Create object from class Example and 
+	read and print both SV and NSV values
+
+	class Example {
+		
+		static int		i1 = 5;
+		static double	d1 = 6.7;
+			   char     ch = 'a';
+		static long[]   la = {8, 9};
+			   String   s1 = "Hari";
+			   
+		public static void main(String[] args) {
+		   System.out.println(i1);	
+		   System.out.println(d1);	
+		   System.out.println(la);	
+		   System.out.println(la[0]);	
+		   System.out.println(la[1]);	
+		   
+		   //System.out.println(ch);	
+		   //System.out.println(s1);	
+		   
+		   Example e1 = new Example();
+		   System.out.println(e1);
+		   System.out.println(e1.ch);
+		   System.out.println(e1.s1);
+		}
+			   
+	}
+
+ - The above code is wrongly design because we mixed 
+	1. data storing logic and 
+	2. execution logic together.
+  
+ - We must create two separate classes 
+	1. One for data type class with variables
+	2. Other for execution with main method
+
+Assignment:
+ 1. create class Example as data type class with all non-static variables 
+
+ 2. create class Test with main method as executable class 
+    inside class Test main method create Example class object,
+    read and display all values of this objects
+*/
+
+//Refer Example.java file for class Example
+
+//Test06_class.java
+class Test06_class {
+	public static void main(String[] args) {
+		
+		Example e1 = new Example();	
+		
+		System.out.println(e1);
+		System.out.println(e1.i1);
+		System.out.println(e1.d1);
+		System.out.println(e1.ch);
+		System.out.println(e1.la);
+		System.out.println(e1.la[0]);
+		System.out.println(e1.la[1]);
+		System.out.println(e1.s1);
+	}
+}
+
+

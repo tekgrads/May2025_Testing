@@ -1,0 +1,52 @@
+ new keyword
+============
+
+We do not apply 'new' keyword to each variable separately
+	2. It provides memory to all variables as one group
+	3. It can provide memory to variables multiple copies
+	   as many times as we use 'new' keyword in the logic
+	   those many copies will be provided to the same variables
+	   declared in the class.
+	4. To all variables memory is provided as one group
+
+
+
+
+
+
+
+13. Below program shows providing memory by using 'new' keyword	
+		1. inside the class, donot declare variables as static
+		   leave them as non-static
+		   
+		2. in main method use new keyword to provide memory 
+		   to those non-static variables created inside this class
+
+	//Example.java
+	class Example {
+
+		int		i1 = 5;
+		double	d1 = 6.7;
+		char	ch = 'a';
+		long[]	la = {8, 9};
+		String	s1 = "Hari";		
+
+		public static void main(String[] args) {
+			//variable			object(group of variables and their values  
+			//	|				   |				of class Example)
+			// \|/				  \|/
+			Example    e1	  =  new Example();	    
+			
+			//printing object
+			System.out.println(e1);			//Example@1010   <- ClassName@hashcode
+			
+			//reading and printing object values
+			System.out.println(e1.i1);		//5
+			System.out.println(e1.d1);		//6.7
+			System.out.println(e1.ch);		//a
+			System.out.println(e1.la);		//[J@2020
+			System.out.println(e1.la[0]);	//8
+			System.out.println(e1.la[1]);	//9
+			System.out.println(e1.s1);		//Hari
+		}
+	}
