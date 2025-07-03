@@ -128,4 +128,3 @@ New --> Runnable --> Running --> Terminated
 
 ---
 
-Let me know if you'd like a diagram image or examples using `Runnable` interface too!
