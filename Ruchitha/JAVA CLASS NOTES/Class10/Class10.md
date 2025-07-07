@@ -1,24 +1,32 @@
 
-# 📚 Abstract Classes in Java
+# 🧑‍💻 Java Abstract Classes
 
-## 🔸 What is an Abstract Class?
-
-- An abstract class contains abstract methods (methods without implementation).
-- It uses the `abstract` keyword.
-- You **cannot** instantiate an abstract class.
-- Subclasses **must** implement the abstract methods.
-- Can contain both abstract and non-abstract (concrete) methods.
+This document explains the concept of **abstract classes** in Java with examples.
 
 ---
 
-## 🔹 Declaring an Abstract Class
+## 📘 What is an Abstract Class?
+
+- A class that **cannot be instantiated**.
+- Can contain **abstract methods** (no body) and **concrete methods** (with body).
+- Used to provide a **base class** for other classes to extend.
+- Declared using the `abstract` keyword.
+
+---
+
+## ✅ Basic Declaration
 
 ```java
 abstract class A {
     abstract public void printname(String[] args);
 }
-🧪 Example :
 ```
+
+---
+
+## 🔹 Example 1: Abstract Class with Concrete Method
+
+```java
 abstract class A {
     abstract void m1();
 
@@ -42,9 +50,12 @@ class Manager {
     }
 }
 ```
-🧪 Example with Two Abstract Classes:
-```
 
+---
+
+## 🔹 Example 2: Multiple Abstract Classes
+
+```java
 abstract class A {
     abstract void m1();
 
@@ -76,15 +87,18 @@ class Manager {
         b.m1();
         b.m2();
 
-        // Abstract classes cannot be instantiated
+        // Invalid: Cannot create object of abstract class
         // A a = new A();
         // C c = new C();
     }
 }
 ```
-💡 Abstract Class with Static Members
-```
 
+---
+
+## 🔸 Static Members in Abstract Classes
+
+```java
 abstract class A {
     static int x = 10;
     int y = 20;
@@ -118,20 +132,22 @@ class Manager2 {
         System.out.println("Instance variable y: " + b.y);
     }
 }
-
-```
-✅ Output:
 ```
 
+**Output:**
+```
 Static variable x: 10
 A.m3
 B.m1
 A.m2
 Instance variable y: 20
 ```
-🔁 Multiple Abstract Methods
 
-```
+---
+
+## 🔹 Multiple Abstract Methods
+
+```java
 abstract class A {
     abstract void test1();
     abstract void test2();
@@ -168,9 +184,9 @@ public class Manager3 {
     }
 }
 ```
-✅ Output:
-```
 
+**Output:**
+```
 B.test1
 B.test2
 A.test3
@@ -178,8 +194,11 @@ A.test4
 Manager3.main() completed successfully
 ```
 
-🧬 Hierarchical Inheritance
-```
+---
+
+## 🏛 Hierarchical Inheritance with Abstract Classes
+
+```java
 abstract class A {
     abstract void test1();
     abstract void test2();
@@ -227,16 +246,19 @@ public class Manager4 {
 }
 ```
 
-✅ Output:
+**Output:**
 ```
-
 C.test1
 E.test2
 A.test3
 A.test4
 ```
-🧪 Abstract Class with Static Method Override Attempt
-```
+
+---
+
+## ⚙ Static Method Hiding
+
+```java
 abstract class A {
     abstract void m1();
 
@@ -268,12 +290,24 @@ class B extends A {
 public class Manager {
     public static void main(String[] args) {
         B b = new B();
-        b.m1();
-        A.m2();
-        B.m2();
-        b.m3();
+        b.m1();      // B.m1
+        A.m2();      // A.m2
+        B.m2();      // B.m2
+        b.m3();      // B.m3
         System.out.println("Manager.main() completed successfully.");
     }
 }
 ```
 
+---
+
+## ✅ Summary
+
+- Abstract classes provide a template for subclasses.
+- They **must be extended** to create concrete objects.
+- Can include **both abstract and non-abstract methods**.
+- Static methods belong to the class, not instances.
+
+---
+
+> ✅ Great for interview prep and understanding OOP in Java!
