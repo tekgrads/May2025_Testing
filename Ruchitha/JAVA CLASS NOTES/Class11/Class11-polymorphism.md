@@ -1,16 +1,20 @@
 
-
 # Polymorphism in Java
 
-**Polymorphism**: One name, different forms.
+**Polymorphism** means *one name, many forms*. It allows methods to perform different tasks based on the object that is invoking them.
 
 ---
 
-## 🔹 Static Polymorphism (Compile Time)
+## 📌 Types of Polymorphism
 
-**Method Overloading** is related to compile-time polymorphism.
+### ✅ Static Polymorphism (Compile-Time)
 
-### 🧪 Example 1: Method Overloading
+- Achieved via **method overloading**
+- Decisions are made at compile time.
+
+---
+
+## 🔢 Example 1: Static Polymorphism
 
 ```java
 class Calc {
@@ -30,19 +34,33 @@ class Calc {
 public class Manager1 {
     public static void main(String[] args) {
         Calc calc = new Calc();
-        System.out.println("Sum of 2 numbers: " + calc.add(10, 20));       // add(int, int)
-        System.out.println("Sum of 3 numbers: " + calc.add(10, 20, 30));   // add(int, int, int)
-        System.out.println("Sum of 4 numbers: " + calc.add(10, 20, 30, 40)); // add(int, int, int, int)
+        System.out.println("Sum of 2 numbers: " + calc.add(10, 20));
+        System.out.println("Sum of 3 numbers: " + calc.add(10, 20, 30));
+        System.out.println("Sum of 4 numbers: " + calc.add(10, 20, 30, 40));
     }
 }
-🖥 Output:
-Sum of 2 numbers: 30
-Sum of 3 numbers: 60
-Sum of 4 numbers: 30
-🔹 Dynamic Polymorphism (Run Time)
-Method Overriding is related to run-time polymorphism.
+```
 
-🧪 Example 2: Method Overriding
+### ✅ Output:
+
+```java
+Sum of 2 numbers: 30  
+Sum of 3 numbers: 60  
+Sum of 4 numbers: 30
+```
+
+---
+
+### ✅ Dynamic Polymorphism (Run-Time)
+
+- Achieved via **method overriding**
+- The call is resolved at runtime depending on the object.
+
+---
+
+## 🔢 Example 2: Dynamic Polymorphism
+
+```java
 class A {
     public void m1() {
         System.out.println("A.m1");
@@ -85,24 +103,40 @@ public class Manager2 {
         a2.m1();
         a2.m2();
 
-        B b = new B();     // Direct call
+        B b = new B();     // Direct instance
         b.m1();
         b.m2();
         b.m3();
 
         A a3 = null;       // Null reference
-        a3.m1();           // Throws NullPointerException
+        a3.m1();
         a3.m2();
+
+        System.out.println("Manager2.main() completed successfully.");
     }
 }
-🖥 Output:
-A.m1
-A.m2
-B.m1
-A.m2
-C.m1
-A.m2
-B.m1
-A.m2
-B.m3
+```
+
+### ✅ Output:
+
+```java
+A.m1  
+A.m2  
+B.m1  
+A.m2  
+C.m1  
+A.m2  
+B.m1  
+A.m2  
+B.m3  
 Exception in thread "main" java.lang.NullPointerException
+```
+
+---
+
+## 🧠 Summary
+
+| Type | Description | Technique |
+|------|-------------|-----------|
+| Static Polymorphism | Resolved at compile time | Method Overloading |
+| Dynamic Polymorphism | Resolved at runtime | Method Overriding |
