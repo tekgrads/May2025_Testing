@@ -1,0 +1,65 @@
+//voting is eligble or not if eligible display the message
+
+import java.util.Scanner;
+class VoterDetails
+{
+	private int age;
+	public void setAge(int age){
+		if(age >= 0 && age <= 18 ){
+		System.out.println("votiong is not eligible");
+		
+
+					
+		}
+		else if(age >= 19 && age <= 100)
+		{
+				this.age=age;
+				System.out.println("collect voter card after 30 days");
+
+				
+		}
+		else{
+			System.out.println("votiong is not eligible");
+		}
+			
+	}
+	
+	
+	
+	public int getAge(){
+		return age;
+	}
+		
+
+}
+
+class Voter 
+{
+	public static void main(String[] args) 
+	{
+		Scanner scn=new Scanner(System.in);
+	   System.out.println("enter the age: ");
+	   int a=scn.nextInt();
+	   VoterDetails vd=new VoterDetails();
+	   vd.setAge(a);
+       int age=vd.getAge();
+
+	}
+}
+
+
+
+
+
+class Bike
+{
+	public static void main(String[] args) 
+	{
+       Scanner scn=new Scanner(System.in);
+	   System.out.println("enter the gear number");
+	   int gno=scn.nextInt();
+	   BikeDetails b=new BikeDetails();
+	   b.setGearno(gno);
+	   System.out.println("bike is running in gear number is: "+b.getGearno());
+	}
+}
