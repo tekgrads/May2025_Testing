@@ -1,4 +1,4 @@
-# Java Class 20 Notes – 🧱 Object Class in Java
+# Java Class 19 Notes – 🧱 Object Class in Java
 
 ## 🔎 What is the `Object` Class?
 
