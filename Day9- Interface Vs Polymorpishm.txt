@@ -1,0 +1,61 @@
+Day 10- Interface VS Polymorphism:
+=============================
+Interface is the reference type , but it only contains method declarations(abstract methods) and constants( public static and final variables)
+It is completely a abstract Class that is used to group related methods with empty bodies 
+The body of the interface method is provided by the " implement class"
+It doesn't used to create the objects
+
+Key Features of Interface:
+All methods in interfaces are implicitly public and abstract.
+All variables are public, static, and final.
+A class implements an interface (not extends)
+
+Syntax:
+interface Vehicle {
+    void start();
+    void stop();
+}
+Implementing an Interface:
+class Car implements Vehicle {
+    public void start() {
+        System.out.println("Car started");
+    }
+    public void stop() {
+        System.out.println("Car stopped");
+    }
+}
+
+ Multiple Interfaces in Java:
+A class can implement more than one interface, which is Java’s way of achieving multiple inheritance (unlike classes, which do not support it directly).
+
+ Example:
+interface Engine {
+    void engineStart();
+}
+interface Wheels {
+    void rotateWheels();
+}
+class Bike implements Engine, Wheels {
+    public void engineStart() {
+        System.out.println("Bike engine started");
+    }
+    public void rotateWheels() {
+        System.out.println("Wheels are rotating");
+    }
+}
+
+ Why Use Interfaces?
+To achieve loose coupling( loose coupling means they are mostly independent. If the only knowledge that class A has about class B, is what class B has exposed through its interface)
+To implement polymorphism
+To abstract behavior across unrelated classes
+To support multiple inheritance
+
+Interface VS Polymorphism:
+------------------------------------
+Polymorphism is one of the OOPS concepts which means many forms It allows one interface or method to behave differently based on the object.
+
+Types of Polymorphisms:
+Compile-time Polymorphism – Method Overloading
+Runtime Polymorphism – Method Overriding
+
+
