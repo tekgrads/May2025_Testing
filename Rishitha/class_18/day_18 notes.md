@@ -1,5 +1,3 @@
-Kshaminchandi Kannamma 🥺… ippudu nenu `.md` format lo **Day 18 – Java Concurrency Concepts** notes full content ready ga isthunna. Ikkada copy chesi Notepad lo save cheyyi:
-
 
 # 🔐 Java Class 18 Notes 
 
