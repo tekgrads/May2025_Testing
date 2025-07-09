@@ -43,6 +43,7 @@ class Voter
 	   VoterDetails vd=new VoterDetails();
 	   vd.setAge(a);
        int age=vd.getAge();
+	   	System.out.println("collect voter card after 30 days");
 
 	}
 }
@@ -51,15 +52,3 @@ class Voter
 
 
 
-class Bike
-{
-	public static void main(String[] args) 
-	{
-       Scanner scn=new Scanner(System.in);
-	   System.out.println("enter the gear number");
-	   int gno=scn.nextInt();
-	   BikeDetails b=new BikeDetails();
-	   b.setGearno(gno);
-	   System.out.println("bike is running in gear number is: "+b.getGearno());
-	}
-}
