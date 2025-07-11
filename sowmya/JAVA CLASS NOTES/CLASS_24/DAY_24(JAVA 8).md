@@ -660,9 +660,35 @@ public class Example10 {
 
 ---
 
-## Functional Interfaces & Lambda
 
-Once we write the lambda expression, to invoke its functionality we use **Functional Interface**.
+
+
+## Difference between Anonymous Inner Classes and Lambda Expressions
+
+### Anonymous Inner Classes
+
+* An **Anonymous inner class** is a class that has no name.
+* Can extend concrete classes, abstract classes, or implement interfaces.
+* Can implement interfaces with **multiple abstract methods**.
+* Variables **can** be declared inside anonymous inner classes.
+* Anonymous inner classes **can be instantiated**.
+* The `this` keyword refers to the **anonymous inner class object**, not the outer class object.
+* Best choice when **multiple methods** need to be handled.
+* During compilation, a separate `.class` file **is generated**.
+* Memory is allocated **when the object is created**.
+
+### Lambda Expressions
+
+* A **Lambda Expression** is a method with no name.
+* Cannot extend concrete or abstract classes.
+* Can implement interfaces with a **Single Abstract Method (SAM)**.
+* Variables **cannot** be declared inside lambda expressions.
+* Lambda expressions **cannot be instantiated**.
+* The `this` keyword refers to the **outer class object**.
+* Best choice when only **one abstract method (SAM)** is needed.
+* During compilation, a `.class` file **is not generated**.
+* Resides in the **permanent memory** of the JVM (method area).
+
 
 ### Advantages of Lambda Expressions
 
