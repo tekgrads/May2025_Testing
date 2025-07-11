@@ -1,39 +1,34 @@
-Multithreading
+# Thread Concepts in Java
 
-Topics 
+## Ways to Create a Thread
 
-Constructor Overloading,ThreadGroup,Thread Scheduler,Thread Lifecycle,yield(), join(), sleep(), interrupt(),Synchronization
+1. By extending the `Thread` class
+2. By implementing the `Runnable` interface
+3. By creating a `Thread` class object
 
-🧵 Creating Threads in Java
+---
 
-You can create a thread in 3 ways:
+## Constructor Overloading
 
-By extending the Thread class
+On a class, we can define multiple constructors with different parameters:
 
-By implementing the Runnable interface
-
-By directly creating a Thread object
-
-🔁 Constructor Overloading
-
-Having multiple constructors with different parameters in a class.
-
-Syntax Example:
-
+```java
 class Test {
     Test() {}
     Test(int a) {}
     Test(int a, int b) {}
 }
+```
 
-🧪 Example 1: Constructor Overloading with Threads and Priorities
+### Example 1: Constructor Overloading in Threads and Thread Priority
 
+```java
 package com.tekgrads.multithreading;
 
 class MyRunnable1 implements Runnable {
     @Override
     public void run() {
-        for (int i = 1; i <= 5; i++) {
+        for(int i = 1; i <= 5; i++) {
             System.out.println(Thread.currentThread().getName() + " " + i);
         }
     }
@@ -45,18 +40,18 @@ public class Example7 {
         Thread t = new Thread(mr, "child-0");
         System.out.println("Priority of child-0: " + t.getPriority());
         System.out.println("Priority of main: " + Thread.currentThread().getPriority());
-
         t.setPriority(4);
         t.start();
-
-        for (int i = 1; i <= 5; i++) {
+        for(int i = 1; i <= 5; i++) {
             System.out.println("Main Thread: " + i);
         }
     }
 }
+```
 
-Output:
+**Output:**
 
+```
 Priority of child-0: 5
 Priority of main: 5
 Main Thread: 1
@@ -69,23 +64,22 @@ child-0 2
 child-0 3
 child-0 4
 child-0 5
+```
 
-📌 Note:
+> Note: If we don't set any priority, it inherits from the parent thread.
+> Thread execution can vary each time due to priority and scheduler behavior.
 
-If we don't set any priority, it inherits from the parent thread.
+---
 
-Execution order may vary when using thread priorities.
+## Thread Group
 
-👥 ThreadGroup
+A **ThreadGroup** represents a group of threads.
 
-Grouping multiple threads into one ThreadGroup.
+**Real-time Example**: In a school, each class contains different groups — each group acts like a ThreadGroup.
 
-Real-time Example:
+### Example 2: ThreadGroup Usage
 
-In a school, each class has groups of students. Each group is like a ThreadGroup.
-
-Example 2: Using ThreadGroup
-
+```java
 package com.tekgrads.multithreading;
 
 class MyRunnable2 implements Runnable {
@@ -106,65 +100,42 @@ public class Example8 {
         t2.start();
     }
 }
+```
 
-Output:
+**Output:**
 
+```
 1stgroup
 2ndgroup
+```
 
-🧠 Thread Scheduler
+---
 
-Responsible for managing multiple threads and deciding which one runs first.
+## Thread Scheduler
 
-Default Priority: 5
+Responsible for managing multiple threads and deciding the execution order based on priorities.
 
-Min Priority: 1
+* **Default priority:** 5
+* **Min priority:** 1
+* **Max priority:** 10
 
-Max Priority: 10
+**Real-time Example**: A traffic controller decides which vehicle (thread) goes next.
 
-Real-time Example:
+---
 
-A traffic controller decides which vehicle (thread) moves next.
+## Thread Life Cycle
 
-⏳ Thread Lifecycle
+1. **New**: Thread is created.
+2. **Runnable**: Thread is ready to run after calling `start()`.
+3. **Running**: Thread scheduler picks the thread for execution.
+4. **Blocked / Waiting / Timed Waiting**: Thread is waiting (for resource, another thread, or for time).
+5. **Terminated**: Thread completes execution.
 
-State
+**Diagram:**
 
-Description
-
-New
-
-Thread is created
-
-Runnable
-
-start() is called; ready to run
-
-Running
-
-Picked by scheduler
-
-Blocked
-
-Waiting for a resource
-
-Waiting
-
-Waiting for another thread
-
-TimedWaiting
-
-Waiting for a specific time
-
-Terminated
-
-Thread has finished execution
-
-Flow:
-
-New → Runnable → Running → (Blocked / Waiting / Timed Waiting) → Runnable → Running → Terminated
-
-
+```
+New --> Runnable --> Running --> (Blocked / Waiting / Timed Waiting) --> Runnable --> Running --> Terminated
+```
 
 # `yield()`
 
