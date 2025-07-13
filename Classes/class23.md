@@ -93,9 +93,9 @@ Wildcard in Generics allows writing flexible code without knowing the exact type
 
 🔹 Syntax
 
-<?> – unknown type (ambiguous)
-<? extends Parent> – any subclass of Parent
-<? super Parent> – Parent or any of its superclasses
+   unknown type (ambiguous)
+   extends Parent> – any subclass of Parent
+   super Parent> – Parent or any of its super classes
 
 🔸 Example 2: Program for Wildcard Generics
 
