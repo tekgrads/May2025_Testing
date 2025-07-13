@@ -5,6 +5,7 @@ Key Points
 Stores multiple values in one variable.
 Each element is accessed using an index starting from 0. The last index is length - 1.
 The size is fixed when the array is created.
+
 Example 1: Creating and Printing Arrays
 package com.tekgrads;
 
@@ -39,7 +40,9 @@ public class Example1 {
         System.out.println(Arrays.toString(a));
     }
 }
+
 Output
+
 0
 1
 2
@@ -63,7 +66,9 @@ Output
 9
 ------------------------
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 Example 2: Declaring values directly and printing in different ways
+
 package com.tekgrads;
 
 import java.util.Arrays;
@@ -90,7 +95,9 @@ public class Example2 {
         System.out.println(Arrays.toString(a));
     }
 }
+
 Output:
+
 1
 2
 3
@@ -114,11 +121,14 @@ Output:
 10
 -------------------------------------
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
 Sorting an Array
 We can sort an array using the sort() method from the Arrays class.
 
 It arranges the array elements in ascending (increasing) order.
+
 Example 3: Sort the array using Arrays.sort()
+
 package com.tekgrads;
 
 import java.util.Arrays;
@@ -134,10 +144,14 @@ public class Example3 {
         System.out.println("Array after sorting: " + Arrays.toString(a));
     }
 }
+
 Output:
+
 Array before sorting: [1000, 2, 800, 70, 3000, 4, 50]
 Array after sorting: [2, 4, 50, 70, 800, 1000, 3000]
+
 Example 4: Creating an Array for Employee Details
+
 package com.tekgrads;
 
 import java.util.Arrays;
@@ -176,20 +190,25 @@ public class Example4 {
         System.out.println(Arrays.toString(emp));
     }
 }
-Output
+
+Output:
+
 [Employee [name=ramya, age=25, salary=50000.0, CompanyName=cognizant],
  Employee [name=kavya, age=26, salary=40000.0, CompanyName=hcl],
  Employee [name=sowmya, age=27, salary=80000.0, CompanyName=Ibm],
  Employee [name=ruchitha, age=25, salary=40000.0, CompanyName=cognizant],
  Employee [name=harika, age=24, salary=45000.0, CompanyName=accenture]]
-Customized Comparator
+
+ Customized Comparator
 A customized comparator allows you to define custom sorting logic using the Comparator interface. You override the compare() method to specify how two objects should be compared.
 
 When to Use
 Sorting students by marks
 Sorting employees by salary
 Sorting strings by length
+
 Example 5: Sort Array in Descending Order using Custom Comparator
+
 package com.tekgrads;
 
 import java.util.Arrays;
@@ -214,11 +233,15 @@ class MyComparator implements Comparator<Integer> {
         return o2.compareTo(o1); // descending order
     }
 }
-Output
+
+Output:
+
 Arrays before sorting: [1000, 2, 800, 70, 3000, 4, 50]
 Arrays after default sorting: [2, 4, 50, 70, 800, 1000, 3000]
 Arrays after custom descending sort: [3000, 1000, 800, 70, 50, 4, 2]
+
 Example 6: Custom Sorting Employees by Salary
+
 package com.tekgrads;
 
 import java.util.Arrays;
@@ -262,10 +285,60 @@ public class Example6 {
         System.out.println("After sorting by salary: " + Arrays.toString(emp));
     }
 }
-Output
+
+Output:
+
+package com.tekgrads;
+
+import java.util.Arrays;
+
+class Employee implements Comparable<Employee> {
+    String name;
+    Integer age;
+    Double salary;
+    String companyName;
+
+    public Employee(String name, Integer age, Double salary, String companyName) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.companyName = companyName;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [name=" + name + ", age=" + age + ", salary=" + salary + ", companyName=" + companyName + "]";
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.salary.compareTo(o.salary);
+    }
+}
+
+public class Example6 {
+    public static void main(String[] args) {
+        Employee[] emp = {
+            new Employee("ramya", 25, 50000d, "cognizant"),
+            new Employee("kavya", 26, 42000d, "hcl"),
+            new Employee("sowmya", 27, 80000d, "ibm"),
+            new Employee("ruchitha", 25, 40000d, "cognizant"),
+            new Employee("harika", 24, 45000d, "accenture")
+        };
+
+        System.out.println("Before sorting: " + Arrays.toString(emp));
+        Arrays.sort(emp);
+        System.out.println("After sorting by salary: " + Arrays.toString(emp));
+    }
+}
+
+Output:
+
 Before sorting: [Employee [name=ramya, age=25, salary=50000.0, companyName=cognizant], ...]
 After sorting by salary: [Employee [name=ruchitha, age=25, salary=40000.0, ...], ..., Employee [name=sowmya, age=27, salary=80000.0, ...]]
+
 Example 7: Sorting Students by Marks using Comparable
+
 package com.tekgrads;
 
 import java.util.Arrays;
@@ -311,7 +384,9 @@ public class Example7 {
         System.out.println("After sorting by marks: " + Arrays.toString(s));
     }
 }
-Output
+
+Output:
+
 student deatils before there marks sorting 
 [sowmya ,200 ,80.0 ,gayatri ,20, 
 ramya ,201 ,85.0 ,narayana ,21, 
@@ -324,7 +399,9 @@ sneha ,202 ,70.0 ,narayana ,19,
 kavya ,204 ,76.0 ,gayatri ,22, 
 sowmya ,200 ,80.0 ,gayatri ,20, 
 ramya ,201 ,85.0 ,narayana ,21]
+
 Example 8: Sorting Employees Using Comparator
+
 package com.tekgrads;
 
 import java.util.Arrays;
@@ -356,11 +433,15 @@ class MyEmployeeComparator implements Comparator<Employee> {
         return o2.salary.compareTo(o1.salary); // descending
     }
 }
-Output
+
+Output:
+
 Original array: [Employee [name=ramya, age=25, salary=50000.0, companyName=cognizant], ...]
 Sorted in ascending order: [Employee [name=ruchitha, age=25, salary=40000.0, ...], ..., Employee [name=sowmya, age=27, salary=80000.0, ...]]
 Sorted in descending order: [Employee [name=sowmya, age=27, salary=80000.0, ...], ..., Employee [name=ruchitha, age=25, salary=40000.0, ...]]
+
 Example 9: Sorting Students Using Comparator
+
 package com.tekgrads;
 
 import java.util.Arrays;
@@ -392,10 +473,13 @@ class MyStudentComparator implements Comparator<Student> {
         return o2.marks.compareTo(o1.marks); // descending
     }
 }
-Output
+
+Output:
+
 Original student array: [sowmya, 200, 80.0, gayatri, 20, ..., sneha, 202, 70.0, narayana, 19]
 Sorted in ascending order: [swetha, 203, 70.0, ..., ramya, 201, 85.0]
 Sorted in descending order: [ramya, 201, 85.0, ..., sneha, 202, 70.0]
+
 Difference Between Comparable and Comparator
 Comparable	Comparator
 Used to define natural ordering	Used to define custom ordering
@@ -403,11 +487,15 @@ Located in java.lang package	Located in java.util package
 Must implement compareTo(Object o)	Must implement compare(Object o1, o2)
 Defines sorting inside the class	Defines sorting outside the class
 Affects only the current class	Can be used to sort multiple classes
+
 Example Logic for Comparator:
+
 if (o1 > o2) return -1;
 else if (o1 < o2) return +1;
 else return 0;
+
 Important Points On Arrays
+
 Arrays are fixed in size
 Arrays can hold only homogeneous (same) data types
 Arrays can store primitive and object types
