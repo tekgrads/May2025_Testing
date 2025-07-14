@@ -211,7 +211,7 @@ It allows one thread to **wait**, and another to **notify** it when a task is do
 
 * `wait()`
 * `notify()`
-* `notifyAll()`
+
 
 ## Method Descriptions
 
