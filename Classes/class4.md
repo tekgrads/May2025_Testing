@@ -1,131 +1,246 @@
-☕ Java Notes: Variables, Operators, Memory & More
-📦 Packages
-A package is a group of related classes.
-Think of it like a folder that helps you organize your code.
-🔁 Variables in Java
-🧠 Types of Variables:
-Type	Where it's declared	Example
-Global	Inside a class, outside methods	int i; (at class level)
-Local	Inside a method	int i = 0;
-⚠️ Local variables must be initialized before use.
+🧠 Java Concepts: Local/Global Variables, Increment/Decrement, Stack, Heap, Errors, and More
+1. Local Variables
+In Java, a local variable is declared inside a method or block of code. It is only accessible within that specific block and has a lifetime limited to that block.
 
-➕ Increment Operators
-Operator	Meaning	Example
-i++	Post-increment (use then add 1)	int j = i++;
-++i	Pre-increment (add 1 then use)	int j = ++i;
-📘 Example 1:
-int i = 0;
-int j = i++;   // j = 0, i becomes 1
-int k = ++i;   // i becomes 2, k = 2
-📘 Example 2 (Same variable):
+🔹 Example:
 java
 Copy
 Edit
-int i = 0;
-i = i++;       // i stays 0
-System.out.println(i); // 0
-++i;
-System.out.println(i); // 1
-🖥️ Java Setup in Visual Studio Code
-✅ Steps:
-Install VS Code
+public class LocalVariable {
+    public static void main(String[] args) {
+        int number = 10; // Local variable
+        System.out.println("The number is: " + number);
+    }
 
-Open your Java folder
+    public void someOtherMethod() {
+        System.out.println(number); // ❌ Error: number is not accessible here
+    }
+}
+2. Global Variables
+Java does not support traditional global variables, but similar functionality can be achieved using static variables inside a class.
 
-Install these Extensions:
+3–4. Pre-Increment vs Post-Increment
+Pre-Increment (++x): Increments before using the value.
 
-Java Extension Pack
+Post-Increment (x++): Increments after using the value.
 
-Code Runner
+🔹 Example:
+java
+Copy
+Edit
+public class Increment {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 5;
 
-Prettier
+        System.out.println("Post-increment:");
+        System.out.println("a = " + a);      // 5
+        System.out.println("a++ = " + a++);  // 5
+        System.out.println("After post-increment, a = " + a);  // 6
 
-Live Preview
+        System.out.println("Pre-increment:");
+        System.out.println("b = " + b);      // 5
+        System.out.println("++b = " + ++b);  // 6
+        System.out.println("After pre-increment, b = " + b);  // 6
+    }
+}
+5–6. Pre-Decrement vs Post-Decrement
+Pre-Decrement (--x): Decreases value before using it.
 
-Enable Mouse Wheel Zoom
+Post-Decrement (x--): Uses value first, then decreases.
 
-Create a .java file and start coding!
+🔹 Example:
+java
+Copy
+Edit
+public class Decrement {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 5;
 
-🧩 Static Method Example
+        System.out.println("Post-decrement:");
+        System.out.println("a = " + a);      // 5
+        System.out.println("a-- = " + a--);  // 5
+        System.out.println("After post-decrement, a = " + a);  // 4
+
+        System.out.println("Pre-decrement:");
+        System.out.println("b = " + b);      // 5
+        System.out.println("--b = " + --b);  // 4
+        System.out.println("After pre-decrement, b = " + b);  // 4
+    }
+}
+7. Hard Disk
+Java interacts with the hard disk through:
+
+java.io and java.nio packages.
+
+File operations: reading/writing files, creating/deleting directories.
+
+8. RAM in Java
+🧩 Java divides RAM usage into:
+🔸 Heap Memory
+Stores objects and class instances.
+
+Managed by Garbage Collector.
+
+Larger than stack memory.
+
+If full, throws OutOfMemoryError.
+
+🔸 Stack Memory
+Stores method calls, local variables, and references.
+
+Follows LIFO.
+
+Limited size.
+
+If full, throws StackOverflowError.
+
+9. Stack Unwinding
+Stack Unwinding is the process of unwinding the call stack when an exception is thrown. The JVM searches up the stack for a matching catch block.
+
+10. Stack (Data Structure)
+LIFO: Last In, First Out
+
+Operations: push, pop, isEmpty
+
+🔹 Analogy:
+Imagine stacking bricks:
+
+Copy
+Edit
+| brick3 |
+| brick2 |
+| brick1 |
+Remove order: brick3 → brick2 → brick1
+
+11. Queue (Data Structure)
+FIFO: First In, First Out
+
+Operations: add, remove, offer
+
+🔹 Analogy:
+Buying tickets at a counter – first come, first served.
+
+css
+Copy
+Edit
+Front → [5, 4, 3, 2, 1] → Rear
+12. StackOverflowError
+Occurs when:
+
+Too many method calls
+
+Deep or infinite recursion
+
+Stack memory limit is exceeded
+
+✅ To Prevent:
+Add proper termination conditions
+
+Avoid deep recursion
+
+Increase stack size if needed
+
+13. ClassNotFoundException
+This checked exception occurs when the JVM cannot find a class during runtime.
+
+✅ Fixes:
+Verify classpath
+
+Check for missing dependencies
+
+14. Static (Keyword)
+Belongs to the class, not instances.
+
+Used for memory management.
+
+Can only access other static members.
+
+🔹 Example:
 java
 Copy
 Edit
 public class A {
     public static void main(String[] args) {
-        System.out.println("Hello from A!");
-        methodA();
+        System.out.println("Hello");
+        int i = 10;
+        methodA(i);
+        System.out.println("Updated i value is " + i);
     }
 
-    public static void methodA() {
+    public static void methodA(int i) {
         System.out.println("Method A in class A");
-    }
-}
-🧠 Java Memory: Stack vs Heap
-Memory Part	Stores What
-Stack	Method calls and local variables
-Heap	Objects and instance (global) variables
-
-🧵 Stack Memory Example
-java
-Copy
-Edit
-public class A {
-    public static void main(String[] args) {
-        int i = 0;
-        methodA(i);
-        System.out.println("i after methodA: " + i);  // i is still 0
-    }
-
-    public static void methodA(int i) {
-        i = 100;  // This change is local to methodA
-    }
-}
-i inside main() and i inside methodA() are two different copies. Stack memory keeps them separate.
-
-🧮 Static Variable Shadowing
-java
-Copy
-Edit
-public class A {
-    static int i = 10; // Global static variable
-
-    public static void main(String[] args) {
-        System.out.println("Global i: " + i);
-
-        int i = 0; // Local variable shadows global i
-        System.out.println("Local i: " + i);
-
-        methodA(i);
-    }
-
-    public static void methodA(int i) {
+        System.out.println("Value of i is " + i);
         i = 100;
-        System.out.println("Updated i in methodA: " + i);
+        System.out.println("New i value is " + i);
     }
 }
-Local int i = 0; hides or shadows the global static i.
+15. Static Variables
+Declared using static keyword.
 
-💥 StackOverflowError
-Happens when you have infinite recursion (a method keeps calling itself forever).
+Memory is allocated once when class is loaded.
 
+Accessed using the class name.
+
+🔹 Example:
 java
 Copy
 Edit
-public class A {
-    public static void recurse() {
-        recurse(); // keeps calling itself — no end
-    }
+public class Var {
+    static int i = 10;
 
     public static void main(String[] args) {
-        recurse(); // causes StackOverflowError
+        System.out.println("Value of i is " + i);
     }
 }
-✅ Summary
-Concept	Key Point
-Package	Group of classes (like a folder)
-Variable Types	Global (class level) vs Local (method level)
-Increment Operators	i++ uses value then increments, ++i does the reverse
-Memory (Stack/Heap)	Stack = temporary, Heap = objects/long-term
-VS Code Setup	Install extensions, start coding in .java files
-Static & Shadowing	Local variables can hide static/global ones
-StackOverflowError	Happens due to endless recursio
+16. Static Methods
+Belong to the class.
+
+Cannot access instance variables directly.
+
+Accessed using the class name.
+
+🔹 Example:
+java
+Copy
+Edit
+class Statmethod {
+    public static int show(int i) {
+        return i;
+    }
+
+    public static int show1(int j) {
+        return j;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int a = Statmethod.show(8);
+        int b = Statmethod.show1(10);
+        System.out.println("a value is " + a);
+        System.out.println("b value is " + b);
+    }
+}
+17. Stack Memory Area
+🔸 Purpose:
+Executes methods
+
+Stores local data
+
+🔸 Works on:
+LIFO structure
+
+Stack Frames: For each method call
+
+Method Completion: Frees memory by popping the frame
+
+🔸 Stores:
+Local variables
+
+Method parameters
+
+Return addresses
+
+References to heap objects
