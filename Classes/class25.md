@@ -34,7 +34,9 @@ Override Object methods	❌ Not allowed	✅ Allowed
 Use with Lambda Expressions	✅ If functional interface	❌ Not applicable
 
 📘 Example 1: Default Method in Interface
-
+java
+Copy
+Edit
 package com.tekgrads;
 
 interface I1 {
@@ -57,10 +59,14 @@ public class Example11 {
 }
 Output:
 
-
+kotlin
+Copy
+Edit
 this is a m1 on class test1
 📘 Example 2: Default Methods in Two Interfaces
-
+java
+Copy
+Edit
 package com.tekgrads;
 
 abstract class A {
@@ -97,7 +103,9 @@ public class Example12 {
 }
 Output:
 
-
+kotlin
+Copy
+Edit
 2nd interface with m1 method
 🔷 Static Methods in Interfaces
 Static methods can be defined inside interfaces.
@@ -107,7 +115,9 @@ Called using the interface name.
 No object creation is needed.
 
 📘 Example 3: Static Methods in Interface
-
+java
+Copy
+Edit
 package com.tekgrads;
 
 interface I5 {
@@ -130,11 +140,15 @@ public class Example13 {
 }
 Output:
 
-
+vbnet
+Copy
+Edit
 The value of a in static method on interface is: 10
 The value of a in static method on class is: 20
 📘 Example 4: Interface with main() Method
-
+java
+Copy
+Edit
 package com.tekgrads;
 
 public interface Example14 {
@@ -144,12 +158,16 @@ public interface Example14 {
 }
 Output:
 
-
+sql
+Copy
+Edit
 Interface with main method
 🔷 Lambda Expressions with Custom Objects
 📘 Example 5: Sorting Employees Using Lambda Expression
 Employee.java
-
+java
+Copy
+Edit
 package com.tekgrads;
 
 class Employee implements Comparable<Employee> {
@@ -176,7 +194,9 @@ class Employee implements Comparable<Employee> {
     }
 }
 Example15.java
-
+java
+Copy
+Edit
 package com.tekgrads;
 
 import java.util.Arrays;
@@ -197,7 +217,9 @@ public class Example15 {
 }
 Output:
 
-
+css
+Copy
+Edit
 [Employee [name=sowmya, age=28, salary=50000.0, companyName=HCL],
  Employee [name=Sneha, age=30, salary=40000.0, companyName=Infosys],
  Employee [name=navya, age=26, salary=20000.0, companyName=Accenture]]
@@ -209,7 +231,9 @@ Functional Interface with method boolean test(T t).
 Used to evaluate a condition (returns true/false).
 
 📘 Example 6: Predicates
-
+java
+Copy
+Edit
 package com.tekgrads;
 
 import java.util.function.Predicate;
@@ -245,7 +269,9 @@ Method: R apply(T t)
 Takes an input and returns a result.
 
 📘 Example 7: Function Interface
-
+java
+Copy
+Edit
 package com.tekgrads;
 
 import java.util.function.Function;
