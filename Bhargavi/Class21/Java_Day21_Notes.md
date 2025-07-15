@@ -1,8 +1,11 @@
-Day-21 Arrays in Java
-What is an Array?
+
+☕ Day-21 – Arrays in Java
+
+📌 What is an Array?
+
 An array is a collection of elements of the same data type stored in a fixed-size container.
 
-Example 1: Initialization of Array
+🧪 Example 1: Initialization of Array
 
 import java.util.Arrays;
 
@@ -28,7 +31,8 @@ public class Example1 {
         System.out.println(Arrays.toString(x));
     }
 }
-Example 2: Array Initialization with Values
+
+🧪 Example 2: Array Initialization with Values
 
 public class Example2 {
     public static void main(String[] args) {
@@ -40,9 +44,12 @@ public class Example2 {
     }
 }
 
-Sorting an Array
-Use Arrays.sort() to sort the array.
-Example 3:
+🔢 Sorting an Array
+
+Use `Arrays.sort()` to sort the array.
+
+🧪 Example 3: Sorting
+
 import java.util.Arrays;
 
 public class Example3 {
@@ -53,7 +60,8 @@ public class Example3 {
         System.out.println(Arrays.toString(x));
     }
 }
-Example 4: Array with Employee Details
+
+🧪 Example 4: Array with Employee Details
 
 import java.util.Arrays;
 
@@ -89,15 +97,19 @@ public class Example4 {
         System.out.println(Arrays.toString(emp));
     }
 }
-Customized Sorting
-Comparator:
-compare() method compares two objects.
-Logic:
-o1 > o2 → return -1
-o1 < o2 → return 1
-o1 == o2 → return 0
-Example 5: Reverse Sorting using Comparator
-package com.tekgrads;
+
+🔄 Customized Sorting
+
+🧠 Comparator:
+
+`compare()` method compares two objects.
+
+- `o1 > o2 → return -1`
+- `o1 < o2 → return 1`
+- `o1 == o2 → return 0`
+
+🧪 Example 5: Reverse Sorting using Comparator
+
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -121,12 +133,8 @@ class MyComparator implements Comparator<Integer> {
         else return 0;
     }
 }
-Output:
 
-[100, 1, 200, 1000, 20, 1500, 2]
-[1, 2, 20, 100, 200, 1000, 1500]
-[1500, 1000, 200, 100, 20, 2, 1]
-Example 6: Sorting Employee using Comparable
+ 🧪 Example 6: Sorting Employee using Comparable
 
 class Employee implements Comparable<Employee> {
     String name;
@@ -151,7 +159,9 @@ class Employee implements Comparable<Employee> {
         return this.salary.compareTo(o.salary);
     }
 }
-Example 7: Sorting Employees using Comparator
+
+
+🧪 Example 7: Sorting Employees using Comparator
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -183,15 +193,21 @@ class MyEmployeeComparator implements Comparator<Employee> {
         else return 0;
     }
 }
-Difference Between Comparator and Comparable
-Feature	Comparable	Comparator
-Method	compareTo	compare
-Interface	java.lang.Comparable	java.util.Comparator
-Used For	Natural order	Custom order
-Sorting logic	Inside the class	Outside the class
-Limitations of Arrays
-Arrays are fixed in size.
-Memory is not efficiently used.
-Arrays are homogeneous (same data type).
-Can hold both primitives and object types.
-No underlying data structures like in collections.
+
+
+🔍 Difference Between Comparator and Comparable
+
+| Feature        | Comparable            | Comparator              |
+|----------------|------------------------|--------------------------|
+|   Method       | `compareTo`            | `compare`                |
+|   Interface    | `java.lang.Comparable` | `java.util.Comparator`   |
+|   Used For     | Natural order          | Custom order             |
+|  Sorting logic | Inside the class       | Outside the class        |
+
+⚠️ Limitations of Arrays
+
+- Arrays are fixed in size.
+- Memory not efficiently used.
+- Arrays are homogeneous (same data type).
+- Can hold both primitives and objects.
+- No underlying data structure like collections.
