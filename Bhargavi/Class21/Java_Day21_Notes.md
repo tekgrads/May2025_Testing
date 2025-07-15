@@ -1,4 +1,3 @@
-
 ☕ Day-21 – Arrays in Java
 
 📌 What is an Array?
@@ -211,3 +210,4 @@ class MyEmployeeComparator implements Comparator<Employee> {
 - Arrays are homogeneous (same data type).
 - Can hold both primitives and objects.
 - No underlying data structure like collections.
+
