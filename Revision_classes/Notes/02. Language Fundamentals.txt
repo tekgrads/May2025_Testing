@@ -1,0 +1,18 @@
+Program:-      A progarm is a set of instructions given to a computer to perform some operations.
+
+Logic:-     Sequence of statements performing some operation
+
+
+Operations Performed in a program:-           
+                            1. Reading and stroing values
+                            2. Performing validations and calculations
+                            3.  Controlling flow of execution
+                            4. Throwing exception or errors if given values are wrong
+                            5. Printing output and error message
+
+
+Business Logic:-     Logic that performs validations and calculations to generate results according to business application 
+
+User logic:-         Logic that accessing business logic by giving input 
+
+Exexutable class :-  A class that contains main method for calling and executing business logic methods is called as executable class

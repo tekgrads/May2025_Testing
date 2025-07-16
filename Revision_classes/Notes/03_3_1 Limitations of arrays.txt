@@ -1,0 +1,20 @@
+Limitation of Array
+==================
+
+	Array can store only same type of values
+
+	It doesnot allows us to store different type of values
+	Higher range values or incompatible values are not allowed to store
+
+	For example:
+	  in an int[] we can store only int type or its lesser type values
+	  because in int[] we will have all locations are of same type int
+		
+      we can no store long or float or double or boolean or String values
+	  we will get CE, because in int variable we cannot store them
+
+
+
+
+
+

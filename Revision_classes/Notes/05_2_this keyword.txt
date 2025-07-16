@@ -1,0 +1,44 @@
+this keyword
+==============
+
+        1. this is a parameter final reference variable of current class type. It is used for receiving and storing current object reference 
+in constructor or in a non-static method for accessing non static variables from current object.
+
+        2. when we create a constructor or a non-static method compiler will automatically adds this as first parameter
+      
+           class Ex{                              
+                   Ex(){}
+                   void m1(){}
+                  } 
+compiler generated code
+======================
+             class Ex{                              
+                   Ex(final Example this){}
+                   void m1(final Example this){}
+                  } 
+       
+when we access a non -static variable or method in a non-static block or constructor or non-static method compiler will automatically adds this to non-static variables and non-static methods accessing statements
+
+              class Ex{                              
+                  int x = 10;
+                   void m1(){
+                        sop(x);
+                        }
+                  } 
+ compiler generated code
+======================  
+
+               class Ex{                              
+                  int x = 10;
+                   void m1(Ex this){
+                        sop(this.x);
+                        }
+                  } 
+
+
+
+
+
+
+
+

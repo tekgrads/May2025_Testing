@@ -1,0 +1,94 @@
+Operation
+=========
+An operation generally contains some activities
+     1.  reading and storing values
+     2. performing validations and calculations
+     3.controlling flow of execution
+     4.  throwing errors if given values are wrong
+     
+     for ex:
+     
+      class Addition{
+                   static void add(int a, int b) {
+		   if(a > 0 &&  b > 0) {
+		   int c = a + b;
+		   }
+		   
+	
+Operand:      The value that is passed as an input to an operator for performing validations and calculations 
+========
+
+
+Types of operators
+================
+ 1.    Assignemnt Operator
+ 2.    Arithmetic  Operator
+ 3.    Increment/Decrement Operator
+ 4.    Relational Operator
+ 5.    Equality Operator
+ 6.    Logical Operator
+ 7.   Ternary Operator
+ 
+ 
+ Assignemnt Operator   ( = )   
+ ==================                     a = 10;
+                                                             b = 30;
+							     s1 = "Hyd"
+							     int c = a + b;
+							     
+							left side is  variable name
+							right side is value
+	
+Arithmetic  Operator  (+ , - , *,  /  , %)   
+==================
+
+Relational Operator( < , > , <= , >= )
+==============================
+
+Increment/Decrement Operator  ( ++ , -- )
+========================
+
+             There are 2 types in each increment and decrement operators
+	          Increment   :-  pre  Increment (++a)
+		                            post  Increment ( a++)
+					 
+		Decrement :- 	    pre Decrement   (-- a)
+		                            post Decrement ( a--)
+					    
+
+  Ternary Operator  :    
+  ==============
+                       This is also called as Conditional operator. 
+		       It takes 3 operands. 
+		       It is alternative to if else block.
+		       It has two operators ? and :
+		       
+	             Syntax:   condition ? exp1 : exp2	       
+		     if condition is true exp1 is executed
+		     if condition is false exp2 is executed
+		     
+ Logical Operator :  ( and &&, or || , not ! )
+ ==============
+ 
+ a                  b                    a && b                                            
+ ================================================                                
+ true              true                 true                                                 										                         
+ true              false                false                                                                                                                                                                            
+ false              true                false                                          
+ false              false                false     
+ 
+ 
+ 
+ a                  b                    a || b                                            
+ ===================================================                                 
+ true              true                 true                                                 										                         
+ true              false                true                                                                                                                                                                           
+ false              true                true                                         
+ false              false               false            
+ 
+ 
+a                         !a
+================================
+true                  false
+false                 true
+             

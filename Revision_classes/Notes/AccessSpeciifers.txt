@@ -1,0 +1,21 @@
+Access Specifiers  : -
+      Actually there are diff.types of access modifiers based on different groups
+                1. Accessibility modifiers : - these will specify the scope of programming element where it is allowed ro access
+		                   .  private - with in the class
+				   .  default   - with in the package
+				   .  protected  -- outside package but only inside subclss that to by using same subclass reference
+				   .   public --- anywhere in the project
+				   
+	   2. Element level modifier
+	              . static
+		      . final
+		      . abstract
+		      . native
+		      . transient
+		       etc
+		       
+        3. file level
+	             . interface
+		    
+				     
+		

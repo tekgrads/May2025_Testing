@@ -1,0 +1,199 @@
+Types of languages:-
+=================
+
+There are 3 types of languages.
+                            1. Lowlevel   
+			                a.  machine language
+					b.  Assembly Language
+					
+			    2. Middle Level  
+			                    a.  C
+					    b.  C++
+					    
+			    3.High level
+			                 a.  pascal
+					 b. Cobol
+					 c. Fortran
+
+					 
+Both low level and high level languages further divided into 4 types
+    -> Monolithic programming language
+           ex:-        Machine language and assembly language
+	   
+    -> Procedural / Structural programming language
+            ex:    Cobol, Pascal, Fortran 
+    -> Object-oriented programming language
+             ex:  java, .NET, PHP
+
+    -> Functional programming language
+              ex: java, .NET, Python
+
+Problems Of Monolithic Programming language
+============================================
+                 1. meant for developing system level operations
+                 2. we cannot use these languages for developing end-user required operations
+                 3. It is very difficult to understand as everything is written in 0's and 1's
+                 4. No code reusability
+
+Advantages and problems of procedural language
+==============================================
+                  1. It is meant for developing mathematical operations
+                  2. These are written in English language so code is understandable by the user
+                  3. code reusability
+                  4. no security
+                  5. no dynamic binding
+Dynamic Binding: A program can able to change from one program to another to access operations at run time without modifying the code
+
+           Ex: ATM 
+
+
+Advantages of OOP: 
+                 1. can create real world object into programming ex: Bankaccount
+                 2. security to data
+                 3. provides dynamic binding
+So oop language helps in developing business applications.
+
+
+
+What is OOP?
+=============
+           It is a technique which provides suggestions to create real world objects into programming by achieving  security and dyanamic binding.
+
+OOP Concepts
+============
+        ->   To represent an object
+        
+           1. class    
+           2. object
+
+         ->   security
+
+           3. Encapsulation
+              
+         ->    Dynamic Binding
+
+           4. Inheritance
+           5. Polymorphism
+           6. Abstraction
+           7. Loose Coupling
+           8. Runtime Polymorphism
+           9. Message Passing
+
+
+
+Characteristics of an object
+-----------------------------
+               1. type of an object        ex Student
+               2. Values of object         sno, sname , course and fee
+               3. operations of  object    listen(), read(), write(), reply()
+               4. individual obj of this type    s1, s2, s3
+
+
+To perform above activities we use
+                  class
+                  variable
+                  method
+                  instances
+
+ What is an object?
+
+   - An object is a real-world thing that has values and operations
+   - For example:
+	- Person, Student, Employee
+	- Animal, Lion, Tiger
+	- Vehicle, Bus, Car, Bike
+	- Mobile, iPhone, Samsung 
+	etc...
+	
+ Why must we create a real-world object in the programming world?
+	
+   - Because real world object is part of business, 
+     as we develop a software for automating business we must also create
+     that business related real-world objects in project
+     
+ Building blocks for creating RWO in PW?
+
+   1. class
+   2. object
+  
+6. What is a class?
+
+ ->  A class is a collection of variables and methods
+   it is used for representing RWO in PW.
+   
+ ->  It is an user defined data type using which we can store
+   multiple values of same or different type of values of an object
+
+ ->  A class is a blue print of an object from which we can create 
+   multiple objects of same type. It specifies the values this object 
+   and operations performed by this object. 
+
+   For example:	
+	class Student { sno, sname, course, listen(), write() }
+
+ What is an object?
+   - An object is a real-world thing which is an instance of an class
+	For example: HK is an object whose is an instance of class Student
+  
+ What is an instance?	
+   - One copy memory created from a class for representing 
+     one individual object of this class type 
+     by storing its values is called instance
+
+   - For example: 		
+	new Student(101, "s1", "CJ", 3500);	
+	new Student(102, "s2", ".NET", 2500);
+
+
+
+
+Develop a program to read 2 integers from scanner , two integers must be positive,
+	   if +ve add and print values
+	   if any one is -ve print donot pass -ve value
+
+
+
+
+
+Develop a project for BankAccount  with the fields 
+bankName, branchName, ifsc, accNum, accHName, balance
+
+You must read above values from the keyboard from the end-user(Customer)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

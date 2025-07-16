@@ -1,0 +1,65 @@
+What is an array?
+	- An array is referenced data type, it is an object.
+
+	- An array is a collection of variables of same type in 
+	  continuation memory locations with single name
+
+02. Why array?
+	- An array is used for storing multiple values of similar type
+	  in continuation memory locations as one group with a single variable name
+
+	- It is also used for passing or returning multiple values as one group 
+	  to a method as argument and from a method as result with a
+	  single parameter and a single return type.
+
+03. How can we create an array object?
+	- either by using a PDT or a class name
+
+	- for storing multiple mathematical values 
+		we will create an array by using PDT
+
+	- for storing multiple objects of a class or an array,
+		we will create an array by using class name or array
+
+04. How many ways we can create an array object?
+ 	- We can create area object in 3 ways 
+
+05. Syntax for creating an array object?
+ 		1. By using new keyword and dimension
+			 DT[] arrayVarName = new DT[size];
+			 
+ 		2. By using initializer syntax with values or objects 
+			 DT[] arrayVarName = {values or objects with , separator};
+
+ 		3. By using anonymous array syntax 
+		     DT[] arrayVarName = new DT[]{values or objects with , separator};
+
+	For example:	
+		PDT[] arrayVarName = {v1, v2, v3, ...};
+		RDT[] arrayVarName = {o1, o2, o3, ...};
+		
+06. Syntax for reading array values? 
+       arrayVariableName[index]
+    
+	For example: Reading and printing array values
+		System.out.println(ia[0]);                          
+		System.out.println(ia[1]);
+		
+		System.out.println(sa[0]);
+		System.out.println(sa[1]);
+
+07.	Syntax for storing or modifying values in array locations?
+   	   arrayVariableName[index] = value;
+	   
+		ia[0] = 3;      sa[0] = "HK";	
+		ia[1] = 4;  	sa[1] = "NiT";
+
+08. Rule in accessing array location?
+     index must be '>=0 && must be <length', else 
+	 we will get exception java.lang.ArrayIndexOutOfBoundsException
+     	int[] ia1 = {3, 4, 5, 6, 7};
+     	sopln(ia1[-1]); //no CE, RE: AIOOBE
+     	sopln(ia1[5]);  //no CE, RE: AIOOBE
+
+ 
+
