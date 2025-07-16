@@ -1,0 +1,122 @@
+// Person class
+class Person {
+    private String name;
+    private double height;
+    private double weight;
+
+    // Parameterized constructor
+    public Person(String name, double height, double weight) {
+        this.name = name;
+        this.height = height;
+        this.weight = weight;
+    }
+
+    // Setting the values
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    // Getting the values
+    public String getName() {
+        return name;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    // Display method
+    public void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Height: " + height);
+        System.out.println("Weight: " + weight);
+    }
+}
+
+// childclass: Student
+class Student extends Person {
+    private int sno;
+    private String course;
+    private double fee;
+
+    // constructor with default values for string null double 0.0 and int 0
+    public Student() {
+		super("null",0.0,0.0);//calling the parent constructor using the parent class default values using super()
+		this.sno=0;
+		this.course=null;
+		this.fee=0.0;
+		
+	}
+	
+	
+	 // Parameterized constructor
+    public Student(String name, double height, double weight, int sno, String course, double fee) {
+        super(name, height, weight); 
+        this.sno = sno;
+        this.course = course;
+        this.fee = fee;
+    }
+
+    // Setting the values
+    public void setSno(int sno) {
+        this.sno = sno;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public void setFee(double fee) {
+        this.fee = fee;
+    }
+
+    // Getting the values
+    public int getSno() {
+        return sno;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public double getFee() {
+        return fee;
+    }
+
+    // Display method
+    @Override
+    public void display() {
+        super.display(); // Display Person's fields
+        System.out.println("Student No: " + sno);
+        System.out.println("Course: " + course);
+        System.out.println("Fee: " + fee);
+    }
+}
+
+
+public class Test2 {
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+        System.out.println("details os 1st stundent are:");
+        s1.display();
+
+
+        Student s2 = new Student("sowmya", 5.2, 50.5, 100, "IT", 50000.0);
+        System.out.println("details of 2nd stundent is:");
+        s2.display();
+    }
+}
+
