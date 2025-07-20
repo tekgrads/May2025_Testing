@@ -33,6 +33,20 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet>
+ 	<servlet-name>Fourth</servlet-name>
+ 	<jsp-file>/Fourth.jsp</jsp-file>
+ 	<init-param>
+ 		<param-name>defaultUser</param-name>
+ 		<param-value>Default User Name</param-value>
+ 	</init-param>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>Fourth</servlet-name>
+ 	<url-pattern>/Fourth.jsp</url-pattern>
+ </servlet-mapping>
 
 
 </web-app>
