@@ -190,7 +190,6 @@ Assigned Tasks:
 ➡️ After submitting the form, it goes to the servlet and prints the details on the response page.
 
 
-# MySQL 64-bit Installation and JDBC Integration (Markdown for Git)
 
 ---
 
