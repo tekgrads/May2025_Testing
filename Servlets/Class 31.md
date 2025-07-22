@@ -1,32 +1,32 @@
-# Class 31: (20-07-2025)
+# Class 31: (20/07/2025)
 
-## MVC: Model-View-Controller
+## MVC: Model View Controller
 
-### **Model (M):**
-- Represents **data** and **rules** of the application.
-- Responsible for **retrieving**, **updating**, and **storing** data.
+### Model (M)
+- Represents data & rules of the application.
+- Responsible for retrieving, updating, and storing data.
 
-### **View (V):**
-- Responsible for **presenting data to users**.
-- Follows **Separation of Concerns**.
-- Concerned only with its task (presentation).
-- **Receives data from the controller** and displays it.
+### View (V)
+- Responsible for presenting data to users.
+- Separation of concerns – focuses only on presentation.
+- Gets data from the controller and displays it.
 
-### **Controller (C):**
-- Acts as a **middleman** between View and Model.
-- Handles **user input**.
-- **Processes incoming requests** and coordinates the flow.
+### Controller (C)
+- Acts as a middleman between view and model.
+- Handles user input.
+- Processes incoming requests and coordinates actions.
+
+### Real-Time Example:
+| Component | Real-World Analogy |
+|----------|---------------------|
+| **Model** | Chef – cooks the food. |
+| **View**  | Waiter – serves the food. |
+| **Controller** | Person between Chef and Waiter. |
 
 ---
 
-### **Real-Time Analogy:**
-- **Model**: Chef – prepares the food.
-- **View**: Waiter – presents the food.
-- **Controller**: The person taking the order and relaying information.
+## Servlet Example (MVC in Java Web App)
 
----
-
-## Example Servlet (Controller Code):
 ```java
 package com.tekgrads;
 
@@ -81,3 +81,59 @@ public class MultiParamServlet extends HttpServlet {
         response.getWriter().println("</body></html>");
     }
 }
+
+
+## MySQL
+
+- Used for managing **relational databases**.
+- Tables are created using **primary keys**.
+- Other relational database systems include:
+  1. **Oracle**
+  2. **PostgreSQL**
+
+### Relational Database Features:
+- Has a **proper structure**, defined **schema**, and follows **rules** in a representational/tabular format.
+
+---
+
+## NoSQL
+
+- Does **not** follow a proper structure.
+- Schema-less and more flexible than relational databases.
+- Examples include MongoDB, CouchDB, etc.
+
+---
+
+## Connecting a Database with Java
+
+To connect a database with Java, we use **JDBC**.
+
+### JDBC: Java Database Connectivity
+
+- A **software component** that allows Java applications to interact with a database.
+- Each database (MySQL, Oracle, PostgreSQL, etc.) has its **own JDBC driver**.
+
+---
+
+## JDBC Driver Classes
+
+- A **driver class** is required to connect any database to a Java application.
+- The driver acts as a bridge between the Java code and the database.
+
+---
+
+## Setting Up MySQL JDBC in a Java Web Project
+
+### Steps:
+
+1. **Download** the MySQL JDBC Connector:  
+   `mysql-connector-java-<version>.jar`
+
+2. **Copy** the `.jar` file into your Java Web Project under:
+
+
+Paste it into your Java Web Project under:
+
+>>>lib>>> mysql-connector-java-<version>.jar
+
+This allows the servlet or Java class to use MySQL JDBC APIs.
