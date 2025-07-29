@@ -34,32 +34,39 @@
 
 
 
->Example:
-###Clustered Index (Data stored in order)
-*Clustered Index on EmpID
+## 📊 Clustered vs Non-Clustered Index
 
+### ✅ Clustered Index (Data stored in order)
+
+Clustered Index on `EmpID`:
+
+```
 +--------+----------+---------+
 | EmpID  | Name     | Salary  |
 +--------+----------+---------+
-| 101    |sowmya    | 50000   |
-| 102    |ramya     | 60000   |
-| 103    |laxmi     | 70000   |
+| 101    | sowmya   | 50000   |
+| 102    | ramya    | 60000   |
+| 103    | laxmi    | 70000   |
 +--------+----------+---------+
+```
 
-*Data is **physically sorted** by EmpID.
+🔹 Data is **physically sorted** by `EmpID`.
 
+---
 
-###Non-Clustered Index (Pointers to data)
+## ✅ Non-Clustered Index (Pointers to data)
 
-* Non-Clustered Index on Salary
+Non-Clustered Index on `Salary`:
 
+```
 [50000] --> Points to row with EmpID 101
 [60000] --> Points to row with EmpID 102
 [70000] --> Points to row with EmpID 103
+```
 
-* Data is NOT sorted by Salary. Index just helps in fast lookup.
+🔸 Data is **NOT physically sorted** by `Salary`. Index just helps in fast lookup.
 
-
+---
 
 
 Data is **not sorted** by `Salary`. Index only helps in quick lookup.
