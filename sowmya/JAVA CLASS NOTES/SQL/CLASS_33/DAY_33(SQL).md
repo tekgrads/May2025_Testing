@@ -1,4 +1,3 @@
-# 📘 Database and SQL Markdown Guide for GitHub
 
 ## 🗃️ What is a Database (DB)?
 
