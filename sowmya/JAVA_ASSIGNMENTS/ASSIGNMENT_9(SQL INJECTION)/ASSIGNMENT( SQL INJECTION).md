@@ -45,4 +45,20 @@ INSERT INTO users (username, password) VALUES
 
 SELECT * FROM users;
 SELECT * FROM users WHERE username = 'sowmya' AND password = '123';
+-- SQL Injection Attack Now suppose the attacker tries:
+-- username: ' OR 1=1 --
+-- password: (leave blank)
+-- these sql becomes as
+SELECT * FROM users WHERE username = '' OR 1=1   
+-- ' AND password = '';
+
+--   The query returns all rows, logging the attacker in as the first user, likely the sowmya
+
+-- prevent sql injection we can use prepared statement
+PREPARE stmt FROM 'SELECT * FROM users WHERE username = ? AND password = ?';
+SET @u = 'sowmya';
+SET @p = '123';
+EXECUTE stmt USING @u, @p;
+
+
 ```
