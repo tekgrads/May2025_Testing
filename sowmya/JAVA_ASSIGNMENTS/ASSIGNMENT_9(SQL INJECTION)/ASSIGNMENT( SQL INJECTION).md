@@ -1,6 +1,6 @@
-# 🛡️ SQL Injection – Simple DBMS Definition
+# 🛡️ SQL Injection
 
-#SQL Injection
+
 **SQL Injection** is a method used by attackers to insert harmful SQL commands into a database query through user input fields (like forms),  
 to access or damage data stored in a DBMS.
 
