@@ -53,15 +53,15 @@ If you delete the only student enrolled in a course, you might also lose informa
 
 ## To Overcome This: Use Normalization helps in:
 
-1.Organizing data properly
+*1.Organizing data properly
 
-2.Eliminating redundancy (no duplicate data)
+*2.Eliminating redundancy (no duplicate data)
 
-3.Maintaining data accuracy and consistency
+*3.Maintaining data accuracy and consistency
 
-4.Avoiding data loss and inconsistency
+*4.Avoiding data loss and inconsistency
 
-5.Making future changes easier
+*5.Making future changes easier
 
 
 **Normalization is the process of organizing data in a database to remove duplicate data and ensure data is stored efficiently.
