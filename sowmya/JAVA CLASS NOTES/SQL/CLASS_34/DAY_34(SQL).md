@@ -483,6 +483,125 @@ ADD PRIMARY KEY (customer_id);
 
 ---
 
+## 🧠 GROUP BY
+
+`GROUP BY` is used to arrange identical data into groups so that you can apply functions like `COUNT()`, `SUM()`, `AVG()`, etc., on each group separately.
+
+## 🎯 HAVING
+
+The `HAVING` clause is used to filter groups **after** using `GROUP BY`. It works like `WHERE`, but on grouped (aggregated) data.
+
+### ✅ In Simple Words:
+
+* `WHERE` filters **rows before** grouping.
+* `HAVING` filters **groups after** they are created.
+
+---
+
+## 🆚 Difference Between `GROUP BY` and `HAVING`
+
+| Feature          | `GROUP BY`                       | `HAVING`                                          |
+| ---------------- | -------------------------------- | ------------------------------------------------- |
+| **Purpose**      | Groups rows with the same values | Filters the **groups** created by `GROUP BY`      |
+| **Used With**    | Columns                          | Aggregate functions (`SUM`, `AVG`, `COUNT`, etc.) |
+| **When Applied** | Before aggregation               | After aggregation                                 |
+| **Works Like**   | `GROUP BY` = "grouping tool"     | `HAVING` = "filtering tool for groups"            |
+
+---
+
+## 💻 Example: SQL Queries on `GROUP BY` and `HAVING`
+
+```sql
+CREATE TABLE employees (
+   id INT PRIMARY KEY,
+   name VARCHAR(100),
+   department VARCHAR(100),
+   salary DECIMAL(10, 2)
+);
+
+INSERT INTO employees (id, name, department, salary) VALUES
+(1, 'sowmya', 'HR', 50000.00),
+(2, 'ramya', 'IT', 50000.00),
+(3, 'Chinni', 'Finance', 75000.00),
+(4, 'pinky', 'IT', 50000.00),
+(5, 'pranavi', 'Marketing', 90000.00);
+
+SELECT department, COUNT(*) AS total_employees
+FROM employees
+GROUP BY department;
+
+SELECT department, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department;
+
+SELECT department, salary, COUNT(*) AS count
+FROM employees
+GROUP BY department, salary;
+```
+
+---
+
+```sql
+CREATE TABLE employees_new (
+   id INT PRIMARY KEY,
+   name VARCHAR(100),
+   department VARCHAR(100),
+   job_title VARCHAR(100),
+   salary DECIMAL(10, 2)
+);
+
+INSERT INTO employees_new (id, name, department, job_title, salary) VALUES
+(1, 'sowmya', 'HR', 'HR Manager', 50000.00),
+(2, 'Sharanya', 'IT', 'Software Engineer', 70000.00),
+(3, 'sneha', 'Finance', 'Accountant', 65000.00),
+(4, 'navya', 'IT', 'Software Engineer', 80000.00),
+(5, 'kavitha', 'Marketing', 'Marketing Executive', 60000.00),
+(6, 'laxmi', 'HR', 'Recruiter', 52000.00),
+(7, 'pranavi', 'IT', 'DevOps Engineer', 75000.00),
+(8, 'pooja', 'Marketing', 'Marketing Executive', 61000.00);
+
+SELECT department, job_title, COUNT(*) AS count
+FROM employees_new
+GROUP BY department, job_title;
+
+SELECT department, COUNT(*) AS total
+FROM employees_new
+GROUP BY department
+HAVING COUNT(*) > 1;
+```
+
+---
+
+```sql
+CREATE TABLE employees_new_2 (
+   id INT PRIMARY KEY,
+   name VARCHAR(100),
+   department VARCHAR(100),
+   salary DECIMAL(10, 2),
+   status VARCHAR(20)  -- e.g., 'active' or 'inactive'
+);
+
+INSERT INTO employees_new_2 (id, name, department, salary, status) VALUES
+(1, 'sowmya', 'HR', 50000.00, 'active'),
+(2, 'navya', 'IT', 70000.00, 'active'),
+(3, 'sneha', 'Finance', 65000.00, 'inactive'),
+(4, 'pinky', 'IT', 80000.00, 'active'),
+(5, 'chinni', 'Marketing', 60000.00, 'active'),
+(6, 'kavitha', 'HR', 52000.00, 'inactive'),
+(7, 'laxmi', 'IT', 75000.00, 'inactive'),
+(8, 'pranavi', 'Marketing', 61000.00, 'active');
+
+-- WHERE filters rows before grouping.
+SELECT department, AVG(salary) AS avg_salary
+FROM employees_new_2
+WHERE status = 'active'
+GROUP BY department
+HAVING AVG(salary) > 60000;
+```
+
+---
+
+
 
 ## 🔍 What is a Subquery?
 
