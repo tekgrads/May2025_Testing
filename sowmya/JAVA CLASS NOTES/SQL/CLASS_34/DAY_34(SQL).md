@@ -590,8 +590,6 @@ FROM (
 
 ## 🔄 Correlated Subqueries
 -- Employees in IT with salary > department average
-
-```sql
 SELECT name, department, salary
 FROM employees e
 WHERE department = 'IT'
@@ -603,8 +601,6 @@ WHERE department = 'IT'
 
 
 -- Departments with more than one employee
-
-
 SELECT DISTINCT department
 FROM employees e1
 WHERE EXISTS (
