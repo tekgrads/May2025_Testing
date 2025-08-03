@@ -342,7 +342,7 @@ This situation is called **circular injection**, and must be avoided or handled 
 Note: use constructor injection if you have many parameters you can use setter injection
 ---
 
-### 4️⃣  SField Injection(@Autowired):
+### 4️⃣  Field Injection(@Autowired):
 Spring looks for a matching bean and injects it where @Autowired is placed.
 
 #### 🔁 Real-time Example:
