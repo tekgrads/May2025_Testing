@@ -1,6 +1,7 @@
 package com.tekgrads.dao.impl;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -34,9 +35,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public void addEmployee(EmployeeDTO employee) {
         String sql = "INSERT INTO employees (id, name, department, salary) VALUES (?,?, ?, ?)";
-        jdbcTemplate.update(sql, employee.getId(), employee.getName(), employee.getDepartment(), employee.getSalary());
+        jdbcTemplate.update(sql, UUID.randomUUID(), employee.getName(), employee.getDepartment(), employee.getSalary());
     }
-
+s
     @Override
     public void updateEmployee(EmployeeDTO employee) {
         String sql = "UPDATE employees SET name = ?, department = ?, salary = ? WHERE id = ?";

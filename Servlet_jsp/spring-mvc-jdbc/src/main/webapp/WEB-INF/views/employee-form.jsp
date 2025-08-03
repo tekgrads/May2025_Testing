@@ -6,10 +6,7 @@
 <body>
     <h2>${employee.id == 0 ? 'Add' : 'Edit'} Employee</h2>
 
-    <form:form method="post" modelAttribute="employee" action="${pageContext.request.contextPath}/employeeHome/save">        
-  		<p>
-            Id: <form:input path="id"/>
-        </p>
+    <form:form method="post" modelAttribute="employee" action="${pageContext.request.contextPath}/employeeHome/save">          		
         <p>
             Name: <form:input path="name"/>
         </p>
