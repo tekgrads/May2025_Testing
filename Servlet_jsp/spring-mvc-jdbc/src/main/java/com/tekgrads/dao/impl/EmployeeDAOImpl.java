@@ -34,10 +34,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void addEmployee(EmployeeDTO employee) {
-        String sql = "INSERT INTO employees (id, name, department, salary) VALUES (?,?, ?, ?)";
-        jdbcTemplate.update(sql, UUID.randomUUID(), employee.getName(), employee.getDepartment(), employee.getSalary());
+        String sql = "INSERT INTO employees ( name, department, salary) VALUES (?, ?, ?)";
+        jdbcTemplate.update(sql, employee.getName(), employee.getDepartment(), employee.getSalary());
     }
-s
+
     @Override
     public void updateEmployee(EmployeeDTO employee) {
         String sql = "UPDATE employees SET name = ?, department = ?, salary = ? WHERE id = ?";

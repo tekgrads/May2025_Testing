@@ -26,9 +26,10 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public String showAddForm(Model model) {
-        model.addAttribute("employee", new EmployeeDTO());
-        return "employee-form";
+    public ModelAndView showAddForm(Model model) {
+    	ModelAndView mv = new ModelAndView("employee-form");        
+        mv.addObject("employee", new EmployeeDTO());
+        return mv;
     }
 
     @PostMapping("/save")
@@ -42,10 +43,12 @@ public class EmployeeController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editEmployee(@PathVariable("id") int id, Model model) {
+    public ModelAndView editEmployee(@PathVariable("id") int id, Model model) {
         EmployeeDTO employee = employeeService.getEmployeeById(id);
+        ModelAndView mv = new ModelAndView("employee-form");        
+        mv.addObject("employee", employee);
         model.addAttribute("employee", employee);
-        return "employee-form";
+        return mv;
     }
 
     @GetMapping("/delete/{id}")

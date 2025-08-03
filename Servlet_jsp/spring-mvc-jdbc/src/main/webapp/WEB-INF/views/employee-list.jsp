@@ -26,5 +26,6 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<p><a href="${pageContext.request.contextPath}/employeeHome/add">Add Employee</a></p>
 </body>
 </html>
