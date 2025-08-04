@@ -35,7 +35,7 @@ mkdir -p src/main/webapp/WEB-INF
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
+  <groupId>com.tekgrads </groupId>
   <artifactId>my-servlet-app</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
@@ -78,7 +78,7 @@ mkdir -p src/main/webapp/WEB-INF
 ## 🧑‍💻 `HelloServlet.java`
 
 ```java
-package com.example.servlet;
+package com.tekgrads.servlet;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -107,7 +107,7 @@ public class HelloServlet extends HttpServlet {
 
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>com.example.servlet.HelloServlet</servlet-class>
+    <servlet-class>com.tekgrads.servlet.HelloServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
