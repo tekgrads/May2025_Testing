@@ -43,11 +43,10 @@ public class EmployeeController {
     }
 
     @GetMapping("/edit/{id}")
-    public ModelAndView editEmployee(@PathVariable("id") int id, Model model) {
+    public ModelAndView editEmployee(@PathVariable("id") int id) {
         EmployeeDTO employee = employeeService.getEmployeeById(id);
         ModelAndView mv = new ModelAndView("employee-form");        
-        mv.addObject("employee", employee);
-        model.addAttribute("employee", employee);
+        mv.addObject("employee", employee);      
         return mv;
     }
 
