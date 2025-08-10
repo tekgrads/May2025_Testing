@@ -27,7 +27,7 @@ public class AccessCard {
 	@Column(name="FIRMWARE_VERSION")
 	private String firmWareVersion;
 	
-	@OneToOne(fetch = FetchType.LAZY)	
+	@OneToOne(mappedBy="accessCard")	
 	private Employee employee;
 
 	public int getId() {
