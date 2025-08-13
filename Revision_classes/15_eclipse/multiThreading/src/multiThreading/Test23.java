@@ -1,22 +1,23 @@
 package multiThreading;
 	//synchronized block
 	class DisplayNumbers{
-		synchronized void printNum() {
-		//void printNum(){
+		//synchronized void printNum() {
+		void printNum(){
 			String name = Thread.currentThread().getName();
 			System.out.println(name+ " started");
 			for(int i = 0; i <=20; i++) {
 				System.out.println(name + "run: "+ i);
 			}
-			for(int i = 30; i <=50; i++) {
+		/*	for(int i = 30; i <=50; i++) {
 				System.out.println(name + "run: "+ i);
 			}
-		/*	synchronized (this) {
+			*/
+			synchronized (this) {
 				for(int i = 30; i <=50; i++) {
 					System.out.println(name + "run: "+ i);
 				}
 			}
-			*/
+			
 			System.out.println(name + " end");
 		}
 	}
