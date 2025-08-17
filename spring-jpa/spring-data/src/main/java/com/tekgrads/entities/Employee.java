@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,6 +27,7 @@ import com.tekgrads.EmployeeType;
 
 @Entity
 @Table(name="EMPLOYEE_DATA")
+@NamedQuery(query="select e from Employee e where e.age > :minAge order by e.name desc", name="emp by age name desc")
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
