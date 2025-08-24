@@ -381,7 +381,6 @@ public class EmployeeController {
 6. **Controller** → Passes list to JSP.
 7. **View (JSP)** → Displays employees in a table with `department` field included.
 
-Good question! Let’s carefully go through the **NamedParameterJdbcTemplate** example we wrote in the Spring MVC project and analyze its **execution flow and output**.
 
 ---
 
