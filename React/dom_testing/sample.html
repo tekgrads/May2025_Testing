@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic DOM Features Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #myDiv { padding: 10px; border: 1px solid #333; margin-top: 10px; }
+    .highlight { background-color: yellow; }
+  </style>
+</head>
+<body>
+  <h1 id="title">Hello DOM</h1>
+
+  <button onclick="changeText()">Change Title Text</button>
+  <button onclick="toggleHighlight()">Toggle Highlight</button>
+  <button onclick="addParagraph()">Add Paragraph</button>
+  <button onclick="removeParagraph()">Remove Paragraph</button>
+
+  <div id="myDiv">
+    <p id="para1">This is a paragraph inside a div.</p>
+  </div>
+
+  <!-- <script>
+    // Change text content
+    function changeText() {
+      document.getElementById("title").textContent = "DOM Manipulation in Action!";
+    }
+
+    // Toggle CSS class
+    function toggleHighlight() {
+      document.getElementById("myDiv").classList.toggle("highlight");
+    }
+
+    // Add new element
+    function addParagraph() {
+      let newPara = document.createElement("p");
+      newPara.textContent = "This is a new paragraph.";
+      document.getElementById("myDiv").appendChild(newPara);
+    }
+
+    // Remove the last paragraph
+    function removeParagraph() {
+      let div = document.getElementById("myDiv");
+      if (div.lastChild && div.lastChild.tagName === "P") {
+        div.removeChild(div.lastChild);
+      }
+    }
+  </script> -->
+</body>
+</html>
