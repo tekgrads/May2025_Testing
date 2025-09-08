@@ -1,150 +1,172 @@
-# dom_testing Project Files
+# Node.js Installation and Application Creation Guide
 
-## Filename: dom_testing/App.css
-```css
-.App {
-  text-align: center;
-}
+This guide explains **how to install Node.js** step by step and how to create a simple Node.js application with examples.
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+---
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+## 1. What is Node.js?
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+- Node.js is a **JavaScript runtime environment** built on Chrome's V8 engine.  
+- It allows you to run JavaScript code outside of the browser.  
+- Used to build **backend applications**, **APIs**, **real-time applications**, etc.
 
-.App-link {
-  color: #61dafb;
-}
+---
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+## 2. Installing Node.js
+
+### Step 1: Download Node.js
+- Visit the official site: [https://nodejs.org](https://nodejs.org)  
+- You will find two versions:
+  - **LTS (Long Term Support):** Stable version (recommended for most users).  
+  - **Current:** Latest features, but not always stable.
+
+Choose **LTS** for production or learning.
+
+---
+
+### Step 2: Install Node.js on Different OS
+
+#### Windows
+1. Download the `.msi` installer from [nodejs.org](https://nodejs.org).  
+2. Run the installer → Click *Next*.  
+3. Accept License → Select installation folder.  
+4. Ensure the option **“Add to PATH”** is checked.  
+5. Finish installation.
+
+#### macOS
+1. Download `.pkg` file from [nodejs.org](https://nodejs.org).  
+2. Run installer → follow steps.  
+3. Alternatively, install using Homebrew:
+   ```bash
+   brew install node
+   ```
+
+#### Linux (Ubuntu/Debian)
+Run commands:
+```bash
+sudo apt update
+sudo apt install nodejs npm -y
 ```
 
-## Filename: dom_testing/App.js
-```javascript
-import { useState } from "react";
+---
 
-export default function App() {
-  const [count, setCount] = useState(0);
+### Step 3: Verify Installation
 
-  return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Counter App</h1>
-      <p data-testid="count-value">Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  );
-}
+Check Node.js and npm version:
+```bash
+node -v
+npm -v
 ```
 
-## Filename: dom_testing/App.test.js
+Example output:
+```
+v20.0.0
+10.5.0
+```
+
+---
+
+## 3. Creating a Node.js Application
+
+### Step 1: Setup Project Folder
+```bash
+mkdir my-node-app
+cd my-node-app
+```
+
+### Step 2: Initialize Project
+```bash
+npm init -y
+```
+This creates a `package.json` file.
+
+---
+
+### Step 3: Create First App (Hello World)
+
+Create a file `app.js`:
+
 ```javascript
-import { render, screen, fireEvent } from "@testing-library/react";
-import App from "./App";
+// app.js
+const http = require('http');
 
-test("increments counter when button is clicked", () => {
-  render(<App />);
-  
-  const button = screen.getByText("Increment");
-  const countValue = screen.getByTestId("count-value");
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, World! This is my first Node.js app.');
+});
 
-  // Initially count should be 0
-  expect(countValue.textContent).toBe("Count: 0");
-
-  // Click button
-  fireEvent.click(button);
-
-  // Count should be 1 now
-  expect(countValue.textContent).toBe("Count: 1");
+server.listen(3000, () => {
+  console.log('Server running at http://localhost:3000/');
 });
 ```
 
-## Filename: dom_testing/index.css
-```css
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+Run the app:
+```bash
+node app.js
 ```
 
-## Filename: dom_testing/index.js
+Visit → [http://localhost:3000](http://localhost:3000)
+
+Output:
+```
+Hello, World! This is my first Node.js app.
+```
+
+---
+
+## 4. Using Express Framework
+
+Instead of using raw `http`, most applications use **Express.js**.
+
+### Install Express
+```bash
+npm install express
+```
+
+### Example: Express App
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// index.js
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+app.get('/', (req, res) => {
+  res.send('Hello from Express.js!');
+});
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
 ```
 
-## Filename: dom_testing/reportWebVitals
-```javascript
-const reportWebVitals = onPerfEntry => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
-    });
-  }
-};
-
-export default reportWebVitals;
+Run:
+```bash
+node index.js
 ```
 
-## Filename: setup Test.js
-```javascript
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom';
-```
-Upon successfully excuetion we will get output.
-First in the powershell we start with npx create-app first-project
-Then npm start 
-after the excuetion we will get to open in microsoft edge .
+Open → [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 5. Next Steps
+
+- Learn about **routing** in Express.  
+- Work with **middleware**.  
+- Connect Node.js to **databases** (MySQL, MongoDB).  
+- Use **nodemon** to auto-restart server:
+  ```bash
+  npm install -g nodemon
+  nodemon index.js
+  ```
+
+---
+
+# 🔑 Summary
+
+- Installed **Node.js + npm** on Windows/Mac/Linux.  
+- Verified installation using `node -v` and `npm -v`.  
+- Created a **basic server using http module**.  
+- Built a simple app using **Express.js**.  
+- Ready to build REST APIs and full-stack applications.
+

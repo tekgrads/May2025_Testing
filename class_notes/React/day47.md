@@ -1,188 +1,150 @@
+# dom_testing Project Files
 
-# Form Fields in Detail
-
-Forms are one of the most important elements in web development. They allow users to input data and send it to the server or process it on the client side.
-
----
-
-## 1. Basic Form Fields
-
-Form fields are the input elements that capture user data.
-
-### Common Form Fields:
-- **Text Input**: `<input type="text" />`
-- **Email Input**: `<input type="email" />`
-- **Password Input**: `<input type="password" />`
-- **Checkbox**: `<input type="checkbox" />`
-- **Radio Button**: `<input type="radio" />`
-- **Select Dropdown**: `<select>...</select>`
-- **Textarea**: `<textarea>...</textarea>`
-
-### Example:
-```html
-<form>
-  <label>Name:</label>
-  <input type="text" name="name" />
-
-  <label>Email:</label>
-  <input type="email" name="email" />
-
-  <label>Password:</label>
-  <input type="password" name="password" />
-
-  <button type="submit">Submit</button>
-</form>
-```
-
----
-
-## 2. Using Arrays, Maps, and Keys with Form Fields
-
-When handling forms in frameworks like **React**, data is often stored in arrays or objects (maps).
-
-### Example: Handling an Array of Inputs
-```jsx
-import React, { useState } from "react";
-
-function HobbiesForm() {
-  const [hobbies, setHobbies] = useState(["Reading", "Coding", "Music"]);
-
-  const handleChange = (index, event) => {
-    const newHobbies = [...hobbies];
-    newHobbies[index] = event.target.value;
-    setHobbies(newHobbies);
-  };
-
-  return (
-    <form>
-      {hobbies.map((hobby, index) => (
-        <div key={index}>
-          <label>Hobby {index + 1}: </label>
-          <input
-            type="text"
-            value={hobby}
-            onChange={(event) => handleChange(index, event)}
-          />
-        </div>
-      ))}
-      <button type="submit">Submit</button>
-    </form>
-  );
+## Filename: dom_testing/App.css
+```css
+.App {
+  text-align: center;
 }
 
-export default HobbiesForm;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 ```
 
-Here:
-- **Array** stores the hobbies.
-- **map()** renders inputs dynamically.
-- **key** ensures each field is uniquely identified.
+## Filename: dom_testing/App.js
+```javascript
+import { useState } from "react";
 
----
-
-## 3. Filtering and Mapping Data from Form Fields
-
-You can filter or transform data before submitting.
-
-### Example:
-```jsx
-function FilterExample() {
-  const [items, setItems] = useState(["Apple", "Banana", "Mango", "Orange"]);
-
-  const filteredItems = items.filter((item) => item.startsWith("A"));
+export default function App() {
+  const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <h3>Items starting with A:</h3>
-      <ul>
-        {filteredItems.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Counter App</h1>
+      <p data-testid="count-value">Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
   );
 }
 ```
 
----
+## Filename: dom_testing/App.test.js
+```javascript
+import { render, screen, fireEvent } from "@testing-library/react";
+import App from "./App";
 
-## 4. Forms with Multiple Fields (Real Application Example)
+test("increments counter when button is clicked", () => {
+  render(<App />);
+  
+  const button = screen.getByText("Increment");
+  const countValue = screen.getByTestId("count-value");
 
-### Example: Registration Form in React
-```jsx
-import React, { useState } from "react";
+  // Initially count should be 0
+  expect(countValue.textContent).toBe("Count: 0");
 
-function RegistrationForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    hobbies: [""]
-  });
+  // Click button
+  fireEvent.click(button);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleHobbyChange = (index, value) => {
-    const newHobbies = [...formData.hobbies];
-    newHobbies[index] = value;
-    setFormData({ ...formData, hobbies: newHobbies });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name:</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} />
-      </div>
-
-      <div>
-        <label>Email:</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} />
-      </div>
-
-      <div>
-        <label>Password:</label>
-        <input type="password" name="password" value={formData.password} onChange={handleChange} />
-      </div>
-
-      <div>
-        <h4>Hobbies:</h4>
-        {formData.hobbies.map((hobby, index) => (
-          <input
-            key={index}
-            type="text"
-            value={hobby}
-            onChange={(e) => handleHobbyChange(index, e.target.value)}
-          />
-        ))}
-      </div>
-
-      <button type="submit">Register</button>
-    </form>
-  );
-}
-
-export default RegistrationForm;
+  // Count should be 1 now
+  expect(countValue.textContent).toBe("Count: 1");
+});
 ```
 
----
+## Filename: dom_testing/index.css
+```css
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-## Key Takeaways
-- **Form fields** capture user input.  
-- **Arrays and Maps** help manage dynamic or multiple fields.  
-- **Keys** uniquely identify fields when mapping.  
-- **Filtering & Mapping** transform form data.  
-- **Multiple field forms** are essential for real-world apps like registration, login, etc.
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+```
 
----
+## Filename: dom_testing/index.js
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+
+## Filename: dom_testing/reportWebVitals
+```javascript
+const reportWebVitals = onPerfEntry => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
+
+export default reportWebVitals;
+```
+
+## Filename: setup Test.js
+```javascript
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+```
+Upon successfully excuetion we will get output.
+First in the powershell we start with npx create-app first-project
+Then npm start 
+after the excuetion we will get to open in microsoft edge .
