@@ -1,0 +1,101 @@
+Method Overloading:-
+==================
+     Defining multiple methods with same name but with diff. parameters type or list or order is called method overloading
+ ex:-
+     class Addition{
+ 	 void add(int a, int b){ }
+	 void add(float a, float b){ }
+	 void add(float a, int b, int c) { }
+      }
+
+
+Method Hiding:-
+ =============
+     Redefining super class static method in sub class with subclass required logic is called method hiding.
+
+Method Overriding:
+==================
+       Redefining super class non-static method in sub class with subclass required logic is called method over riding.
+
+Rules:-
+   We cannot hide or override a method in same class
+   We can only hide or overload a method only in sub class
+   We can overload a method in same class or in sub class
+
+There are 4 rules to follow:
+		1. return type must be same or co-variant return [sub class type]
+		2. static can not be added or removed
+		3. Access modifier can be same or can be increased, but can not be decreased
+			 [private -> default -> protected -> public]
+			Note: private method is not considered as overriding method
+			then above rules are not applied. If we override private method 
+			in sub class, it is considered as sub class own method	
+		4 We can not hide or override in the same class
+
+
+@Override:-
+===========
+1. @Override is a marker annotation defined in java 5.
+
+It is used to specify the method in subclass is a overriding method of one of the methods available on super classes.
+
+If we apply @Override annotation to any method then method signature, method name and parameter must be equal to one of the methods available in super classes else compiler will throw error.
+
+If  method signature, method name and parameter different from one of the methods available in super classes else compiler will throw error saying it is not overriding method
+
+@Override
+class Ex{ }    // CE
+class A{
+    static void m1() {}
+      void m2() { } 
+ }
+
+class B extends A{
+       @Override
+         int x = 10;  //CE
+     @Override
+     A(){       //CE
+     }
+
+      @Override
+        static void m1(){ }  // CE
+
+       @Override
+           void m2(){  }
+
+       @Override
+           void m3(){  }     //CE
+
+}
+
+
+        
+Var-Arg parameter:-
+==================
+       It is Variable- Argument parameter. Variable means changeable.
+If we want to create a parameter that can accept 0 -n no. of arguments use var-arg
+      class Example{
+        void  m1() { }
+        void m2(int x) {}
+        void m3(int[] ia ){ }
+        void m3(new int[] {3 });
+        void m3(new int[] {3, 4 });
+
+from 1.5v
+            void m3(int... ia){ }
+
+... is  a syntax for creating array type parameter for allowing a method caller  to pass 0 -n no.of values or a class obj directly with creating array object.
+void m1(int... ia){}
+we can call
+    m1();
+    m1(3);
+    m1(3, 4);
+
+Autoboxing:-  We can assign a primitive value to a wrapper class ref var directly
+     Integer io = 5;
+Auto Unboxing:- We can assign wrapper class obj to primitive datatype directly
+         int i = io;
+
+
+
+

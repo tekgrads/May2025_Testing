@@ -1,0 +1,169 @@
+Thread Life Cycle :-
+==================
+         1. NEW -    When we create a new object
+         2. READY-TO-RUN/RUNNABLE -  When we call start() method
+         3. RUNNING-     While run() method logic is executed
+         4. NON-RUNNABLE- When we pause run()method execution
+         5. DEAD - When run() method execution is completed
+
+from java 5v
+
+class Thread{
+     enum State{
+           NEW,
+           RUNNABLE,
+           TIMED_WAITING,
+           BLOCKED,
+           TERMINATED
+         }
+     public Thread.State.getState(){---}
+
+}
+ 1. NEW -> when new object is created from Thread class				
+ 2. RUNNABLE	 -> after start() method call to run() complete
+ 3. TIMED_WAITING -> when we call sleep(100)/join(100)/wait(100) in       run()	
+4. WAITING -> when we call join()/wait() in run() 
+5. BLOCKED -> when we call synchronized method in run()
+6. TERMINATED-> after run() method execution completed
+
+
+
+Thread Execution Algorithm:- 
+==========================
+             Thread scheduler is responsible for running threads
+             Thread scheduler executed threads by following algorithms
+        1. Thread scheduling:-
+The process of executing threads by assigning time slice 
+   is called threat scheduling is called thread scheduling
+         
+  - Thread scheduler executes a thread by assigning some time slice 
+  - Within this time slice if thread execution is not completed 
+   thread scheduler pauses this thread, allows other thread to execute
+  - The other thread also is executed by assigning some time slice 
+  - All threads will be assigned either with same time slice may be different 
+        2. Thread priority
+ 
+thread priority 1 - 10
+  1 -   min priority
+  5 - Normal priority
+  10- Max priority
+
+default priority of main thread - 5
+default priority of custom thread  - inherited from parent
+but default we will create custom threads from main thread so the priority of custom threads is 5
+
+To set priority -> public void setPriority(int priority)
+To get priority -> public int getPriority()
+
+
+Thread group:-
+===============
+  Based on functionality we can group  threads into a single unit which is called as thread group. It can also contain sub-thread groups. The main advantage of maintaining threads in the form of groups is we can perform common operations very easily. Every thread belongs to a group. main thread belongs to main group and every thread group is child of system group.
+
+
+Types of threads:-
+==================
+
+   - Java supports two types of threads  
+  		1. Daemon thread
+  		2. Non-daemon thread
+  
+    - A thread that executes foreground, runs the business logic of the 
+      application for a customer requirement is called non-demon thread
+       
+      A thread that executes background, runs the helper logic to help other 
+      threads to execute their logic is called demon thread
+     
+    - The main thread is non-demon thread, 
+      because it executes business logic of the application
+      
+      The 'garbage collector' thread is daemon thread 
+      because it is meant for destroying the unused objects available in the JVM 
+      heap area for making memory free and allowing other threads to create new 
+      objects and run their logic
+ 
+    - JVM waits for non-daemon thread execution to complete
+      It does not wait for daemon thread execution to complete
+      Once all non-daemon threads terminated, JVM is shutdown 
+      without waiting for daemon threads to complete their execution   
+      
+    - The custom thread daemon property is depend on its parent thread
+    	- If parent thread is non-daemon, this custom is also started as non-daemon
+    	- If parent thread is daemon, this custom is also started as daemon
+    
+    - By default main thread is non-daemon, then all custom threads are started as non-daemon threads 
+    
+    - For knowing thread type and for setting thread type, we have 
+      getter and setter methods in Thread class
+      
+      		1. public void setDaemon(boolean on)
+      			on is true -> thread is started as daemon           
+      			on is false -> thread is started as non-daemon
+      
+           2. public boolean isDaemon()
+                 
+ 
+public class Test28_Daemon {
+	public static void main(String[] args) throws InterruptedException {
+		System.out.println("main start");
+
+		Thread th = Thread.currentThread();
+		
+		System.out.println("is main daemon thread: "+ th.isDaemon());
+		
+		MyThread20 mt = new MyThread20();
+		System.out.println("is Thread-0 daemon thread: "+ mt.isDaemon());
+
+		mt.setDaemon(true);
+		System.out.println("is Thread-0 daemon thread: "+ mt.isDaemon());
+		
+		mt.start();
+		mt.setDaemon(true);
+		
+		System.out.println(
+				th.getName() + " is started as " + (th.isDaemon() ? "daemon" : "non-daemon") + " thread") ;
+
+		MyThread21 mt1 = new MyThread21();
+		mt1.setName("MyThread21");
+		mt1.setDaemon(true);
+		mt1.start();
+		
+		Thread.sleep(100);
+		System.out.println("main end");
+	}
+}
+
+class MyThread20 extends Thread {
+	@Override
+	public void run() {
+		System.out.println("run start");
+		for(int i=1; i<20; i++) {
+			System.out.print(i + "  ");
+		}
+		System.out.println("\nrun end");
+	}
+}
+
+class MyThread21 extends Thread {
+	@Override
+	public void run() {
+		System.out.println(
+			this.getName() + " is started as " + (this.isDaemon() ? "daemon" : "non-daemon") + " thread") ;
+		
+		MyThread22 mt2 = new MyThread22();
+		mt2.setName("MyThread22");
+		mt2.start();
+	}
+}
+
+class MyThread22 extends Thread {
+	@Override
+	public void run() {
+		System.out.println(
+			this.getName() + " is started as " + (this.isDaemon() ? "daemon" : "non-daemon") + " thread") ;
+	}
+}
+
+
+
+  

@@ -1,0 +1,109 @@
+Coupling and Cohesion (meant for developing dynamic binding user and implemented classes)
+
+→ These two topics will specify
+
+How to access one object operations from another object for supporting to accept future changes with minimal modifications.
+
+How to develop object operations by separating from  other object operations.
+
+→ Coupling will talk about integrating two different objects and accessing one object operations from other object dynamically.
+
+→ Cohesion will talk about creating multiple objects by separating their operations by using multiple classes
+
+Cohesion, Low Cohesion, High Cohesion
+
+The process of placing/centralizing all variables and methods of an object in a single class is called Cohesion.
+
+For example:
+
+The object Student related all variables and methods should be created in a single class called Student.
+
+
+
+class Student {
+    int sno;
+    String sname;
+    double m1, m2, m3, m4, m5, m6;
+    void findTotalMarks() { }
+}
+
+High Cohesion
+==============================================================================
+
+class College {
+    Student[] sa = -------;
+    void join(Student s) {
+        sa[i] = s;
+    }
+    void findTotalMarks() { } // This method is misplaced in College class
+}
+Low Cohesion
+===============================================================================
+
+Coupling: (Connecting)
+
+The process of connecting/integrating one object with another object for accessing one object operations from other object  operations is called coupling
+
+Types of coupling:
+====================
+
+The degree of dependency between two objects in accessing their operations comes under types of coupling
+
+Tight Coupling
+
+Loose Coupling
+
+The dependency between two objects(user and sub type) is high then we call it as tight coupled objects.
+
+It means in user class, if we want to change one sub type object to another sub type object, if need to change code and need to recompile user class, we call this user object class as tightly coupled object.
+
+Ex: CDMA Mobile and Laptop are tightly coupled objects to SIM and Keyboard
+
+The dependency between two objects(user and sub type) is low then we call it as loosely coupled objects.
+
+It means in user class, if we want to change one sub type object to another sub type object, if no need to change code and no need to recompile user class, we call this user object class as loosely coupled object with sub types of an object.
+
+Ex: GSM mobile and Desktop are loosely coupled objects to SIM and Keyboard
+
+
+class Canteen {
+    void eat(Student s) {
+        s.eat();
+    }
+}
+Above class is Tight Coupling because
+It accepts all types of Student objects
+
+In user class, if we declare a field or a method parameter with sub type, then this user class becomes tightly coupled object class.
+
+It means it can accept only current sub type objects and it can not accept other sub type objects.
+
+For accepting other sub type object, we must modify the field and parameter type and recompile this use class
+
+
+class Canteen {
+    void eat(Person p) {
+        p.eat();
+    }
+}
+Above class is Loose Coupling because
+It accepts all types of Person objects
+
+In user class as a field or as method parameter if we choose super type, then this user class becomes loosely coupled object class.
+
+It means it can accepts other sub type objects. without modify the field and parameter type and no need recompile this user class.
+
+
+
+
+Interface guarantees loose coupling because  all methods  are abstract methods and it will force sub class to implement.
+
+
+
+
+
+
+
+
+
+

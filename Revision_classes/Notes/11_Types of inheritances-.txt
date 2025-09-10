@@ -1,0 +1,127 @@
+Types of inheritances:-
+=========================
+
+We have 5 types of inheritances as per OO programming:
+
+Single Level
+
+Multi Level
+
+Hierarchial
+
+Multiple
+
+Hybrid
+
+Java supports only 3 types of inheritances By using class:
+
+Single Level
+
+Multi Level        
+Hierarchical
+
+By using interface Java supports all five types of inheritances.
+
+By using class Java does not support multiple inheritance but by using interface Java supports multiple inheritance.
+
+Single Level Inheritance:
+============================
+If only two classes or two interfaces participate in an inheritance hierarchy, we call this inheritance as Single Level Inheritance.
+
+           class A  
+            class B extends class A
+           
+           interface I2 extends interface I1
+           class C implements interface I        
+
+ Q) What is the default inheritance of Java?
+
+A) Single level inheritance.
+
+Q) If we create SLI, is it really SLI?
+
+A) No, it is MLI (Multi-Level Inheritance) with class.
+
+Yes, with the interfaces it is SLI.
+
+Multilevel Inheritance:
+========================
+
+If more than two classes or interfaces are participating in inheritance vertically, it is called multilevel inheritance.
+
+ class A
+ class B extends A
+ class C extends B
+
+Hierarchical inheritance:-
+===============================
+
+If multiple classes are deriving from one super class/interface, it is called as hierarchical inheritance.
+
+
+  class A  
+  class B extends A
+  class C extends A
+  class D extends A
+
+
+
+Hybrid Inheritance:-
+===================
+ If we develop inheritance by mixing all inheritances, it is hybrid inheritance.
+
+   If 
+    class B extends A             class D extends A
+    
+   and
+      class C extends B 
+      class E extends C
+        
+
+Multiple Inheritance:-
+=====================
+       If we derive one class from multiple super classes , it is multiple inheritance. Java support it in case of interfaces but not in classes
+ 
+   class A{}
+   class B{}
+   class C extends A, B{}   // CE
+ 
+
+
+   interface I1{}
+   interface I1{}
+   class C implements I1, I2 {}
+   interface extends I1 , I2{}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

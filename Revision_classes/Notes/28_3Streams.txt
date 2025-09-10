@@ -1,0 +1,42 @@
+Streams:-
+========
+ io streams meant to represent the data for file system
+ 
+util related streams to represent data for collection.
+
+Collection:-
+============
+ A group of objects represented as a single entity
+
+Stream:-
+======== 
+ If we want to process the objects from the collection then should use stream
+
+Methods of streams:-
+==================
+       filter() and map()
+
+How to get stream obj?
+   Stream s = c.stream();
+   c can be any collection obj
+   
+ configuration - i.  filter mechanism
+                 ii. map mechanism
+
+Filtering:-
+==========    
+     If we want to filter elts from the collection based on some Boolean condition use filter
+
+     public Stream filter(Predicate <T> t)
+
+Mapping:-
+========
+ If we want to create a separate new obj for every obj present in collection based on some function then we should use mapping
+
+       public Stream map(Function <T, R> f) 
+
+Processing :-
+============
+   collect() :-  used to collect elts from the stream and add to specified collection
+ count() :- returns no.of elts present in stream
+

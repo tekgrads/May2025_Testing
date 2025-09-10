@@ -1,0 +1,156 @@
+What is String handling? 
+=========================
+
+     Performing different operations on a String data like 
+     comparing, searching, retrieving, replacing, concatenating, 
+     changing case, etc... operations is called String handling   
+      
+   What is String and String literal?
+======================================
+
+ 		- The sequence of characters placed inside "" is called as string or String literal
+  		- A String literal is an object, which is an instance of java.lang.String
+  		- The java.lang.String is a perdefined class available in java.lang package
+       - It is used for storing string data like names or alphanumeric data 
+  		      like student name, student course, dept, pan, bikenumber
+           we will use String object 
+What are the different ways we can store String data?
+  		We can store String data in 4 ways 
+  		by using 
+  			1. char[] object
+  			2. String class object
+  			3. StringBuffer class object
+  			4. StringBuilder class object
+  
+  Diff b/w String, StringBuffer and StringBuilder:-
+==================================================
+
+     - String object:-
+=======================
+
+  		- String is an immutable sequence of characters object 
+  		- It means once we store characters in string object 
+         we cannot modify them in the same object
+       - If we try to modify the characters in the string object, 
+         the modification are not stored in the same current object,
+         those modification are stored in new String object, 
+         then that new string object is returned with result
+       - Hence string object is called immutable. 
+       - Immutable means not changeable in the same current object 
+       - Hence After modification if you read String object data with the 
+         existing reference variable s1, we will get original data, 
+         but not modified data
+          
+    - StringBuffer object:-
+    ========================
+
+    	- StringBuffer is a thred-safe mutable sequence of characters object
+    	- It means if you modify characters in the StringBuffer object 
+         the result is stored in the same current StringBuffer object, 
+         new object is not created
+       - After modification if you read StringBuffer object with existing 
+         reference variable sb1, we will get modification results 
+         but not original data 
+         
+         
+    - StringBuilder object:-
+     ========================
+
+    	- StringBuilder is available from Java 5v as alternative to StringBuffer 
+         class for improving performance, for fast execution
+    	- Because StringBuffer is thread-safe, it gives less performance in 
+         single thread model application and in method local operations
+         because of locking and unlocking objects
+       - StringBuilder is given as non thread-safe object, so that 
+         locking and unlocking will not be there, execution is fast
+           
+    	- StringBuilder is a non thread-safe mutable sequence of characters object
+    	- It means if you modify characters in the StringBuilder object 
+         the result is stored in the same current StringBuilder object, 
+         new object is not created
+       - After modification if you read StringBuidler object with existing 
+         reference variable sb2, we will get modification results 
+         but not original data 
+          
+   Definition of String, StringBuffer and StringBuilder:-
+==========================================================
+
+  		1. A string is an immutable sequence of characters object
+  		
+  		2. A StringBuffer is a thread safe mutable sequence of characters object
+     	   suitable to use in multi-threaded application
+     	
+  		3. A StringBuilder is a non-thread safe mutable sequence of characters object
+          suitable to use in single thread application or in method local operation
+  
+    	4. We must use StringBuffer for storing mutable sequence of characters 
+          at the class level common to all methods in multi-thread model application
+          
+    	5. We must use StringBuidler for storing mutable sequence of characters 
+          inside a method specific to operation or in single thread model application
+          at class level
+          
+ Relation between String, StringBuffer and StringBuilder:-
+==========================================================
+
+  	  can we assign one class object to another class variable?
+  		- No, all these 3 classes are siblings 
+       - because all these three classes' behavior and purpose are different
+       - there is no IS-A relation means all three classes are independent classes 
+       
+       - But all these 3 classes are implementation classes of 
+         CharSequence, Comparable and Serializable interfaces
+         	
+         					        
+     - We can assign string literal directly to string type of variable 
+       but we cannot assign string literal to StringBuffer or StringBuilder type variable 
+       because String, StringBuffer and StringBuilder classes are incompatible 
+       there is no IS-A relation among them 
+     
+     - For a storing String object's sequence of characters in StringBuffer or 
+       in StringBuilder objects String parameter constructor available in 
+       StringBuffer and StringBuilder classes .  
+
+  How many ways we can create String object:-
+============================================
+
+  		2 ways
+   		1. By using String literal
+ 			2. By using new kw and constructor 
+  
+  What are the differences in above two approaches?
+====================================================
+
+  		2 differences
+  			1. Number of objects creation and
+  			2. String pooling
+  
+    #1: Number of objects creation
+  		- in String literal approach 	
+  				either [1 or 0] objects are created
+    
+  		- in Constructor approach 		
+  				either [2 or 1] object is created
+  
+    	- if the same string literal is repeated, only one object is created
+         when it was appeared first time in the program. When we repeatedly use 
+         the same String literal, new objects are not created, all referenced 
+         variables are pointing to the same old String literal object which was
+         created from the first referenced variable.
+    
+    #2: String pooling
+    	- grouping String literals for reusing them in next lines code
+         without recreating repeatedly is called String pooling
+         
+       - String literal object comes under string pooling
+       - new kw based String object does not come under string pooling
+         
+  	 How can String pooling is implemented?
+  		- by using collection object
+   
+  		- when literal object is appeared first time
+          JVM verifies Whether this String literal object available in the pool 
+          	- if not available it creates a new object stores in the pool, 
+          	   returns the reference to the program 
+          
+          - if it is already available it directly returns the same object 

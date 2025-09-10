@@ -1,0 +1,17 @@
+Method Reference:-
+==================
+
+In java 1.8 :: operator is used for method reference and constructor reference.
+
+Method reference is alternate syntax to lambda expression.
+
+static 
+       classname :: method name
+
+Non static 
+
+      object reference  :: method name
+
+Constructor reference:-
+======================
+         classname :: new

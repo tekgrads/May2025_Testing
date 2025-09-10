@@ -1,0 +1,278 @@
+toString():-
+==========
+
+- toString() method is a predefined method.
+- It is available in java.lang.Object class
+
+- It is used for returning current object information in String format
+
+- From java.lang.Object class, toString() method returns 
+  current object's "ClassName@hashCode(refenece) in hexa string" format
+
+- The logic for returning 'classname and hashcode' is common to classes objects 
+
+- For example:	
+	class Student {
+		int sno;
+		String sname;
+	}
+	class Employee {
+		int eno;
+		String ename;
+	}
+	class Test01 {
+	  public static void main(String[] args) {
+               Student s1 = new Student();    
+	       Employee e1 = new Employee();
+
+	       System.out.println(s1.toString()); 
+	       System.out.println(e1.toString()); 
+	  }
+	}
+
+- In the above program, the toString() is not defined in the classes
+  Student and Employee. Hence it is executed from j.l.Object class,
+  returns the current object's classname@hashcode
+
+- In projects, the classname@hashcode is meaningless information,
+  we must print object's data. 
+
+- For printing object's data, we must override toString() method in sub class
+  
+- Override toString() method in Student class for printing its data
+	class Student {
+		int sno;
+		String sname;
+
+		@Override
+		public String toString() {
+			return sno + "  " + sname; 
+		}
+	}
+	class Employee {
+		int eno;
+		String ename;
+	}
+	class Test02 {
+	  public static void main(String[] args) {
+		   Student s1 = new Student();    
+		   Employee e1 = new Employee();
+
+		   System.out.println(s1.toString()); //0  null
+		   System.out.println(e1.toString()); //Employee@2020
+	  }
+	}
+
+- In the above program 
+	1. for s1.toString() method call, 
+	   Student object data is printed, because 
+	   toString() method is overridden in Student class
+
+	2. for e1.toString() method call,
+	   Employee object ClassNam@hashcode is printed, because
+	   toString() method is not overridden in Employee class
+
+- Test Case: 
+    In the above program remove toString() method call in println() method and 
+    print object's referenced variaable directly as below
+    	System.out.println(s1);
+    	System.out.println(e1);
+
+   then findout the output printed.
+
+- A) The same above output is printing that is returned by toString() method 
+     of the current objects classes
+     
+Hence conclusion:
+	When we print object of any class, println() method
+	internally calls toString() method by using this printing object's
+	and displays the toString() method returned information.
+
+	System.out.println(s1);
+			//s1.toString() -> 0  null
+
+	System.out.println(e1);
+			//e1.toString() -> Employee@2020
+
+- In general we do not call toString() method explicitly by our own
+- It is implicitly called by println() and print() methods for displaying 
+  object information on console
+
+	Example e1 = new Example();	
+	Sample s1 = new Sample();
+
+  	System.out.println(e1); //e1.toString(); -> Example -> Object -> Example@1010
+	System.out.println(s1); //s1.toString(); -> Sample  -> Object -> Sample@2020 
+
+- When we pass any class object as argument to print() or println() method, 
+   implicitly toString() method is called. What ever the string information 
+   is returned from toString() method for this object,
+   that string is displayed on console.
+
+Q) What is the output from the below program?
+	class Example { 
+		private int x;
+		public Example(int p){
+			x = p;
+		}
+	}
+
+	class Test {
+		public static void main(String[] args) {
+			Example e1 = new Example(101);
+			String  s1 = new String("HK");
+
+			System.out.println(e1); 
+			System.out.println(s1); 
+		}
+	}
+Q) In above program why data is display from String object,
+	why data is not displayed from class A object?
+A)	because in String class toString() method is overridden
+	to return string object data like how we have overridden in class Example.
+	hence String object data is displayed.
+
+	In class A, we have not overridden toString() method,
+	so it is executed from Object class, hence CN@hc is displayed
+	
+	If you want to display, class A object data, you also
+	override toString() method in class A by returing its instance variable.
+
+Note: In the predefiend classes String, StringBuffer, StringBuilder and in all wrapper classes
+	toString() method is overridden to display thier objects data.
+
+Q) What is the output from the below program?
+	class A { 
+		private int x;
+		public A(int p){
+			x = p;
+		}
+		public String toString(){
+			return ""+x;
+		}
+	}
+
+	class Test {
+		public static void main(String[] args) {
+			A a1 = new A(101);
+			String s1 = new String("HK");
+			StringBuffer sb1 = new StringBuffer("NiT");
+			StringBuilder sb2 = new StringBuilder("Hyd");
+			Integer io1= new Integer(500);
+
+			System.out.println(a1);	//101
+			System.out.println(s1);	//HK
+			System.out.println(sb1);//NiT
+			System.out.println(sb2);//Hyd
+			System.out.println(io1);//500
+		}
+	}
+
+Q) What is the output from the below program?
+	class Test {
+		public static void main(String[] args){
+			int[] ia = {5, 6, 7};
+			System.out.println(ia);			//[I@@2f92e0f4	
+			System.out.println(ia.toString());	//[I@@2f92e0f4
+						//here toString() is executed from Object class	
+		}
+	}
+Q) When we display array object, we will get CN@hc,
+	like in our own class, can we override toString() method
+	for array object to display its data?
+A) No, not possible
+	because we are not creating array class 
+
+Q) how can we display array object data?
+A) 	By using predefined class Arrays.toString() method
+	
+	import java.util.Arrays;
+	class Test {
+		public static void main(String[] args){
+			int[] ia = {5, 6, 7};
+			System.out.println(ia);					//[I@2f92e0f4	
+			System.out.println(ia.toString());			//[I@2f92e0f4
+			System.out.println(Arrays.toString(ia));		//[5, 6, 7]						
+		}
+	}
+	
+********** Twist point #1 ***********
+Q) What is the output from the below program?
+	class Test {
+		public static void main(String[] args){
+			char[] ch = {'a', 'b', 'c'};
+			System.out.println(ch); //abc
+						//here toString() method is not called
+						//directly characters are retrieved and displayed	
+						//by using for loop
+		}
+	}
+	
+
+********** Twist point #2 ***********
+Q) What is the output from the below program?
+	class Test {
+		public static void main(String[] args){
+			char[] ch = {'a', 'b', 'c'};
+			System.out.println("ch: " + ch); //ch: [C@@2f92e0f4
+						//now toString() method called on ch
+						//executed from Object class, CN@hc is displayed
+		}
+	}
+	
+
+********** Twist point #3 ***********
+Q) What is the output from the below program?
+	class Test {
+		public static void main(String[] args){
+			String s = null;
+			int[] ia = null;
+			char[] ch = null;
+
+			System.out.println(s);   //null 
+			System.out.println(ia);  //null	
+			//System.out.println(ch); //RE: NPE
+						//in println(char[]) param method
+						//null handling is not there, so we will get NPE
+						//in all other parameter println() methods
+						//we have null handling, just null is converted to String as "null"
+						//and directly null is displayed
+		}
+	}
+
+********** Twist point #4 ***********
+Q) What is the output from the below program?
+	class Test {
+		public static void main(String[] args){
+			String s = null;
+			int[] ia = null;
+			char[] ch = null;
+
+			System.out.println("s: " + s);   //s: null 
+			System.out.println("ia: " + ia);  //ia: null	
+			System.out.println("ch: " + ch); //ch: null
+						//now we donot get NPE
+						/here + operator has null handing code
+		}
+	}	
+
+********** Twist point #5 ***********
+Q) What is the output from the below program?
+	import java.util.Arrays;
+	class B{
+		int x;
+		B(int p){
+			x = p;
+		}
+	}
+	class Test {
+		public static void main(String[] args){
+			String[]	sa = {"Abc", "tekgrads", "Hyd"};
+			B[]		ba = {new B(5), new B(6); new B(7) };
+			A[]		aa = {new A(5), new A(6); new A(7) };
+
+			System.out.println(Arrays.toString(sa));	
+			System.out.println(Arrays.toString(ba));	 [B@hc1, B@hc2, B@hc3]
+			System.out.println(Arrays.toString(aa));	 [5, 6, 7]
+		}
+	}	

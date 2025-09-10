@@ -1,0 +1,121 @@
+Types of exceptions:-
+=====================
+	1. Checked exception
+	2. Unchecked exception
+
+Checked Exception:-
+====================
+
+	- An exception that is thrown by developer by 'checking' one condition
+	  and an exception whose handling is 'checked' by compiler, when not handled
+	  if we get compile time error, we call this exception as checked exception
+		- Throwable, Exception and their direct sub classes 
+		  are checked exception. 
+		  
+		- Checked exception handling is mandatory.
+Ex of checked exception:-
+==========================
+
+IOException, FileNotFoundException, InterruptedIOException, SQLException,
+
+ClassNotFoundException, CloneNotSupportedException, InterruptedException, NoSuchMethodException 
+
+Unchecked Exception:-
+=====================
+
+	- An exception that is thrown by JVM, and the exception whose handling
+	  is not checked by compiler is called unchecked exception.
+	  	- Error, Runtime Exception, and their sub classes 
+		  are unchecked exception.
+
+		- unchecked exception handling is optional
+
+	- Unchecked exceptions represents
+		1. JVM memory level problems
+		2. Operator failure because of wrong inputs or wrong logic
+
+Ex of unchecked exception:-
+==========================
+
+RuntimeException, NullPointerException, ArrayIndexOutOfBoundsException, StringIndexOutOfBoundsException, ClassCastException, IllegalArgumentException,
+ArithmeticException , NumberFormatException, NoSuchElementException
+
+Errors:-
+=========
+Errors are also unchecked, but they represent serious, often unrecoverable problems with the JVM. You typically shouldn't try to catch them.
+
+StackOverflowError
+
+OutOfMemoryError
+
+NoClassDefFoundError
+
+AssertionError
+
+	- Checked exceptions represents	
+		1. missing resources problems
+
+Q13) Checked exceptions type?
+		- 2 types 
+			1. Partially checked
+			2. Fully Checked
+			
+		- The checked exceptions those contain sub classes
+		  both checked and unchecked exception classes
+		  those super classes are called partially checked exceptions
+			- Throwable and Exception classes 
+			 are partially checked exceptions, 
+		     among 7 checked rules, one rule is not applied, 
+			 because of unchecked exceptions 
+
+		- The checked exceptions those do not contain
+		  unchecked exception classes as sub classes 
+		  are called fully checked exceptions
+		  - all direct sub classes of Exception are 
+		    fully checked exceptions. All 7 rules are applied
+
+Q32) Rules on using checked exception?
+	1. When we 'throw or receive' a checked exception
+	   we must handle it either by using throws keyword or 
+	   by using try/catch, else we will get 
+	   CE: unreported exception must be caught or declared to be thrown
+
+	2. Without throwing a checked exception we can not place
+	   catch block with this exception parameter, it leads to
+	   CE: exception never thrown from corresponding try statement
+
+		- we can place catch(Exception) and catch(Throwable) without
+		  throwing Exception and Throwable objects from try,
+		  because for catching unchecked exceptions
+
+	3. Inside static block and non-static block 
+	   we can handle a checked exception only by catching 
+
+	4. When a method is throwing a checked exception, we can not
+	   call this method at class level either for initializing 
+	   static or instance field, it leads CE. We must call this
+	   method inside static block or in instance block by catching 
+	   this checked exception.
+
+	5. When a checked exception is throwing in super class constructor
+	   in sub class in all constructors we must handle that 
+	   exception by using throws keyword. Because super() must 
+	   be first statement in the constructor.
+
+	6. If super class method does not throw ChExcep,
+	   in sub class in overriding this method we can not 
+	   add throws ChExcep, it leads to CE.
+
+	   If super class method throws ChExcep,
+	   in sub class in overriding this method 
+	     1. either we can ignore it 
+		 2. or     we can throw either same or it sub classses
+		           exception, but not super class or sibling
+			       it leads to CE.
+
+	7. From a overriding method, When we need to throw
+	   a different checked exception, we must throw it 
+	   by wrappig it in unchecked exception. 
+
+	   Throwing one exception by storing in another
+	   exception is called 'exception chaning'.

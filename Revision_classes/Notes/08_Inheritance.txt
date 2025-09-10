@@ -1,0 +1,247 @@
+ What is an inheritance?
+ 	- Inheritance is a one of the OOP principles
+
+ 	- It is a Parent-Child relation
+
+ 			  Parent
+
+ 		Child1    Child2   Child3
+
+
+ 	- The process of creating a new class/object
+ 	  deriving from an existing class/object
+ 	  is called inheritance.
+ 
+ 	- For example:
+ 	  class A { }
+ 	  class B extends A{ } //here we are deriving
+ 	                    //class B from class A
+ 		//then class B is called sub type of class A
+
+ 	- class A is called Super class or Parent class Or Base class
+ 	- class B  is called Sub class or Child class or Derived class
+
+2. Why Inheritance?
+
+ 	- for obtaining the 'type, properties and behaviors' of
+ 	  an existing class/object to new class/object.
+
+ 	  for treating this new class/object as sub type of an existing class/object
+ 	  we will develop inheritance
+ 
+ 	- For example
+ 		- for creating Student as Person type
+ 		- for creating Lion    as Animal type
+ 		- for creating Bus     as Vehicle type
+ 	   we must develop inheritance
+ 
+ 	- As part of inherintace we will develop
+ 	  child classes or sub type classes of an
+ 	  existing class or object.
+
+3. When must we develop inheritance?
+
+   we will develop inheritance in the below two situations
+ 	1. for extending or implementing existing class
+ 	   functionality by adding new properties and
+ 	   new behaviors in new class as sub type
+ 	   we will develop inheritance.
+ 
+ 	   - For example:
+ 		class Person { String name;}
+ 		class Student extends Person{ String course;}
+ 
+ 		- for adding more properties and behaviors to
+ 		  Person we will extend Person class
+ 
+ 	2. for creating new multiple objects of same type
+ 	   as one group for achieving code reusability and
+ 	   loose coupling between sub type objects and user object
+ 	   we will develop inheritance.
+ 
+ 	     - For example: without inheritance
+ 		class Person { }	here all these 4 objects
+ 		class Student { }	are individual objects
+ 		class Faculty { }	not same type of objects
+ 		class Admin { }
+ 
+ 	     - with inheritance we can create Student, Faculty and Admin
+ 	       objects as same type of objects Person
+ 
+ 		class Person { }
+ 		class Student extends Person{ }
+ 		class Faculty extends Person{ }
+ 		class Admin   extends Person{ }
+
+4. How can we develop inheritance?
+ 	- by using the keywords
+ 		1. extends
+ 		2. implements
+
+ 	- For deriving a class from an interface
+ 	  we must use implements keyword
+ 	   for example:
+ 	   	interface Example { }
+ 		class Sample implements Example{ }
+
+ 	- For deriving a class from a class or
+ 	  for deriving an interface from an interface
+ 	  we must use extends keyword
+ 	   for example:
+ 		class A { }
+ 		class B extends A { }
+
+ 		interface I1 { }
+ 		interface I2 extends I1 { }
+ 		class C implements I2 { }
+
+ 5. Sample program and execution flow
+ 	//Example.java
+ 	class Example {
+ 	   static int a = 10;
+ 	   int x = 20;
+ 	}
+
+     //====================================================
+ 	//Sample.java
+ 	class Sample {
+
+ 		public static void main(String[] args) {
+ 			Example e1 = new Example(); //HAS-A relation
+ 			System.out.println(e1.a);
+ 			System.out.println(e1.x);
+ 		}
+ 	}
+     //====================================================
+ 	//Sample.java
+ 	class Sample extends Example {	//IS-A relation
+ 
+ 		public static void main(String[] args) {
+ 			Sample s1 = new Sample(); //accessing with IS-A relation
+ 			System.out.println(s1.a);
+ 			System.out.println(s1.x);
+ 		}
+ 
+ 	}
+ 
+ *   The process of creating a new class deriving from an existing class
+     **for obtaining type, properties and behaviors of an existing object**  
+
+     **this the new object for "extending or implementing" that existing object** 
+
+     **functionality by adding new properties and behavior implementation**
+
+     **is called inheritance**
+
+ 
+ * When must we develop inheritance?
+- for creating a sub type object
+     **for extending or implementing functionality** 
+
+     **of an existing object by adding new properties and** 
+
+     **behaviors as per this new object job/functionality** 
+
+ 
+ *  - and also inheritance is used for
+ *    creating multiple objects of same type as
+ *    one type for achieving code reusability,
+ *     Loose coupling and runtime polymorphism
+ *    between user object and sub type objects
+ *
+ * How can we develop inheritance?
+ * 	by using two keywords
+ * 		1. extends
+ * 		2. implements
+ *
+ *     - we must use extends keyword
+ *         	for deriving a new class from an existing class or
+ *         	for deriving a new interface from an existing interface
+ *
+ *     - we must use implements keyword
+ *     		for deriving a new class from an existing interface
+ *
+ * For what purpose we must develop inheritance?
+ * 	1. Is it for reusing?    No
+ * 	2. Is it for extending?  Yes
+ *
+ *      Inheritance is meant for extending and then reusing
+ *
+ *      For just reusing do not develop inheritance
+ *      develop HAS-A relation, means create object of that class
+ *      and access its members
+ *
+ *      Inheritance is meant for
+ *      	[extending + reusing]
+ *
+ * Why must we develop inheritance, means why must we develop
+ * separate sub class, why can not we develop all properties and
+ * behaviors of different sub type objects in single class?
+ *
+ * - If we place all different sub type objects properties and
+ * 	behaviors in a single class we can not separate and reuse
+ *  each sub type properties and behaviors as specific type of object
+ *
+ * - We must place common properties and behaviors
+ *   of all sub types in one class that is super class
+ *   and we must place a sub type individual properties and
+ *   behaviors in a separate class as sub class extending from
+ *   this super class
+ *
+ * - By creating as separate class we are separating properties and
+ *   behaviors of one sub type from other sub types, so that we
+ *   use this object as a special operations object.
+ *
+ * - By extending from super class, this new class/object
+ *   is treated as the super class object type, then
+ *   where ever the super type object is allowed to there
+ *   this new sub type object is also allowed to store, pass and return
+ *
+ * - for example if we do not create Student as sub class of
+ *   class Person, then Student is not look as Person
+ *
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 

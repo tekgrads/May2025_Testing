@@ -1,0 +1,13 @@
+final keyword:-
+===============
+
+1. the keyword final is a modifier . It is used for creating final variable , final method, final class. Basically it is used for creating constant member.
+
+2. We can apply final kw to variables, concrete method and concrete class
+
+3. If we apply final to variable we can not modify its values
+
+4. If we apply final to method we can not override it in subclass
+
+5. If we apply final to a class we can not create sub class deriving from this class 
+     

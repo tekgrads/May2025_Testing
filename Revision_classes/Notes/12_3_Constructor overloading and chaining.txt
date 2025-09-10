@@ -1,0 +1,398 @@
+Constructor overloading and constructor chaining
+=================================================
+1. What is constructor overloading?
+   Defining multiple constructors with different
+   parameter type or list or order 
+   is called constructor overloading
+ 
+   For example:
+	  class Example {
+	      
+		Example() { }
+		Example(int i) { }
+		Example(double d) { }
+		Example(String s) { }
+	  }
+
+2. When must we overload constructor?
+   For initializing a class object's instance fields by 
+   taking initialization values either as different type or 
+   different list or in different order we will overload constructor
+   
+	For example: Taking initialization values as diff type
+		class Example {
+			private int x;
+
+			Example(){
+			   x = 50;
+			}
+
+			Example(int x){
+			   this.x = x; 
+			}
+
+			Example(Integer i){
+			   this.x = io; 	
+			}
+
+			Example(String s){
+			   this.x = Integer.parseInt(s);	
+			}
+		}
+
+	For example: Taking initialization values as diff list
+
+		class BankAccount {
+
+			private long accNum;
+			private String accHName;
+			private double balance;
+
+			BankAccount(long accNum){
+			   this.accNum = accNum;
+			}
+
+			BankAccount(long accNum, String accHname){
+			   this.accNum = accNum;
+			   this.accHName = accHName;
+			}
+
+			BankAccount(long accNum, String accHname, double balance){
+			   this.accNum = accNum;
+			   this.accHName = accHName;
+			   this.balance = balance;
+			}
+
+		}
+		
+3. If do not overload a constructor, who will face problem? 
+	- If we do not overload constructor, user programmer faces problem.
+	  He must develop redundant code in converting the arguments type
+	  
+	- for simplifying 'user programmer code'
+		1. in passing the initialization values directly without 
+		   any conversions and 
+		2. for passing initialization values list as per 
+		   user programmer choice 
+          we must overload constructor as shown in above example 
+	
+4. Which overloaded constructor is executed?
+	- based on the passed argument type
+	- the passed argument type parameter constructor is executed
+
+	
+5. If the given argument type is not found, will we get CE?
+   - No, search for widening or AB or ABW or stVA or stVAW or ABVA or ABWVA or CE
+		
+
+6. If the passed arugment is matched with different overloaded constructor
+   parameters types, then what will happen?
+	- It leads to CE: ambigious error
+
+
+7. Is it possible to override or overload a super class constructor in sub class?
+	- No, we will get CE, because constructor name must be same as class name
+	
+	class Example {
+		Example(){ }
+	}
+
+	class Sample extends Example {
+		Example(){ }	  //CE: invalid method declaration return type is required
+		Example(int a){ } //CE: invalid method declaration return type is required
+
+		void Example(){ }	//these are not constructors	
+		void Example(int a){ }	//these are methods because of return type
+	}
+
+8. What are the rules we must follow in overloading a constructor?
+	1. parameters must be different either type or list or order
+	2. we can not overload or override super class constructor in sub calss
+
+	
+
+9. What is the problem in overloading a constructor?
+    - we will have code redundancy. because we will place same 
+      initialization logic in all constructors based on the argument type,
+      when we modify the code in one constructor, we must 
+      do the same modification in all constructors, as shown in below code
+
+	class Example {				class Test {
+		private int x;			    p s v main(String[] args) {
+		Example(){				Example e1 = 
+			x = 10;				   new Example();	
+		}
+		Example(int x){				Example e2 = 
+			this.x = x;			   new Example(-50);		
+		}				     	
+		Example(Integer x){                     Example e3 =
+			this.x = x;			    new Example(
+		}	                                       new Integer(-60));
+		
+		Example(String x){			Example e4 =  
+			this.x = Integer.parseInt(x);	   new Example("-70");
+
+		}					Sopln(e1);
+	}						Sopln(e2);
+							Sopln(e3);
+							Sopln(e4);
+						     }
+                                                  }
+
+	//code with if condition to stop -ve numbers
+	//we must add the same if condition code in all constructors
+
+	class Example {				
+		private int x;	
+		
+		Example(){				
+			x = 10;				
+		}                                    
+		Example(int x){				
+			if(x<0)
+			   throw new IllegalArguemntException("Do not pass -ve number");	
+
+			this.x = x;			
+		}				     
+		Example(Integer x){                 
+			if(x < 0)
+			   throw new IllegalArguemntException("Do not pass -ve number");	
+
+			this.x = value;       
+		}                                    
+		Example(String x){                   
+			int value = Integer.parseInt(x);
+			if(value<0)
+			   throw new IllegalArguemntException("Do not pass -ve number");	
+
+			this.x = value;
+		}	                             
+	}
+	//Problem with constructor overloading: code redundancy
+	 //Repeating same code and doing the same changes in all constructors 
+	 //is called code redundancy 
+
+	//Solution: Constructor chaining
+
+Write logic in one constructor and calling that constructor from other overloaded constructors by using this() call or super() call is called constructor chaining
+
+10. What is a constructor chaining?	
+     - calling one constructor from other overloaded constructors 
+       either by using this() call or by using super() call 
+       is called constructor chaining.
+
+     - we chain/call a constructor from other overloaded
+       constructors of same class by using this() call
+
+     - we chain/call a super class constructor from 
+       sub class overloaded constructors by using super() call
+
+	
+
+11. How many constructors are executed per one object creation?
+    In the above program even though three constructors are executed
+    only one object is created per new keyword execution. 
+    
+    So in turn non-static variables and non-static blocks
+    are executed only one time per object creation. 
+    
+    Hence we can confirm whether object is created or not 
+    only by using non-static block not by using constructor, 
+    because NSB is executed only once per instance creation.
+
+12. How can we prove whether object is created or not created?
+     Print some message from non-static block but not from constructor.
+
+13. Below program explains NSMs ef with constructor chaining?
+
+	class Example {			public static void main(String[] args){    
+					   Example e1 = new Example();             
+	  int x = m1();			   Sopln("e1.x: "+ e1.x);                   
+	   				                                           
+	  {				   Example e2 = new Example(10);           
+	     Sopln("NSB");		   Sopln("e2.x: "+ e2.x);                   
+	  }				                                           
+	   				   Example e3 = new Example("abc");        
+	  int m1(){			   Sopln("e3.x: "+ e3.x);                   
+	     Sopln("m1:x");		}                                        
+	     retrun 10;
+	  }
+	   
+	  Example() {
+	     this(10);
+	     x = 50;
+	     Sopln("No-arg constructor");
+	  }
+	  
+	  Example(int a) {
+	     this("abc");
+	     x = 60;
+	     Sopln("int-arg constructor");
+	  }
+	  
+	  Example(String str) {
+                        
+	     x = 70;
+	     Sopln("String-arg constructor");
+	  }	
+
+      }
+
+14. Constructor chaining execution flow with this() and super()?
+
+      In constructor chaining, all constrcutors logic is execured from 
+      super class to current sub class in the 'reverse' constructors calling order.
+
+      1. Due to this() call, control is sent to given argument type matching 
+         parameter constructor. 
+      
+      2. Control is sent to the other constructor with this same current object
+         reference, without executing current constructor logic.
+
+      3. NSVs initialization and NSBs execution is done in the constructor 
+         that has super() call, because to initialize sub class non-static 
+         variables, first super class non-static variables must be initialized.
+
+      4. After super() call execution is completed, sub class non-static variables 
+         are initialized, NSBs are executed, and then logic is executed from the 
+	 sub class constructors in the reverse constructors calling order.
+
+15. Below explains this() and super() execution flow?
+
+	class SuperClass {
+		SuperClass(){
+			this(10);
+			System.out.println("superclass no-arg");
+		}
+		SuperClass(int a){
+		    this("abc");
+			System.out.println ("superclass int-arg");
+		}
+		SuperClass(String s){
+			       
+			System.out.println ("superclass String-arg");
+		}
+	}
+
+
+	class SubClass extends SuperClass{
+		SubClass(){
+			this(10);
+			System.out.println("subclass no-arg");
+		}
+		SubClass(int a){
+			 this("abc");
+			System.out.println ("subclass int-arg");
+		}
+		SubClass(String str){
+		      
+			System.out.println ("subclass string-arg");
+		}
+	}
+
+	class Test{
+		public static void main(String[] args) {
+			new SubClass();				System.out.println();	
+			new SubClass(10);			System.out.println();
+			new SubClass("abc");		
+		}
+	}
+
+16. Rules on 'this() and super()' call?
+	Rule #1: Like super(), this() call also must be placed as first statement 
+	         only in the constructor, else it leads to 
+		 CE: “call to this must be first statement in a constructor”
+
+	Rule #2: both this() and super() calls cannot be placed in the 
+	         same constructor, because both must be placed as 
+		 first statement in constructor
+
+	Rule #3: Also, multiple this() or super() calls cannot be placed 
+	         in same constructor, violation leads to CE.
+
+	Rule #4: In an object creation we are not allowed to call same constructor 
+	         more than once, violation leads to CE: 
+		 “recursive constructor invocation”. 
+
+		 But we are allowed to call it again in another object creation
+
+	 Case #1:So this() cannot be placed in all constructors, 
+	        at least one constructor must be left with super() call 
+		else it leads CE: “recursive constructor invocation”.
+
+	Case #2: Also in a constructor its own this() call cannot be placed, 
+	         violation leads to CE: “recursive constructor invocation”.
+			
+		Special case:But it is possible to create object in
+			a constructor with same constructor. In this case
+			compiler cannot identify recursive constructor
+			call, but it is identified by JVM and terminates
+			program execution with RE: "java.lang.StackOverflowError"
+
+ Below program explains all above rules
+	class A{
+
+		A(){
+			this(5);
+		}
+		A(int x){
+			int y = 20;
+	//		this("a");
+		}
+		A(String s){
+			this(5L);
+	//		this(5L);
+		}
+
+		A(long l){
+			this(10.5);
+	//		super();
+		}
+
+		A(double d){
+			
+			this('a');
+		}
+		A(char ch){
+	//		this(true);	
+		}
+
+		void A(boolean b){
+	//		this(10.5);
+		}
+
+		void m1(){
+	//		this(5);
+		}
+	/**/
+	}
+
+
+	class B {
+		B(){
+			this(5);
+		}
+		B(int i){
+	//		this();
+		}
+	}
+
+	class C {
+		C(){
+	//		this();
+		}
+	}
+
+	class D {
+		D(){
+			System.out.println("D constructor is executed for " + this + " object");
+			new D();
+		}
+	}
+
+	class Test29_ConstructorChaining_thisPanth_Rules{
+		public static void main(String[ ]args){
+			new D();
+		}
+	}
+	/* */

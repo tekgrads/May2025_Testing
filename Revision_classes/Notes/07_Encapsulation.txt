@@ -1,0 +1,104 @@
+Encapsulation :-
+===============
+            It is one of the OOP principles. The process of wrapping up of variables and methods as one unit by using a class and operating those variables only via methods either for reading or modifying values is called encapsulation.
+ 
+ By developing encapsulation we are hiding data from direct access from other objects and providing access via publicly available getter and setter methods.
+  
+ Hence through encapsulation we will get security to object data and reusability, centralized modifications to object code
+
+Problems if we do not implement encapsulation:-
+==============================================
+ 1. Unauthorised people can access our object data
+ 2. wrong values can be stored
+ 3. No code reusability
+ 4. Code modification in one object will get effected to other parts of the  
+    project.
+            
+Advantages if we implement encapsulation:-
+==============================================
+ 1. We can stop unauthorised people can access our object data
+ 2. We can stop storing wrong values 
+ 3. Code reusability
+ 4. Code modification in one object will not effect  other parts of the  
+    project.
+
+Types of Encapsulation:
+=======================
+           There are two types of encapsulation.
+             
+ 1. Weak encapsulation
+ 2. Strong encapsulation
+
+   class Example{        // weak encapsulation
+         int x;
+         private int y;
+        }
+
+    class Example{        // strong encapsulation
+        private int x;
+        private int y;
+      }
+
+      class Example{        // strong encapsulation
+          final int x = 10;
+        private int y = 20;
+      }
+
+
+/*
+Assignment
+
+1.Develop a program Bike gear to allow user to set only 0 - 5.
+   If user sets wrong values display message
+  If user sets correct value display message "bike is running on gear num"
+
+2. Develop a program for voter application. We must allow issue voter card only 
+    for the person whose age is in between 18- 100 years.
+  If user sets wrong values display message
+  If user sets correct value display message "collect voter card after 30 days"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+

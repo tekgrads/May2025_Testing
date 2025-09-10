@@ -1,0 +1,129 @@
+Inner class:-
+==============
+
+A class that is defined inside another class is called inner class. An inner class can be any of the 7 types of classes interface, abstract class, concrete class, final class, enum, annotation, record.
+For example
+class Example{
+class Sample{}
+}
+
+interface Example{
+class Sample{}
+}
+
+class Example{
+interface Sample{}
+}
+
+interface Example{
+interface Sample{}
+}
+
+Why inner class?
+Inner class is used for creating an inner object of an outer object inside outer class.
+For example:
+class Person{
+String sname;
+class Heart{
+}
+}
+
+
+class Car{
+String brand;
+String model;
+class Engine{
+String engNum;
+String engParts;
+}
+}
+
+class Student{
+int sno;
+String sname;
+class Address{}
+
+Creating an inner class is a way of logically grouping classes that are only used in one place. It increases encapsulation. Nested classes can lead to more readable and maintainable code.
+Creating Inner class is not good idea if the same object properties are required by multiple
+other objects. In this case we must create it as separate outer class, and should create its referenced variables as instance variable in our class for accessing its properties.
+
+Types of inner classes:
+========================
+
+We have 4 types of inner classes
+1. Static Nested class
+2. Non-static  class (inner class)
+3. Local class
+4. Anonymous class
+
+
+Static inner class:-
+====================
+
+The inner class defined at class level with static keyword is called static inner class.
+1. Syntax:
+
+class Example{
+static class A{}
+}
+
+2. Allowed modifiers
+
+private, protected, public, final, abstract
+
+
+3. Accessing outer class members from inner class
+
+We can access outer class all members from its static inner class including private
+members. In accessing outer class members you just consider "static inner class" as a "static method" of outer class. So, we can access static members directly by their name from static inner class. But we cannot access non-static members directly by their name we must access them only by creating outer class object.
+
+Non-static inner class:-
+=======================
+The inner class that is definition at class level without static keyword is called non-static inner
+class. We must develop non-static inner class to create a separate object in outer class object.
+So that when outer class is instantiated this inner class members are provided memory as part of every outer class instance.
+1. Syntax:
+class Sample{
+class B{}
+}
+Q) After compiling outer class with a non-static inner class how many .class files are
+generated?
+A) Two .class files are generated
+one for outer class and another for innerclass as shown below
+>javac Sample.java
+|-> Sample.class
+|-> Sample$B.class
+
+
+Local inner class:-
+-================
+
+The inner class defined inside a method of outer class is called method local inner class.
+
+ Syntax:
+
+class A{
+void m1(){
+class B{}
+}
+}
+
+Q) After compiling outer class with a local inner class how many .class files are
+generated?
+A) Two .class files are generated
+one for outer class and another for inner class 
+>javac A.java
+|-> A.class
+|-> A$1B.class
+Where “1” is the index number representing B is the first local inner class created in class A
+
+
+Anonymous inner class:-
+=======================
+
+Anonymous class is one type of inner class. It is a nameless subclass of a class/interface.
+Like other inner classes it is not individual class, it is a subclass of some other existed class or
+interface. Using anonymous inner class we can do three things at a time
+1. Inner class creation as a subclass of outer class
+2. Overriding outer class method
+3. Creating and sending its object as argument or return type to another method

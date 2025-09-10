@@ -1,0 +1,44 @@
+Generics:-
+============
+ The main objective of generics is to provide type-safety and solve type-casting problems.
+
+Why generics  takes only wrapper types?
+
+ In java generics are implemented in such a way that it allows only wrapper types as type parameter. Because generics work with objects but not with primitives
+At runtime type parameters like <T> are replaced with objects since objects can only store references and primitives cant be used directly
+Generics are implemented using type erasure. Type erasure is the process where compiler removes generic type information after ensuring type safety at compile time.
+
+
+Bounded types:-
+===============
+  We can bound the type parameter for a particular range by using extends keyword. these types are called bounded types
+
+       class Test<T>{  }
+As type parameter we can pass any type and there are no restrictions
+
+Generics wild card character (?):-
+================================
+m1(AL<String> l) - > we can call this method by passing AL of only string type. within the method we can add only string type objects
+
+ml(AL<?> l):- we can call this method by passing AL of unknown  type. within the method we cannot  add any type of objects except null because we don't know the type.
+
+m1(AL<? extends X> l):- X can be either be class or interface . If x is a class then we can call this method by using AL of either X type or its child classes.
+If X is  an interface then we can call this method by passing AL of either X type or its implementation classes
+
+m1(AL<? super X> l)- X can be either be class or interface . If x is a class then we can call this  method by using AL of either X type or its super  classes.
+If X is  an interface then we can call this method by passing AL of either X type or its super class of this implementation classes
+
+AL<String> l = new AL<String>();
+AL<?>l =new AL<String>();
+AL<?>l =new AL<Integer>();
+
+AL<? extends Number>l =new AL<Integer>();
+
+AL<? extends Number>l =new AL<String >();  // incompatible types
+
+AL<? super String>l =new AL<Object>();
+
+
+
+
+

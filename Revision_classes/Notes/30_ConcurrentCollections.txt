@@ -1,0 +1,31 @@
+Concurrent Collections:-
+========================
+ Traditional collections are not thread safe and existing Vector and Hashtable are not upto the mark
+
+Concurrent collections are thread safe and  has high performance. While one thread is interacting with thread other threads are allowed to modify so there is no concurrent modification exception
+
+Important concurrent collection classes are
+            1. Concurrent HashMap
+            2. CopyOnWriteArrayList
+            3. CopyOnWriteArraySet
+
+Concurrent HashMap:-
+==================
+Underlying DS is Hashtable
+Allows concurrent read and thread safe update operations
+default concurrency level 16. That is concuurent HashMap allows simultaneous read operations and  16 write operations
+Null is not allowed for both keys and values
+
+CopyOnWriteArrayList:-
+=====================
+It is Thread safe version of ArrayList. As the name indicates it creates a cloned copy of underlying ArrayList for every update operation. 
+
+CopyOnWriteArraySet:-
+====================
+It is thread safe version of  Set. Intenally implemented by CopyOnWriteArrayList
+Insertion order is preserved and duplicates are not allowed
+
+
+
+
+

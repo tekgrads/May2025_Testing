@@ -1,0 +1,97 @@
+Working with jar
+================
+- The jar stands for Java Archive 
+- Like a zip file, it is a Java compressed file
+
+- The jar file 'contains' a group of packages and .classes files,
+  for transferring all packages and classes at a time through network 
+  to other developers and client 
+
+- A jar file is a transferable folder 
+- A regular folder is not transferable through network via email 
+- A jar file is also a folder it can be transferable through network via email  
+
+- When we want to share our project multiple packages and classes as one group
+  to other developer or to a client, we must share it as jar file.
+//=================================================================================
+- A jar file is a folder, transferable folder, 
+- It is a collection of packages and classes. 
+
+- It is used for collecting and sending a project's all packages and 
+  its classes as one group to other developers or to the client 
+//=================================================================================
+
+- We can create jar file by using Java tool 'jar' 
+- The Java tool 'jar' is available in JDK bin folder
+
+
+- Syntax for creating a jar file
+
+    - Syntax #1: for adding packages and classes available in present directory
+    ===============================================================================
+	cmd>jar  -cvf   <jar file name>  package or class or file names with space separator
+
+	For example:
+	  cmd>jar   -cvf  classes.jar  A.class  B.class  p1  p2 names.properties
+
+
+    - Syntax #2: for adding pacakages and classes available in different directory
+    ===============================================================================
+	cmd>jar  -cvf   <jar file name>  -C <directory path> package/class/file name
+
+	For example:
+	  cmd>jar -cvf  classes.jar  -C C:\test A.class -C C:\test B.class 
+	  cmd>jar -cvf  classes.jar  -C C:\test A.class C:\test\B.class 
+
+
+
+ 
+
+ 4. creating jar file with above two packages and their classes
+	
+	cmd>jar  -cvf  classes.jar p1 p2
+          
+         c -- create a new jar file
+         v - Verbose(shows the files that are being added to jar)
+         f - file name (specify the name of the jar file we are creating)
+
+5. Share above jar file 'classes.jar' to the other developer
+
+6. The other developer will access the classes availabe in this jar file
+
+7. For accessing the classes available in the jar file,
+   we must set classpath pointing to this jar file
+
+	cmd>set classpath=classes.jar;%classpath%
+
+9. Develop Test class for accessing and executing the above jar file 
+   classes' methods
+
+	//Test.java
+	import p1.Example;
+	import p2.Sample;
+
+	class Test {
+	   public static void main(String[] args) {
+               System.out.println("Test main start");
+	       
+	       Example e1 = new Example();
+	       Sample  s1 = new Sample();
+
+	       e1.m1();
+	       s1.m2();
+	       
+
+               System.out.println("Test main end");
+	   }
+	}
+
+11. Compile and executed above Test class
+	cmd>javac Test.java    //Compiler and JVM uses classpath
+	cmd>java  Test		//to access Example and Sample classes
+	  Test main start	//available in classes.jar
+	  Hi			
+	  Hello
+  	  Test main start
+
+D:\development\My_Java_Development\corejava\allPrograms\src>jar -cvf classesnew1.jar -C classes Ex.class -C classes Sa.class

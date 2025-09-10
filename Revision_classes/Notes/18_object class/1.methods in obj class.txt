@@ -1,0 +1,53 @@
+Object class:-
+=============
+It is the super class of all classes.
+
+Object class methods
+=====================
+
+Object class does not contain fields, because it is not meant for storing state of any object
+
+Object class contains only one constructor that is no-param constructor, because does not have fields
+
+Object class contains 11 methods to operation 11 operations common to all sub classes objects and array objects
+
+public int hashCode()
+
+public boolean equals(Object obj)
+
+public final class getClass()
+
+public String toString()
+
+protected Object clone() throws CloneNotSupportedException
+
+protected void finalize() throws Throwable
+
+public final void wait() throws InterruptedException
+
+public final void wait(long ms) throws InterruptedException
+
+public final void wait(long ms, int ns) throws InterruptedException
+
+public final void notify()
+
+public final void notifyAll()
+
+in Object class, all those 11 methods are implemented with a common logic to all sub classes
+
+In Object all above 11 methods are implemented by using current object's reference, which is the common logic to all sub classes objects
+
+If we a sub class developer wants those methods logic needs to be on object state(fields), we must override those methods in our sub class
+
+Among above 11 methods we can override only 5 methods
+
+hashCode() - for generating hash code number with state
+
+equals() - for comparing two objects by using state
+
+toString() - for returning current object state
+
+clone() - for deep cloning and for cloning by other programmer
+
+finalize() - for executing finalization logic just before object is destroyed
+

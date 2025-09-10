@@ -1,0 +1,129 @@
+Abstraction:-
+============
+Generally there are two types of methods.
+          1. Abstract method
+          2. Concrete method
+Abstract method:-
+=================
+
+ A method that is declared with the keyword abstract and does not have body, ends with ; is called as abstract method.
+
+For example:
+abstract void findArea();
+
+Concrete method:-
+=================
+
+A method that has body means ends with {} is called concrete method. The concrete method must not contain abstract keyword in its declaration, it leads CE.
+
+For example:
+void findArea() {}
+
+
+
+When to choose abstract method and concrete method?
+
+If we want to declare operation of an object in super class and want to force sub classes to implement that operation we must choose abstract method to create this operation.
+
+If we want to implement operation of an object in super class common to all its sub classes for reusing purpose we must choose concrete method to create this operation.
+
+Or
+
+If an object operation implementation logic is changing from one sub class to another sub class of an object, that operation must be implemented by sub class programmer. Then in order to force sub classes programmers to implement this object operation, we must create abstract method in super class.
+
+If an object operation implementation logic is not changing from one sub class to another sub class of an object, that operation must be implemented by using concrete method. So that this logic is reused by sub classes programmers.
+
+
+
+
+What is abstraction:-
+===================
+
+ Abstraction is the process of hiding implementation details of an object operation method from user class programmer and providing only necessary information for invoking an object methods is called abstraction.
+
+
+abstract class/interface Ex{
+    void m1();
+   }
+
+
+class Sample extends Ex {
+    void m1(){
+        //------
+    }
+    }
+
+class Test {
+    p s v main(String[] args){
+        Ex e1 = new Sample();
+        e1.m1();
+    }
+}
+
+
+
+Q) How can we develop abstraction?
+
+A) By using abstract method, by declaring it either in abstract class or in interface.
+
+By creating abstract method we are hiding its implementation details by providing sub class.
+
+Sub class will provide implementation to abstract method as per sub class requirement.
+
+Then user class programmer will invoke abstract method using super class ref var by storing sub class object from which this method logic want to execute.
+
+
+
+Advantages of abstraction:-
+===========================
+
+We can hide bigger picture of the object because implementation details are hidden.
+
+We will get security to object data because object is accessed through methods.
+
+We can force sub class programmers to implement operations with same method signature.
+
+User class will get LC and RP 100% because abstract class and interface can not be instantiated so coming objects will be subclass objs and in these objects super class methods are 100% implemented.
+
+
+Abstract method and its rules:-
+===============================
+
+Def: A method that does not body, that has only prototype is called abstract method.
+
+Rules:
+       Abstract method should has abstract modifier and
+should ends with semi colon(;)
+should not have other modifiers except protected and public
+should be created only either inside abstract class or inside interface
+
+//void m1() 
+
+// void m1(); 
+
+abstract void m1();
+
+// private abstract void m1(); 
+
+// static abstract void m1(); 
+
+// final abstract void m1(); 
+
+public abstract int m1(String s) throws CNFE
+
+// protected abstract void m1() { } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

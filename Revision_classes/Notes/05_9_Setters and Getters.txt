@@ -1,0 +1,185 @@
+Binding fields and methods
+===========================
+
+Binding means connecting. The process of accessing fields of a class from its methods is called binding fields and methods
+
+Ex:  
+        public class Book {
+           private long bookId;
+           public long setBookId(){
+               return bookId;
+              }
+           }
+
+We bind fields with methods to perform 4 operations
+     1. Initializing Obj
+     2. Reading obj data
+     3. Modifying obj data
+     4. Printing obj data
+
+We have 4 ways to perform these operations
+      1. by accessing variables directly by their name
+      2. through setters and getters
+      3. constructors
+      4. through blocks
+
+
+Accessing fields directly:
+=========================
+      
+      class Ex{
+           int x;
+           int y;
+          }
+     
+        class Test{
+           psvm(S[]args){
+               Ex e1 = new Ex();
+                   e1.x = 10;
+                   e1.y = 20;
+                   Sop(e1.x);
+                   Sop(e1.y);
+                   e1.x = 15;
+                   e1.y = 16;
+                   Sop(e1.x);
+                   Sop(e1.y);
+                  }
+               }
+
+
+     It is wrong design. Problems with this are:
+     -> code redundancy
+     -> no centralised code change
+     -> no security to data
+     -> wrong values can be stored
+     -> code is not readable
+
+
+
+ Accessing via methods:-
+=========================
+
+              class Ex{
+                 int x;
+                 int y;
+                void set(int p, int q){
+                   x = p;
+                   y = q;
+                 }
+                void display() {
+                  Sop(x);
+                  Sop(y);
+                  }
+               }
+     
+            class Test{
+               psvm(S[]args){
+                 Ex e1 = new Ex();
+                   e1.set(10, 20);
+                   e1.set(30, 40);
+                   e1.display();
+                   e1.set(15, 16);
+                   e1.display();
+                    }
+               }
+
+
+  Here it is providing code readability, reusability and security. But problem is set method design parameter name and field names are different. User cannot understand which variable refers to what.
+  Solution:
+             Create parameters names same as  field names 
+
+                 void set(int x, int y){
+                   x = x;
+                   y = y;
+                 }
+
+Here are we are not able to differentiate parameters and fields. So for that use 'this' keyword.
+
+               void set(int x, int y){
+                   this. x = x;
+                   this. y = y;
+                 }
+        Here we cannot initialize single variable separately so create different setter methods for each variable as
+
+                void set(int x){
+                   this. x = x;
+                 }
+                 
+                   void set(int y){
+                   this. y = y;
+                 }
+
+ Method names are same so name them as 
+
+                 void setX(int x){
+                   this. x = x;
+                 }
+                 
+                  void setY(int y){
+                   this. y = y;
+                 }
+
+
+
+ Ex:
+          class Ex{
+           int x;
+           int y;
+          }
+          void setX(int x){
+              this. x = x;
+                }
+                 
+          void setY(int y){
+                this. y = y;
+                 }
+          void display() {
+                  Sop(x);
+                  Sop(y);
+                  }
+
+     
+        class Test{
+           psvm(S[]args){
+               Ex e1 = new Ex();
+                   e1.setX(10);
+                   e1.setY(20);
+                   e1.display();
+
+                Ex e2 = new Ex();
+                   e2.setX(15);
+                   e2.setY(16);
+                   e2.display();
+                   
+                  }
+               }
+
+Inorder to get these values, create methods as
+
+                int getX(){
+                  return x;
+                }
+                 
+                int getY(){
+                 return y;
+                }
+       
+         
+These are called as setters and getters.
+ Setter is used for setting new  values or modifying existing values of a private field in the obj.
+ Getter is used for retrieving   values of a private field in the obj.
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+

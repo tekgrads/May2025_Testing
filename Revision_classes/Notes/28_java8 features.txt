@@ -1,0 +1,80 @@
+Java8 features:-
+================
+
+1. Lambda expressions
+2. functional interface
+3. Default  and static methods in interfaces
+4. pre-defined functional interfaces
+      i.  predicate
+      ii. function
+      iii consumer
+      iv. supplier
+5. method reference and constructor reference by double colon (::) operator
+6. stream API
+7. Date and time API
+
+Objective:-
+==========
+
+To simplify programming
+To utilise functional programming benefits
+To enable parallel programming
+
+Lambda Expression:-
+==================
+ The main objective of it is 
+        to enable functional programming in java 
+        to write more readable and maintainable code
+        to use API very easily and effectively
+
+It is  anonymous function. It is not having name, not having any modifiers not having any return type 
+
+ex:-
+
+  public void m1() {       ==>       () ->{sop("hello")}    ==> () -> Sop("hello");                                                   sop("hello");
+   }
+
+
+public void add(int a, int b){       ==>  (int a , int b) -> Sop(a + b);  ==> (a, b) -> Sop(a + b);
+ Sop(a + b); 
+}
+
+A lambda expression can take any no . of parameters
+If multiple parameters are available we should separate it with , 
+We can specify type of a parameter, but if compiler expects the type based on context then we can remove type
+Method body can contain multiple statements, if multiple stmnts are available should keep in { }
+
+
+Functional Interface:-
+=====================
+
+If the interface contains only one abstract method then it is functional interface, but it can have any default or static methods
+  Runnable -> run()
+  Callable ->call()
+  Comparable -> compareTo()
+
+
+
+
+Default methods inside interface:-
+= ===============================
+
+from java 1.8 interface takes concrete methods called default methods.
+Should declare method with default keyword
+                           --------
+
+
+We can override these methods in implementation classes but we should not keep default there we should override as public void.
+ If we want to use the interface default method directly we should call as 
+   interface name. super. method name
+
+Static methods inside interface:-
+=================================
+   from java 1.8 interface static methods.
+Should declare method with static keyword
+                           --------
+These static methods are not available for implementation class. We cannot call them by implemented class obj reference. If we want to invoke them we should call them by interface name. We cannot override these methods ,if we override them then there are implemented class own methods. We can change the scope then also no error bcoz these are not overridden methods.
+   In interface we can declare main method and can execute main directly
+
+
+

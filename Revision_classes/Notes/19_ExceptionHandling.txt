@@ -1,0 +1,296 @@
+Exception Handling:-
+======================
+    - In this chapter  we will learn 
+	  terminating program execution abnormally 
+	  when wrong values are passed.
+
+	- When user passes wrong values
+	  we must terminate program execution abnormally, 
+	  and display error message for passing correct values.
+
+Q2) How can we terminate program execution abnormally?
+	- by use exception
+
+Q3) What is an exception?
+	- An exception is a runtime error which is occurred
+	  during program execution because of wrong values 
+	  passed by the user (end-user or method caller)
+	
+	- An exception is an object which is an instance of 
+	  Throwable or one of its sub classes
+
+Q4) Why exception?
+	- it is used for terminating program abnormally
+	  when wrong values are passed
+
+Q5) What will happen when an exception is raised?
+	- Program is terminated abnormally
+	- the statements placed after exception causing statement
+	  are not executed
+
+6. How can we stop abnormal termination?
+	- by handling this exception 
+		1. either by reporting by using 'throws' keyword
+		2. or     by catching by using 'try/catch'
+
+Q7) How many keywords we  use as part of EH?
+	totally 5 keywords
+		1. try
+		2. catch
+		3. finally
+
+		4. throw
+		5. throws
+
+
+What is the super class of all exceptions?
+	- Throwable
+
+Q8) What are the sub classes of Throwable?
+	- All exception are divided to two categories
+		1. Error
+		2. Exception
+
+	- Again Exception sub classes are sub divided into two categories
+		1. RuntimeException
+		2. direct sub classes of Exception
+			
+
+Q13) What are the differences between Error and Exception?
+	- We will get exception 
+		1. either inside JVM memory
+		2. or     inside Java program
+		
+	- Error type exception represents 'JVM memory level problems' and
+	  we do not catch Error type exceptions, because no use, because of 
+	  memory level problems we must terminate program and correct code, to use less memory
+
+		- for example: StackOverflowError, OutOfMemoryError, 
+		               NoClassDefFoundError, ClassFormatError, ...
+			
+	- Exception type exception represents 'Java program level problems' and 
+	  we must catch Exception type exceptions, because Exception type exceptions 
+	  are coming from Java program because of wrong inputs. By catching this exception 
+	  and by printing user understandable message we can correct the program inputs 
+	  without terminating program.
+
+		- for example: ArithmeticException, ArrayIndexOutOfBoundsException,
+					   ClassNotFoundException, InterruptedException, FileNotFoundException,...	
+	
+Q14) What are the differences between Exception and RuntimeException?
+	- in  java program we will get exception 
+	  because of three mistakes
+		1. wrong inputs
+		2. wrong logic or operator failure
+		3. missing resources (external thing ->[.class file or thread or text file or DB])
+
+	- RuntimeException class represents optional handling exceptions
+	  those are occurred due to 'wrong values or wrong logic or operator failure'
+	  because those exceptions don't cause much damage and can be recoverable.
+
+	- Exception class represents mandatory handling exceptions
+	  those are occurred due to 'resources missing'
+	  because those exception causes huge damage and can not be recoverable.
+
+Q15) How many kinds of exceptions do we have in java?
+		- we have 3 kinds of exceptions
+			1. Error			-> represents JVM memory level problems (optional to handle)
+			2. RuntimeException -> represents wrong values and wrong logic problems (optional to handle)
+			3. Exception		-> represents missing resources problem (madatary to handle)
+
+Q16) How many types of exception does java supports?
+		-Java supports 2 types of exceptions
+			1. Checked exception	-> Throwable, Exception and its direct sub classes
+			2. Unchecked exception  -> Error, RuntimeException and their direct sub classes
+		
+		- When we throw an exception if its handling is checked by compiler and
+		  if throws error, if not handled, then this exception is called checked exception
+
+		  Throwable, Exception and its direct sub classes are called checked exceptions,
+		  Checked exception is mandatory to handle either by reporting or by catching.
+
+		- When we throw an exception if its handling is not checked by compiler
+		  then this exception is called unchecked exception
+		  Error, RuntimeException and their direct sub classes are called unchecked exceptions,
+		  Unchecked exception is optional to handle no need to report and no need to catch.
+		  
+		- Either it is checked or unchecked exception, if we do not catch
+		  program is terminated abnormally.
+
+Q17) Is it possible to catch all exceptions by using single catch block?
+		- yes, we can catch
+		- we must create a catch with Exception as parameter type
+		- We can also use Throwable as parameter, but not recommended
+	      because we do not catch Error type exceptions
+
+Q18) When to use single catch block and when to use multiple catch blocks?
+		- When we need to perform a task or print error message based on the exception 
+		  we must use multiple catch blocks, one catch block separately for each exception
+
+		- When we do not know the exception coming from try block logic,
+		  We need to just stop abnormal termination and want to use
+		  a catch block as backup catch block, we must use single catch block
+		  catch(Exception)
+
+Q19) When we use catch(Exception e), inside catch block what is the logic we must write?
+		- We must print exception information by calling Throwable class methods
+
+Q20) Throwable class methods for printing exception information?
+		- Throwable class has 3 methods
+			1. public void printStackTrace()
+			2. public String toString()
+			3. public String getMessage()
+
+		- printStackTrace() method prints
+			1. exception class name
+			2. exception error message
+			3. line number at which this exception was raised
+
+		- toString() method returns
+			1. exception class name
+			2. exception error message
+
+		- getMessage() method returns
+			1. exception error message
+		
+finally block:-
+==============
+
+	- A finally is a block which is associated with a try block
+	
+	- It is used for placing logic to executed compulsory 
+	  when control comes out of try block either normally or
+	  by terminating with exception by catching or by not catching
+	  
+	- However the control comes out of try block
+	 finally block  statements are executed.
+	  
+	- In general in project in finally block we will place
+	  resources releasing or closing logic or unreferencing logic or clean up code
+	  
+	- A resource is some thing that is available outside of the 
+	  Java program and connect to the Java program with a connection object
+	 
+	- A resource can be a file or data base or a thread or network socket  
+	
+	- Once we open connection to a resource, 
+	  after the reading and writing operation on this resource are completed,
+	  we must close this resource connection, otherwise we will get memory leakage 
+	  problems, and we will get OutOfMemoryError or ResourceUnavilableException
+	  
+	- Hence to close the resource connection, 
+	  that resource closing logic and unreferencing logic
+	  we must place inside finally block
+	  
+	- The finally block syntax
+	
+			try { }				only logic is executed 
+			finally { }			for exception, abnormal termination
+			
+			try { }					
+			catch(Exception e){ }	exception caught	
+			finally{ }				logic is executed compulsory
+									normal termination
+				
+	- Why do we need finally block?
+		if finally block is not there, we must place the same logic 
+		in both try and all catches. It leads to three problems
+			1. code redundancy
+			2. may forget to place in newly added catch block
+			3. for an unknown uncaught exception, logic is not executed
+
+Exception propagation:-
+======================
+
+	- sending an exception from current method to its 
+	  calling method is called exception propagation
+	  
+	- When an exception is propagated,
+	  the current method and its calling
+	  both are terminated
+	  
+	- if we do not want to terminate the calling method
+	  catch the exception
+	  
+	- As long as you do not catch exception,
+	  it is keep propagating to calling methods
+	  all methods execution is terminated abnormally
+
+Need of throw keyword:
+======================
+
+The keyword throw is used for throwing an exception from a method/constructor when wrong inputs are passed into our method/constructor.
+
+By throwing an exception we are terminating our method/constructor logic execution and informing to method/constructor caller the passed values are wrong.
+
+So that method caller will catch this exception and display the error message to end-user.
+
+Then by reading this error message, end-user will pass correct values to execute program correctly.
+
+Best example: gmail.com usn and pwd validation
+
+throws keyword usage:-
+=======================
+
+It is only meant for informing the exceptions those are throwing out from a method to this method caller.
+
+**throws keyword will not throw any exception, throw keyword is responsible to throw exception.**
+
+If we do not use throws keyword, the only problem is method caller will not know that there is an exception throwing from this method. Hence he will not add try, catch. Then his method(main method) logic execution will also be terminated abnormally.
+
+Remember, even though we did not use throws keyword exception will be thrown to the calling method, it is because of throw keyword.
+
+**throws kw has impact only at development and compilation time. throws keyword does not have any importance at execution time. Either throws keyword used or not used JVM will send the exception to calling method.**
+
+
+Differences between throw and throws:-
+======================================
+
+throw
+
+1) throw is used for throwing an exception manually by a programmer when wrong inputs are passed according current method logic.
+
+2) After throw keyword we must place exception object.
+
+3) After throw keyword, only one exception object is allowed
+
+4) throw keyword must be used inside method body in logic
+
+5) Most of the times we will use throw keyword for throwing checked & custom exceptions
+
+---
+
+throws
+
+1) throws is used for reporting the exceptions those are throwing out from this method. So that this method caller will provide try, catch block for this calling statement to catch this throwing exception and to complete his method logic execution smoothly.
+
+2) After throws keyword we must place exception class name.
+
+3) After throws keyword multiple exceptions class names are allowed.
+
+4) we must use throws keyword in method prototype after method ()
+
+5) we will use throws keyword only for reporting checked exceptions and of course it is mandatory.
+
+
+throw keyword rules:-
+=====================
+
+1) throw keyword must be placed only inside a method/constructor
+2) throw keyword can not be placed at CL, inside SB and IIB
+3) throw keyword can not be placed inside method declaration means in prototype
+4) after throw keyword only Throwable type objects are allowed
+5) after throw keyword only one Throwable object is allowed
+6) after throw statement we can not place any statement directly if we need to place some statements after throw statement we must place this throw statement inside if(-) condition
+7) If we need to throw multiple exception, we must use throw keyword multiple times one time per for each exception. But we must place each throw statement in one if(-) condition
+
+
+throws keyword rules:-
+=====================
+
+1) we must place throws keyword only in method and constructor declarations after signature
+2) It is not allowed in class, SB and IIB declarations
+3) after throws keyword we can place only Throwable type class name.
+4) after throws keyword we can place multiple class names but with , separator.
+5) mandatory to use with checked exception and optional to use unchecked exception
+6) if super class method does not have throws checked exception we can not add throws checked in sub class while overriding

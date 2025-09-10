@@ -1,0 +1,285 @@
+Multithreading
+================
+1. What is Multitasking?
+	- The process of running multiple independent tasks 
+	  at a time concurrently or simultaneous is called multitasking
+	  
+2. Types of Multitasking?
+	- Process based multitasking (Multitasking)
+	- Thread based multitasking  (Multithreading)
+	
+3. Differences between Multitasking and Multithreading?
+  =======================================================================
+	Multi Tasking			   Multi Threading
+  ========================================================================
+  1. Running multiple main tasks	1. Running multiple sub tasks
+     concurrently is called 		   concurrently in a main task 
+     multitasking			   is called multi-threading
+     
+  2. Multitasking comes  			2. Multi-threading comes 
+     at OS level				  at process level or 
+     						 programming Language level
+     
+  3. Multitasking is heavy weight	3. Multi-threading is light weight
+  	 means consumes more memory	       means consumes less memory and 
+  	 and more time for context         less time for context switching
+  	 switching                         because all threads share memory 						   within same process.
+  ===================================================================
+			
+4. Different approaches to run multiple tasks?
+	We have three ways
+		1. Sequentially	-> [start -> end] [start -> end]
+		2. Parallel		-> [start -> start -> end -> end]
+		3. Concurrent	-> [start -> pause -> start -> pause -> resume -> end]
+		
+	At OS level or at programming level we will have 
+	concurrent flow of execution but not parallel flow of execution
+	
+5. Whether Java provide Multi Tasking or Multi Threading?
+ 	- Multi Threading (because it is run by a process called JVM)
+
+6. What is a thread?
+	- A thread is an independent sequential flow of execution path
+	
+	- Java is a multi-threaded programming language
+	- It means inside JVM we can have multiple threads
+
+7. What is multi-threading and why multi-threading?
+	- The process of creating multiple threads for running multiple 
+	  independent tasks concurrently to complete their execution in less time 
+	  by using CPU ideal time effectively is called multi-threading
+
+8. Advantages of Multi-threading?
+	- We can run multiple independent tasks concurrently at a time
+	- We can complete project execution fast
+	- We can use CPU ideal time effectively
+	- We use CPU resources effectively
+
+9. What are we learning in this chapter Multi-threading?
+	- In this chapter 
+		- we do not learn "how to develop logic"
+		- we learn how to 'run logic concurrently'.
+		
+	- In previous chapters we run tasks (methods) 
+	  sequentially by using single thread main thread
+	  
+	- The sequential flow of execution takes more time
+	  because when one task execution is paused,
+	  we can not use that paused time to run other task
+	  
+	- In this chapter we will learn 
+		  1. creating our own new threads
+		  2. running tasks or methods concurrently in those new threads
+	  	 
+10. What is a custom thread or user defined thread?
+	- A thread newly created by a programmer is called custom thread
+
+11. How can we create custom thread?
+	- by using class Thread
+
+	- For creating custom thread 
+	    'Create Thread class object and 
+	     call start() method'
+
+12. What is the problem with Thread class in creating CT? 
+	We able to create custom thread
+    but we unable to execute logic in custom thread
+    for executing logic in custom thread 
+    we must place our logic in run() method
+    
+13.  run() method:- 
+	1. The run() method is a predefined method,
+	   it is available in Runnable interface as abstract method
+	
+	2. It is the initial point of custom thread execution
+	   for executing logic in custom thread we must place
+	   our logic in run() method
+    
+    4. It is originally declared in Runnable interface,
+       and it is implemented in Thread class with the logic
+       calling the run() method of  the passed Runnable implemented object class
+    
+    5. In order to place our logic, we must override run() method
+       either from Runnable interface or from  Thread class
+       
+								       			interface Runnable {                  class MyThread extends Thread {   }
+             public void run();              class Thread implements Runnable {}
+								       			}
+								       
+       
+       			class MyRunnable implements Runnable{
+       				
+       				private Runnable target;						
+       				
+       				Thread() { }
+       				
+       				Thread(Runnable target) {				
+       														}
+       				@Override
+       				public void run() {
+       					if(target != null) 
+       						target.run();
+       				}
+       			}
+       
+       
+14. What is the 'main target' in multi-threading?
+       1. creating custom thread?
+       2. overriding run() method?
+       
+       - overriding run() method to place our logic 
+         for executing in custom thread
+       
+15. How many ways we can override run() method?
+       2 ways
+       	1. extending from Thread class
+       	2. implementing from Runnable interface
+       	
+16. How many ways we can create custom thread?
+      We have 3 ways
+	      For creating custom thread and 
+  	        for overriding run() method to supply logic
+	      to be executed in this custom thread
+       
+	       1. extending from Thread class
+	       2. implementing from Runnable interface
+	       3. implementing from Callable<T> interface
+	          by executor framework
+	          
+	in all above three approaches either directly or indirectly
+	Thread class is only used for creating custom thread object
+       
+17.What is a single thread model application?
+     Application an application that executes its logic or all its tasks by using single thread 
+     that is main thread is called single thread model application
+  
+
+public class Test07_SingleThreadModelApplication {
+	
+	public static void main(String[] args) {
+		System.out.println("main start");
+		
+		System.out.println("main end");
+	}
+}
+
+18.What is a multi thread model application ?
+     An application that uses more than one thread to execute its tasks 
+     is called multi thread model application
+     
+     A new thread is available in JVM only after start() method is called
+     As long as we don't call start method this application is just STM application
+ 
+case1:-
+
+19.Is it possible to call run() method directly? 
+      - yes, it is possible
+      - but custom thread is not created
+      - run() method logic is executed in main thread
+        sequentially with main method logic
+case2:- 
+
+20. can we call both run() and start() methods? 
+      - yes, it is possible
+      - then run() method is executed 2 times 
+      		1. first in main thread 
+      		2. second in custom thread 
+      - in custom thread run() method logic is executed only after 
+        in run() method in main thread is completed
+        
+      - if we call first run() and then start() we get 
+        both run() methods are executed sequentially 
+
+case3:-
+21 can we call first start() and then run() method? 
+      - yes, it is possible
+      - in this case run() method is executed 2 times 
+        concurrently, because by the time run() method
+        executed in main thread, the run() method is already
+        ready to execute in custom thread
+
+case4:-
+22.    Is it possible to call start() method more than once on the same thread object?
+      - No, it leads to exception IllegalThreadStateException
+
+23.  How can we create multiple custom threads ?
+    - We are two approaches to create multiple custom threads 
+    	1. Single class 	-> multiple objects -> calling start() method on each object separately
+         ===============
+
+           The problem in approach #1 
+  	is same logic with same inputs
+      If we want to execute same logic with different inputs, 
+      we must pass the inputs as argument to run() method
+      
+    Is it possible to pass arguments to the run method ?
+      - No, Because it is a non parameterized method 
+   
+  Q) Is it possible to add parameters to run method ?
+  		- No, because it is overriding method, we can not add parameters as we like
+ 
+  Q) Then how can we pass arguments to run() method to execute its logic with the runtime values ?
+      1. Use instance variable, 
+      2. initialize it with runtime value via constructor at the time of thread object creation
+     
+
+    	2. Multiple classes -> multiple objects -> calling start() method on each object separately  
+           =================  
+
+
+overriding start():-
+==================
+
+   Can we override start() method?
+   	yes, no CE, no RE
+       because it is not a final method
+       
+  Q) If override start() method, do we have any other problem?     
+       - custom thread is not started
+       - run() method is not called and not executed
+         
+  Q) What is the need of overriding start() method?
+  		- for executing some logic compulsory before every thread start
+  		  we must override start() method to place this logic inside 
+  		  start() method to execute it common to all threads       
+  	
+  Q) What is the right design for overriding start() method?
+  		1. first we must place our logic 
+  		2. then at the end of start() method body 
+          we must place super.start()
+         		for executing start() method logic from Thread class 
+         		for starting custom thread, calling and executing run() method by JVM   
+  
+calling one custom thread from another:-
+=======================================
+
+Can we create a custom thread from other custom thread?
+  		- yes, it is possible
+  
+   What is the procedure?
+       - create one thread class object and call start() method 
+         in another thread class run() method
+         
+       - create the first thread class object and call start() method
+         in main method
+         
+       - main thread starts thread1
+       - thread1 starts thread2
+ 
+calling  same custom thread from custom thread:-
+================================================
+
+ Can we start a custom thread from the same custom thread's run() method?
+  		- yes, we can start
+  
+  Q) Then what is the execution flow, will it leads to recursion and will it leads to SOfError?
+ 		- It leads recursion, infinite number of custom threads are keep on created and destroyed
+ 		- The program execution is never terminated and we will not get StackOverflowError,
+         because every time run() method is executed in new thread, not in the same thread
+         
+  Q) In place of start() method if we call run() method, what will happen?
+  		- now we will StackOverflowError
+ 		- because new custom thread is not created
+  		  every time for run() method call, run() method is loaded in the same current thread
+  		- At some point of the time, thread memory is filled, no space for loading run() method logic
+  		  JVM terminates this thread execution by throwing SOfError      

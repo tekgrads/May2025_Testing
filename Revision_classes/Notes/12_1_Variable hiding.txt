@@ -1,0 +1,43 @@
+ Variable hiding:-
+=================
+
+  Creating a variable in super class and in sub class with the same name 
+  is called variable hiding 
+  -> When we hide  super class variable in sub class and if we access that variable 
+     in subclass either directly by using its name or by using subclass name or by 
+     using sub class object reference, we will get its value from sub class
+ 
+ ->  For accessing super class hidden member in subclass by differentiating it
+     from sub class hiding member, we must access it by using super keyword 
+
+ -> We cannot use a 'super keyboard' in static method and also in other classes 
+   user class or test class.
+   
+-> For accessing Super class hidden members 
+   we have 3 approaches
+	1. By using super keyword 
+	2. By using super class name 
+	3. By using super class type referenced variable  
+
+   - We can use super keyword only in subclass only in non-static members
+
+   - We can use super class name only for accessing static variable 
+     either in static or non static method in sub class or in user class
+
+   - We can use super class type referenced variable either 
+     in subclass or in user class either in static or non-static member 
+     for accessing both static and non-static hidden member 	
+
+Q) How can we differentiate super class hidden number from subclass hiding member 
+   in test class? 
+A) By using super class type referenced variable by storing subclass object 
+	A a1 = new B();
+	System.out.println(a1.a);
+	System.out.println(a1.x);
+
+	- a and x varaibles are read from super class A 
+	from sub class B object
+	
+
+
+

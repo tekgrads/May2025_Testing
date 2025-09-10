@@ -1,0 +1,78 @@
+ReflectionAPI:-
+===============
+
+What is reflection api and use of reflection API?
+
+ A group of classes meant for
+
+         1.  Loading a class
+
+         2.  Instantiating a class
+
+         3.  Accessing members of a class dynamically by reading class name from kb/from file
+             are together is called Reflection API.
+
+Q) What are the classes comes under Reflection API?
+
+Class
+
+Field
+
+Constructor
+
+Method
+
+Parameter
+
+Modifier
+
+Annotation
+
+Package
+
+Module
+
+
+In which package those classes are organized?
+==============================================
+
+Reflection API classes are placed in three packages
+
+java.lang
+
+java.lang.reflect
+
+java.lang.annotation
+
+-> The classes Class and Package are defined inside java.lang pack
+-> The class Annotation is defined inside java.lang.annotation
+-> The classes Field, Constructor, Method, Parameter, Modifier are defined in java.lang.reflect package.
+
+-> If we want to use Field, Constructor, Method, Parameter, Modifier classes, we must add import java.lang.reflect.*; in our Java file
+
+-> If we want to use Annotation class, we must add import java.lang.annotation.*; in our java file
+
+
+-> else compiler will throw error: c f s
+
+
+
+
+Q) Diff b/w new keyword and reflectionapi:-
+==============================================
+
+-> new keyword based object creation is static in nature
+It means we can not change current class to another class object creation without modifying code and recompiling.
+
+For example:
+new A();   ->  here we can not change the class A to class B
+Always above statement will create class A object only.
+
+-> Reflection API based object creation is dynamic in nature.
+
+It means we can change current class to another class object creation without modifying code and recompiling.
+We can just pass class name at execution time as input to reflection api method, then which ever the class name we pass that class is loaded and object is created.
+For example:
+ Class.forName(scn.nextLine()).newInstance();
+
+

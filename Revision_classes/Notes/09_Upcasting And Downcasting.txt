@@ -1,0 +1,140 @@
+Upcasting:
+===========
+        Storing sub class object ref in super class referenced variable is called upcasting.
+            Person p1 = new Student();
+
+Adv: Loose coupling and data binding
+Person p1;
+
+p1 = new Student();
+
+p1 = new Faculty();
+
+
+class Person{
+    String name = "abc";
+    }
+class Student extends Person{
+      int sno = 101;
+   }
+
+class Test{
+     p s v main(String[] args) {
+           Person p1 = new Student();  // upcasting
+           sop(p1.name);
+           sop(p1.sno);  // can't access
+           
+   }
+}
+
+Need of Upcasting:-
+==================
+
+To achieve dynamic binding between subtype objects and user class objects, we must develop upcasting. Using the upcasting concept, we can create a single-parameter method to receive any subtype object without modifying the user class code.
+
+Example:
+          Class Party {
+           static void eat(Person p){
+         }
+        }
+
+
+         Class Test {
+            p s v main(S[] args){
+                   Party. eat(new Student());
+                   Party. eat(new Employee());
+                   Party. eat(new Worker());
+                  }
+                 }
+             
+To the eat method, we can pass Student, Employee, Worker objects without modifying code.
+
+
+Problems with upcasting:-
+========================
+
+         When we store subclass obj in super class referenced variable, we cannot access members of the subclass, we can access only members that are declared in superclass only.
+            The solution for this problem is down casting. It is not possible,if we want to access subclass members by using super class referenced variable. We must down cast this subclass obj from super class type to its own type by using cast operator.
+       
+
+Down casting:
+===============
+
+Retrieving a subclass object reference from a superclass reference variable and converting its type from Super Class type to its own type by using a cast operator is called down casting.
+
+
+Student s1 = (Student) p1;
+
+Note:
+
+Either in Upcasting or  Down casting, the object that we are using is a subclass object.
+
+In Upcasting, we are creating a reference to Parent Class.
+
+In Down Casting, we are changing the reference to Child Class.
+
+     class Person{
+       int eyes = 2;
+
+       }
+
+   class Student extends Person{
+         int sno = 101;
+
+       }
+
+   class Test{
+       p s v main(String[] args) {
+
+           Student s1 = (Student)p1;
+           sop(s1.eyes);
+           sop(s1.sno);
+           }
+        }
+
+
+Problems with Down Casting:-
+==========================
+       It will throw ClassCastException, if the obj in the sub class variable is not of cast operator type.
+
+Solution :-
+          We must use instanceof operator 
+
+
+What is instanceof operator?
+============================
+
+The instanceof operator is a relational operator. It is used for checking the object type. We will use the instanceof operator to know whether the passed object/the object stored in the reference variable is of a particular subtype or not.
+
+In general, we will use the instanceof operator with an if condition while downcasting an object to avoid CCE (likely "ClassCastException").
+
+Syntax of instanceof operator:
+refVar instanceof classname
+
+It returns true if the object in refVar is the same/subtype of the given class.
+
+It returns false if the object in refVar is a superclass or sibling type.
+
+
+super keyword:-
+===============
+
+super is a keyword, just a keyword, like 'this' it is not a variable.
+
+super keyword is used for accessing superclass members from subclass members.
+
+Like this keyword, super keyword also contains two forms:
+
+           1. super()
+
+           2. super.
+
+super() is used for accessing superclass constructors from subclass constructors for initializing NSV (Non-Static Variables) of the superclass in a subclass object.
+
+super. is used for accessing superclass variables and methods in a subclass from CO (likely referring to "Current Object" or "Constructor/Object").
+
+
+
+
+
+

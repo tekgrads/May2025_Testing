@@ -1,0 +1,139 @@
+Interface
+=========
+- Like a class, interface is also a referenced data type
+
+- It is used for representing the "main type" of an object 
+  by only declaring all operations of an object
+  for forcing its sub types to implement those operations 
+  according to their requirement
+
+- The main reason for giving interface is for 
+  supporting multiple type inheritance.
+
+- An interface is created by using the keyword "interface"
+- Inside interface we declare only abstract methods as shown below
+
+     For example:	
+	interface Example {	   
+		void m1();         
+		void m2();         
+	}                          
+
+- By using an interface with abstract methods we create a contract document 
+  or mediator between 'user class programmer' and 'implementation class programmer'.
+	For example:-
+	============================================================================
+					  interface	
+		User type object	super type object 	sub type objects
+				       (contract document)
+	===========================================================================
+
+		Mobile			    SIM			Airtel
+					void call();		
+					void sms();		BSNL
+			
+								jio	
+
+- An interface, by declaring methods as abstract methods, 
+	it tells "What to do, but not How to do"
+
+   - interface tells to implementation class developer,
+	 what operations must be implemented, 
+     the implementation logic can be as per the sub type requirement
+
+   - interface tells to user class developer,
+	what operation must be invoked/called
+
+- A "type with fully abstract methods" is named as interface
+    because it is acting as an interface(mediator) between
+    user class developer and implementation classes developers
+    for accessing and implementing an operation of an  object
+
+- A user class programmer always access the operations (methods)
+    those are available in the interface, 
+    for executing them from the background 
+    implemented sub type classes.
+
+- The rules we must follow while working with interface
+	1. We must use the keyword 'interface' for creating interface
+
+	2. inside interface we can place only
+		1. public static final variables			
+		2. public abstract methods				
+		3. public static inner class				
+
+		4. public default implemented method			(8v)
+		5. public static implemented method			(8v)
+
+		6. private static implemented method and 		(9v)
+		7. private non-static implemented methods		
+
+	3. inside interface we can not place
+		1. normal static and non-static variables, no CE
+		2. static and non-static blocks
+		3. constructor
+		4. protected or final static and non-static concrete methods
+		5. private or default or protected fields
+
+	4. the variable declared inside interface must be initialized in the declaration
+
+	5. interface can not be instantiated
+
+	6. interface can not be declared as final
+
+	7. we must use the keyword 'implements' for deriving a class from interface
+	   we must use the keyword 'extends'    for deriving an interface from an interface	
+
+	8. the implementation class must implement all abstract methods of this interface
+	   else we must declared it as abstract other we will get CE
+
+	9. We must implement interface methods with 'public' keyword
+	   because interface methods are by default public
+
+- Below program explains creating an interface with all above rules
+
+	   
+==================================================================================
+	Differences between [abstract class and interface]
+==================================================================================
+1. 
+   interface is meant for creating main type of an object
+   by declaring all operations of this object for forcing 
+   implementation classes developer to implement these operations
+   as per their requirement.
+
+   abstract class is meant for creating sub type of an object
+   by declaring some of the operations and implementing some other 
+   operation of an object for forcing and providing reusability
+   implementation classes developers.
+
+2. 
+  interface supports multiple inheritance
+  abstract does not support multiple inheritance
+
+3. 
+  in interface we no need to declare methods as abstract 
+  in abstract class we must declare methods as abstract
+
+4. 
+  in interface the methods are by default public
+  in abstract class the methods are default
+
+5.
+  we must implement interface by using implements
+  we must derive abstract class by using extends
+
+6. 
+  in implementation class we must implement interface with public.
+   In abstract method either with default or public
+
+7.
+   both interface and abstract class can not be instantiated
+   because both are not fully implemented types
+
+8. interface can not have static block and constructor
+   where as abstract class can have static block and constructor
+==================================================================================
+
+
+

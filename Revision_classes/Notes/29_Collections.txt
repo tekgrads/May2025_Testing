@@ -1,0 +1,444 @@
+Diff ways to store data and objects in a program
+
+		
+		  1. by using variable 				
+                  2. by using class object			
+		  3. by using array object			
+		  4. by using collection object			 
+		
+		1. variable problem :
+			It can store only one value or one object
+		
+			if we try to store new values or new object, old values and old objects are lost
+
+		2. class object problem
+			it can store only one particular object values
+			if we store new object's values, old object values are lost	
+								
+		3. array problems  
+			1. it can store only one type of values or objects
+			2. it can store only fixed size values or objects
+			3. it doesn't provide inbuilt methods to perform different operations. There is not inbuilt method 
+                          for either searching, sorting, removing, inserting
+			  elements in an array. To perform these operation, we must 
+			  write code explicitly.
+			4. it can not store objects in different format
+			5. it can not store objects in different order
+								
+ Solution:-
+ ===========        
+	The solution for storing multiple values and objects without 'type and size' limitations and to store them in different formats and orders we must use collection
+								
+ When we need to store one value or one object, we must create a variable
+
+When we need to store multiple values and objects of same and different type of a particular real world object, we must use class object
+		   
+When we need to store fixed number of multiple values or objects of same type,
+ we must use array object
+		   
+When we need to growable number of multiple values and objects of same type or
+different type in different format and in different orders, we must use  collection object.  
+
+
+Collection:-
+===========
+ If we want to represent a group of individual obj as a single entity then we should go for collection
+
+Collection framework:-
+======================
+It defines several classes and interfaces which can be used by collection
+
+9 key interfaces of collection framework:-
+=========================================
+
+1. Collection:-
+ ==============
+       It defines the most common methods which are applicable for any collection object. It is root interface.
+
+Diff b/w Collection and Collections:-
+===================================
+Collection:- It is an interface which is used to represent a group of individual objects.
+
+Collections:- It is an utility class present in java. util package to define several utility methods like sorting, searching for collection objects
+
+2. List:-
+=========
+        It is a child interface of collection. If we want to represent a group of individual objects as single entity where duplicates are allowed and insertion order is preserved then use List.
+
+                               List 
+                                |
+                 ArrayList        LinkedList          Vector
+                                                         |
+                                                       Stack
+
+3. Set:-
+========
+         It is a child interface of collection. If we want to represent a group of individual objects as single entity where duplicates are not allowed and insertion order is not  preserved then use Set.
+             
+            Set
+             | - > HashSet
+                     | -> LinkedHashSet
+             
+
+
+4. SortedSet(I):-
+==============
+         It is a child interface of Set. If we want to represent a group of individual objects as single entity where duplicates are not allowed but all objects should be inserted according to some sorting order then use SortedSet.
+
+5. Navigable Set(I):-
+   =================
+          It is a child interface of Sorted Set. It defines several methods for navigation.
+              Set
+               |
+               Sorted Set
+                |
+               Navigable Set
+                |
+                Tree Set(class)
+
+6. Queue(I):-
+============
+         It is a child interface of collection. If we want to represent a group of individual objects prior to processing then use queue.
+             
+                        Queue
+                          | 
+            Priority queue     Blocking queue
+                                   |- Linked blocking queue
+                                   |- priority blocking queue
+
+
+7. Map:-
+  =======
+         Map is not a child interface of Collection. If we want to represent a group of individual objects as key value pairs then use Map.
+               Both key and value are objects. Duplicate keys are not allowed but duplicate values are allowed
+
+                             Map(I)
+                                |
+     HashMap       WeakHashMap         Identity HashMap       Hashtable
+          |   
+     Linked HashMap
+
+8. Sorted Map:-
+==============
+           It is a child interface of Map. If we want to represent a group of 
+key value pairs according to some sorting order of keys the use Sorted Map.
+
+9.  Navigable Map(I):-
+   =================
+          It is a child interface of Sorted Map. It defines several methods for navigation.
+              Map
+               |
+               Sorted Map
+                |
+               Navigable Map
+                |
+                Tree Map(class)
+
+
+Methods in Collection:-
+======================
+
+add(Object o);
+addAll();
+remove();
+removeAll(Collection c);
+retainAll()
+isEmpty()
+int size();
+
+
+List :-
+=====
+ArrayList :-
+============
+ Underlying data structure  is resizable array or growable array.
+ Duplicates are allowed and insertion order is preserved.
+ Heterogeneous obj are allowed 
+ Null insertion is possible
+
+Arraylist and vector implements RandomAccess interface  so that we can access any random elt with same speed.
+RandomAccess is a marker interface. ArrayList is best if frequent operation is retrieval and worst if frequent operation is insertion or deletion in the middle.
+
+Diff b/w ArrayList and vector:-
+==============================
+
+   ArrayList                                          Vector
+=================================================================================
+1. methods are non synchronized          | 1. synchronized
+2. Multiple threads are allowed to       | 2. only one thread is allowed to 
+   operate.It is not thread-safe         |    operate. It is thread safe
+                                         |
+3. Threads are not required to wait      |3. Threads has to wait . So performance 
+   hence performance is high             |    is low
+                                         | 
+=================================================================================
+
+LinkedList:-
+============
+Underlying DS is doubly Linked List
+Insertion order is preserved
+Duplicates are allowed
+Heterogeneous obj are allowed 
+Null insertion is possible
+It implements Serializable and cloneable but not random access
+It is best if frequent operation is insertion or deletion in the middle and worst choice if our frequent operation is retrieval
+
+
+Vector:-
+=======
+ Underlying data structure  is resizable array or growable array.
+ Duplicates are allowed and insertion order is preserved.
+ Heterogeneous obj are allowed 
+ Null insertion is possible
+ It implements Serializable and cloneable and random access
+ Most methods are synchronized so thread safe
+ Best choice if frequent operation is retrieval.
+
+Stack:-
+======
+It is child class of vector.
+It is specially designed for Last In First Out Order (LIFO)
+
+methods:-
+=========
+push() :- inserting an obj to stack
+
+pop() :- it remove and returns top of stack
+
+peak() :- return top elt of stack without removal obj.'
+search() :- if specifies obj is available returns its offset from top of stack
+            if not available returns -1
+
+
+Cursors:-
+==========
+ There are 3 cursors available to retrieve elts one by one from collection
+       1. Enumeration
+       2. Iterator
+       3. ListIterator
+
+
+Enumeration:-
+=============
+We can use this to get objs one by one from collection objs
+
+Limitations:-
+=============
+Can be applied for legacy classes, hence not a universal cursor
+we can get only read access and cannot perform remove operations
+
+Iterator:-
+==========
+We can apply to all collection obj , hence it  is a universal cursor.
+By using iterator we can perform both read and remove operations.
+
+Limitations:-
+============
+By using enumeration and iterator we can move only towards forward direction , we cannot move in backward direction 
+
+By using iterator we can perform only read and remove operation, cannot perform replacement of new objects
+
+List Iterator:-
+==============
+By using this we can move either forward or backward direction. hence it is bidirectional cursor
+In addition to read and remove we can perform replacement and addition of new objects 
+
+
+Set:-
+====
+  Set is a child interface of collection. If we want to represent a group of individual objects as single entity where duplicates are not allowed and insertion order is not  preserved then use Set.
+
+Hashset:-
+========
+underlying DS is Hashtable.
+Insertion order is not preserved
+Duplicates are allowed
+Heterogeneous obj are allowed 
+Null insertion is possible
+It implements Serializable and cloneable but not random access. Best if frequent operation is search
+
+LinkedHashset:-
+=============
+It is child class of HashSet
+
+  HashSet                                          LinkedHashSet
+=================================================================================
+1. underlying DS is Hashtable            | 1. underlying DS is Hashtable +
+                                                 LinkedList
+2. Insertion order not preserved         | 2.  Insertion order is preserved
+                                         |
+=================================================================================
+
+SortedSet:-
+==========
+It is child interface of Set.If we want to represent a group of individual objects according to some sorting order and duplicates are not allowed then use SortedSet.
+
+TreeSet:-
+=======
+Underlying DS is balanced tree
+Insertion order is not preserved, but all objs will be inserted according to some sorting order
+Duplicates are not allowed
+Heterogeneous obj are not allowed 
+Null insertion is possible but only once.
+  
+Comparable:-
+============
+default sorting order and has compareTo()
+
+Comparator:-
+===========
+custom sorting and has compare()
+
+Map:-
+======
+It is not child interface of collection. If we want to represent a group of objects as key-value pairs then use map.
+Duplicate keys are not allowed but duplicate values are allowed.
+Each key-value pair is called entry.
+
+methods:-
+=========
+
+put() -> to add one entry to map
+get() -> returns the value associated with key
+remove() -> removes the entry associated with key
+
+HashMap:-
+=========
+The underlying DS is Hashtable.
+Insertion order is not preserved and it is based on hashcode of keys.
+Duplicate keys are not allowed but values can be duplicated.
+Heterogeneous obj are allowed for both keys and values
+null is allowed for key only once 
+null is allowed for values any no.of times
+
+Diff. b/w HashMap and Hashtable:-
+================================
+
+ HashMap                                            Hashtable
+=================================================================================
+1. non -synchronized                     | 1. synchronized
+                                         |       
+2. At a time multiple threads can be     | 2.  one thread is executed at a time
+   executed                              |
+3. not thread safe                       | 3. thread safe
+4. high performance                      | 4. low performance
+5.null is allowed for both               | 5. null is  not allowed for both                                         
+  key and values                         |     key and values                                       
+=================================================================================
+
+LinkedHashMap:- child class of HashMap
+==============
+
+HashMap                                          LinkedHashMap
+=================================================================================
+1. underlying DS is Hashtable            | 1. underlying DS is HashMap +
+                                                 LinkedList
+2. Insertion order not preserved         | 2.  Insertion order is preserved
+                                         |
+=================================================================================
+
+IdentityHashMap:-
+================
+
+It is exactly same as HashMap only diff is HashMap uses .equals operator to identify duplicates IdentityHashMap uses == operator
+
+WeakHashMap:-
+============
+It is exactly same as HashMap. In HashMap though the obj does not have any reference then also it is not eligible for GC
+If it is WeakHashMap if obj does not have reference then it is eligible for GC
+
+Sorted Map:-
+==============
+           It is a child interface of Map. If we want to represent a group of 
+key value pairs according to some sorting order of keys the use Sorted Map.
+
+TreeMap:-
+=======
+Insertion order is not preserved, but all objs will be inserted according to some sorting order
+Duplicates are not allowed
+Heterogeneous obj are not allowed
+for natural sorting use comparable
+for custom sorting use comparator
+
+Queue:-
+=======
+    It is a single ended queue
+     Used for storing and retrieving objects in FIFO at begin one ended
+     It supports only FIFO order
+     
+  Deque:-
+===========
+    It is a Double Ended queue
+     Used for storing and retrieving objects at begin and end
+     Hence it supports both FIFO and LIFO orders
+     
+   Queue has only one implementation class 
+   	1. PriorityQueue
+   
+   Deque has only one implementation class 
+   	1. ArrayDeque
+
+ 1. PriorityQueue -> for retrieving objects in FIFO order in the given priority
+
+ 2. ArrayDeque  -> for retrieving object either in FIFO or in LIFO
+
+  FIFO order supporting methods
+ 			1. add()  or offer()
+ 			2. poll() or remove()
+ 			3. peek() or element()
+ 
+ LIFO order supporting methods
+ 			1. push()  
+ 			2. pop() or poll() or remove()
+ 			3. peek() or element()
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

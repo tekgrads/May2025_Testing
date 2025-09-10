@@ -1,0 +1,47 @@
+JVM totally contains five runtime areas
+1. Method Area
+2. Heap Area
+3. Java Stacks Area
+4. Program Counter Registers Area
+5. Native Methods Stacks area
+
+About Method Area and Heap Area:-
+================================
+
+1) In Method area every class bytecode is loaded and stored. It means the given class static and instance variables declaration statements, blocks, methods, and constructors.
+logic will be stored in method area.
+2) Further for all static variables memory is allocated in this runtime area.
+3) Heap is the main memory of JVM.
+4) All classes and arrays objects are created in heap area. Means given class instance variables memory is allocated in heap area.
+5) For storing given class bytecode inside JVM, one separate instance is created from java.lang.Class. As many classes are loading into JVM those many instances are created
+
+About Java Stacks area:-
+========================
+
+1) In this runtime area all methods (non-native), blocks and constructors logic is executed.
+2) In this runtime area we can create several threads for executing methods at a time concurrently. JVM by default creates minimum two threads, they are
+1) main thread
+2) garbage collector thread
+
+3) Main thread is responsible to execute Java methods starts with main method, also responsible to create objects in heap area if it finds "new" keyword in any method logic
+4) Garbage collector thread is responsible to destroy all unused objects from heap area.
+5) As each new thread comes into existence, it gets its own pc register and Javastack . The Java stack is composed of stack frames (or frames). A
+stack frame contains the state of one Java method invocation.
+6) When we invoke a method or constructor a new stack frame is created. Once this
+method execution completed this stack frame is destroyed. Stack Frame holds logic of this method, its parameters, local variables, its return value, and intermediate calculations. Logic of this method or constructor is loaded in this from method area
+
+About Program Counter Registers Area
+======================================
+
+1) In this runtime area, a separate program counter register is created for every thread. It is used for tracking execution in this thread by storing its instruction address.
+2) PC Register is created when new thread is created; after thread execution is completed it is destroyed automatically.
+
+About Native Methods Stacks Area
+=================================
+
+1) In Native Methods stack area all native methods are executed.
+2) In Java, there are two kinds of methods: Java methods and native methods.
+1. A Java method is written in the Java language, compiled to bytecodes, and stored in
+class files.
+2. A native method is written in some other language, such as C, C++, or assembly,
+and compiled to the native machine code of a particular processor.

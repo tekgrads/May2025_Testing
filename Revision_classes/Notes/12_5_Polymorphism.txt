@@ -1,0 +1,96 @@
+Polymorphism:-
+=============
+Polymorphism means providing multiple implements to same method. One name different forms
+
+It means providing multiple implementations to same method based on subtype and based on diff type of values.
+
+   ex: 
+ 
+     Bank{
+       deposit(){ }
+        withdraw(){ }
+   } 
+     
+the methods in Bank class can be implemented by different banks like HDFC, ICIC, SBI etc
+
+ We can develop polymorphism in two ways
+	1) By using method overriding
+	2) By using method overloading
+
+Problem if we do not develop polymorphism?
+   If we do not develop polymorphism 'user class programmer' will face problems
+    1) He must remember multiple method names even though operation is same
+    2) We can not call single method to execute from diff sub classes and     par
+       parameters
+    3) We can not develop one user class common to all sub types and parameters
+    4) Code is not reusable, code is not easily readable and not understandable a
+    5) Project maintenance becomes complex
+    6) Time and money waste
+    7) Development is slow
+
+Advantages if we develop polymorphism?
+  If we develop polymorphism 'user programmer' will get benefits
+     1) he no need to remember multiple method names, 
+        because we will develop all methods with same name
+     2) We can call single method to execute from diff sub classes and parameters
+     3) we no need to develop multiple user classes for each 
+        sub type and parameter type separately, because in all sub classes method 
+	signature is same, hence one time we call, then that one time invoked   m
+        method can be executed from diff sub classes based on object and argument 
+	we passed runtime. (LC and RP)
+     4) code is reusable, code is easily readable and easily understandable and 
+     5) project maintenance becomes easy
+     6) time and money saved, 
+     7) we will get fast development
+
+There are two types of polymorphism.
+ 1. Static binding or compile time polymorphism
+ 2. Dynamic binding or Run time polymorphism
+
+Static binding or compile time polymorphism or early binding:-
+=============================================================
+    When we invoke a method, the method definition from the class from which it is binding at compilation time, same method definition is executed by JVM from same class then it is called as static binding or compile time polymorphism or early binding
+       static methods, overloaded and private methods are always exhibit CP.
+      When we invoke either static or non-static method
+	both compiler and JVM searches this method definition 
+	in referenced variable class, not in object type class.
+
+	  ->	If method is not found in referenced variable class,
+		compile and JVM searches this method definition
+		in referenced variable super classes upto j.l.Object class
+
+	 ->	If method definition is not found in referenced variable class 
+		and in its super classes, compiler throw error, JVM throws exception
+
+	->	If method is found some where either in ref var class or in its super classes
+		compiler link this method call to that method definition and finishes compilation
+
+		Then at execution time, JVM executes this method either from 
+		that linked class or from current sub class based on current object
+		depending on type of the method static and non-static
+
+			If the method static or not overridden or overloaded
+				it is executed from compiler linked class, 
+				either it is from referenced variable or from its super classes
+				but not from current object class, because it is not overridden 
+
+In simple terms Static binding will happen by overloading
+
+The process of executing an invoked method always from the same class irrespective of the obj stored in referenced variable is called compile time polymorphism
+
+Dynamic binding or Run time polymorphism or Late binding :-
+========================================================
+         When we invoke a method, the method definition from class from which it is bind at compilation time, if not executed at run time, instead if it is executed from subclass based or obj stored in the referenced variable is called run time polymorphism
+         Non-static methods can exhibit RP, if they are overridden.
+         If the method is non-private, non-static and overridden method in current object class,
+        then this method is executed from current object class and exhibits Runtime polymorphism or dynamic binding and project becomes
+			dynamically extensible and scalable.
+In simple terms dynamic binding will happen by overriding
+
+The process of executing an invoked method always from the different subclasses based on the  obj stored in referenced variable is called run time polymorphism
+
+To achieve run time polymorphism we should do
+  1. upcasting  - to store subclass objects
+  2. method overloading - to execute logic from subclass
+
+

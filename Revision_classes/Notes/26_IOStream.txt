@@ -1,0 +1,359 @@
+What are the different ways we can store data in a program?
+	1. variables
+	2. class object
+	3. array object
+	4. collection object
+	
+
+ What is the problem in all above approaches?
+	Storing data in a program by using variables and objects is temporary
+		
+	Because, once the program execution is completed the variables and objects 
+	created in this program are destroyed and values are lost.
+		
+ How can we store data permanently? 
+	We must store the data permanently either in files or in DB
+	
+How can we store data in a file?
+	Step #1: We must connect to a file from a Java program 
+    Step #2: We must write data into this file
+
+ How can we read data from the file that we saved permanently? 
+	Step #1: We must connect to the file from a Java program 
+    Step #2: We must read data from this file 
+ 
+ How can we connect to a file from a Java program?
+		by using a 'stream' object
+
+ What is a stream?
+	A stream is a logical connection between Java program and a file 
+    through which we can write and read data permanently from a file
+     
+        
+        ========================================================
+        	Java Program                         file(abc.txt)
+        ========================================================
+              writing                                data 
+               data   -------stream connection-----> saved
+               										  /	
+             reading  <------stream connection------- / 
+        		 data		   
+        ========================================================
+        
+ By using single stream can we do both operations write and read?
+		No, we must have two separate streams 
+			- one for writing data 
+			- second for reading data
+
+    - Writing data into a file technically called output 
+    - Reading data from the file is technically called input
+    
+    - The stream that is used for writing data into a file is called output stream 
+    - The stream that is used for reading data from a file is called input stream 
+       
+       
+ In which format the data can flow through the stream?
+	- The data can flow through the streams only 
+       either as bites or as characters   
+       
+ How many types of streams does Java support?
+	- Based on the type of data flow,
+       Java supports two types of streams
+       
+       	1. Binary streams 
+        2. Character streams 
+         
+      - By using binary streams we can write and read data in terms of bits 
+      - By using character streams we can write and read data in terms of characters    
+      
+ Through binary streams what type of data we can write and read ?
+		- We can write and read to all types of data 
+       numbers, characters, objects, images  
+       
+ Why character streams are given, when we can write and read characters 
+    by using binary streams ?       
+  	- Binary streams can write and read data only at ASCII range characters (0-255)
+  
+     - For writing and reading characters at UNICODE range characters (0-65535)
+       character streams are provided
+
+ When should we use binary streams and when should we use character streams?
+		- Binary streams for writing and reading binary data like numbers, objects and images 
+     - Character streams for writing and reading character data like text file 
+
+ From which java version binary streams and character streams are available?
+		- Binary streams are available from Java 1.0 version
+		- Character streams are provided in Java 1.1 version
+
+		- Both stream has two types of streams
+    ===================================================================
+			Binary Streams
+				Binary Input Steam	 		
+				Binary Output Steam
+	 
+			Character Streams
+				Character Input Steam	 		
+				Character Output Steam
+    ===================================================================
+
+ How can we represent streams in Java?
+	- In 'java.io' package we have input stream and output stream representing classes 	  	 
+     
+     - For representing 'binary input stream and binary output stream'
+       we have 2 classes 
+     	1. InputStream	 -> For reading value from the file as bits 
+     	2. OutputStream  -> For writing value to a file as bits 
+     
+     - For representing 'character input stream and character output stream'
+       we have 2 classes 
+     	1. Reader		-> For reading value from the file as characters 
+     	2. Writer		-> For writing value to the file as characters 
+     
+     ===================================================================
+			Binary Streams
+			 	InputStream	 		
+			 	OutputStream
+	 
+    ===================================================================
+			Character Streams
+				Reader	 		
+				writer
+    ===================================================================
+     
+ What are the 'sources and destinations' for reading data and writing data 
+    by using streams?
+    	- By using stream we can read and write data 
+    		1. from a file
+    		2. from an object
+    		3. from a socket (network computer)
+			etc...
+
+ Can single class 'InputStream or OutputStream' or 'Reader or Writer' 
+    can read and write data from all about different sources and destinations?
+    	- No, a single class cannot represent all different sources and destinations
+     - We have separate class to represent each source and destination 
+       one class for reading and another class for writing 
+       for each source and destination separately
+       
+ InputStream and OutputStream sub classes?
+		InputStream								OutputStream
+			|-> FileInputStream						|-> FileOutputStream
+			|-> DataInputStream						|-> DataOutputStream
+			|-> ObjectInputStream					        |-> ObjectOutputStream
+			|InputStreamReader					         |-> OutputStreamWriter
+                   								
+ Reader and Writer sub classes?
+		Reader									Writer	
+			|-> FileReader							|-> Filewriter
+			|-> BufferedReader						|-> BufferedWriter
+                   								
+                   
+ How can we write and read data from a file by using above stream classes ?
+		- We can write data by using write(-) method available in 
+		  OutputStream class and in Writer class 
+               public void write(int data)
+                   
+		- we can read data by using read() method available in 
+       InputStream and Reader classes           
+               public int read()
+                   
+ What are the steps we must develop in the program for  
+    writing and reading data from a file
+        
+        For writing data
+            In a Java Program
+              1. create FOS object 
+            	 2. call fos.write(data) ------------->  abc.txt
+            
+        For reading data
+        	   In a Java Program
+        		1. create FIS object
+             2. and call fis.read()   <-------------  abc.txt
+             
+	
+flush():-
+========
+  when we write something into a file , the text/data does not always go immediately into a file. Instead it first goes into a buffer(temporary memory)
+   flush() is used to push whatever is in the buffer immediately into the file. without flush the data my sit in the memory and only go to the file when the buffer is full or when file is closed.	
+
+ Limitation of FOS and FIS :-
+============================
+
+     -> they write and read only 1 byte [0-255] range values
+     -> can not write and read PDT size and range value 
+         byte, short, int, long, float, double char, boolean
+          and String one line at a time.
+     -> to write and read PDT range values and only line at a time
+          we must use DataOutputStream and DataInputStream classes
+          
+    2. DOS and DIS can not write and read data directly from file
+       we must use DOS and DIS connecting FOS and FIS
+              
+    3. DOS and DIS are filter streams, just adding more functionality to
+       FOS and FIS in writing and reading PDT and 1 line of data
+       	
+    4. We must create DOS and DIS objects as below
+    	DOS dos = new DOS(new FOS(filename));
+    	DIS dis = new DIS(new FIS(filename));
+    
+    5. DOS class have below 9 methods for writing PDT range value, and one String
+    
+    	public void writeByte(int b)
+    	public void writeShort(int b)
+    	public void writeChar(int b)
+ 
+    	public void writeInt(int b)
+    	public void writeLong(long b)
+    	public void writeFloat(float b)
+    	public void writeDouble(double b)
+    	public void writeBoolean(boolean b)
+    
+    	public void writeUTF(String b)
+         
+    6. DIS class have below 10 methods for reading PDT range value, one String and one line
+    
+    	public byte readByte()
+    	public short readShort()
+    	public char readChar()
+ 
+    	public int readInt()
+    	public long readLong()
+    	public float readFloat()
+    	public double readDouble()
+    	public Boolean readBoolean()
+    
+    	public String readUTF()
+    	public String readLine()
+    
+     Rule: We must call readXxx() methods in the same order writeXxx() methods called
+          else will get either wrong result or exception EOFException.    
+
+It we want to write an array object or class object to a file
+
+Here we can not use FOS or DOS objects
+     		Limitation of FOS -> it can write only one byte of data
+     		Limitation of DOS -> it can write only one PDT value/String 
+     	Solution -> we must use ObjectOutputStream (OOS)
+     
+  OOS
+  ===
+   1. The ObjectOutputStream is an OutputStream type object
+   2. It is used for saving one object data inside the file 
+   3. It can connect to a file only via FOS object
+   4. It has a constructor to take OutputStream type object as an argument
+   		ObjectOutputStream(OutputStream out)
+   
+   5. We must create object of this class by passing FOS object as argument 
+      to connect to a file for saving given object data inside the file
+   		OOS oos = new OOS(new FOS("object.ser");
+   
+   6. Inside OOS class we have a method writeObject() to save object state in a file
+   		public void writeObject(Object obj)
+   
+   7. oos.writeObject(obj) method performs serialization  
+   
+  Serialization
+  ============= 
+   8. The process of 'converting an object into stream of bytes' and 
+      saving object state inside a file permanently is called serialization
+     
+  		   
+   9. The rule in serialization is 
+         the serializing object's class must implement 
+		 java.io.Serializable interface
+      
+  10. If this serializing object is not Serializable type, oos.writeObject() method 
+      throws NotSerializableException and terminates serialization.
+ 
+      Saving object data inside a file is not safe operation, because if anyone got 
+      access to serialized file, he can read our object data & we loose security            
+      hence oos.writeObject() throws NSE and saying this object does not have
+      permissions to save its data in a file
+ 
+ 	   To provide serializing permission, this object's class must 
+ 	   implement Serializable interface
+ 
+  Serializiable interface	   
+  ======================
+  11. The Serializable interface is a marker interface it is an empty interface 
+     
+  12. By implementing Serializable interface, we no need to override any method from 
+       this interface and we no need to develop serialization logic. 
+       The serialization logic is already available in oos.writeObject() method
+    
+  13. By implementing Serializable interface, we are just providing permission to 
+       oos.writeObject() method to serialize our class object
+       
+  14. Then oos.writeObject() method converts its argument object state into 
+      stream of bytes and saves this object's state in the file permanently
+    
+  .ser file structure
+  ===================
+  15. The file that contains an object's serialized data is called serialized file 
+      this file extension is .ser
+      
+  16. The .ser file must contain object information to reconstruct this object 
+      by ois.readObject() method in deserialization process
+      
+  17. Hence this file contains below 3 information     
+       1. the current object's class name
+       2. serialVersionUID of this class using which the object is created and serialized 
+       3. Each field name, its data type and its value
+
+
+De-serialization
+  ================
+  1. The process of reading object data from the file and 
+      restoring it in the object inside JVM is called deserialization
+      
+  2. The deserialization operation is performed by 
+      ObjectInputStream class readObject() method
+  
+   3. The ois.readObject() method performs deserialization by following below steps
+  		1. It reads the class name from the serialized file
+          and loads this class into the JVM
+    
+  		2. It compares the serialVersionUID number of this loaded class 
+          with the serialVersionUID number available in the .ser file
+          
+       3. If both are not same it throws exception InvalidClassException
+          and terminates deserialization process
+          
+  		4. If both values are same, it creates object from this loaded class with 
+          all non-static fields available in this loaded class
+          
+       5. It reads field name available in the object, 
+           searches this field in the .ser file, 
+              if found, reads its value from the file and stores in this object
+              if not found, stores default value based on this field type     
+                
+  4. Rule: To complete deserialization the .class file byte code must be equal to the 
+     .class file byte code which was used for serialization. After a serialization if we 
+     modify the class either by adding new fields or methods (or) by removing existing fields 
+     or methods, new serialVersionUID is generated, the deserialization process is failed
+     
+  5. To continue deserialization even though we add or remove the class members,
+     we must add serialVersionUID variable in the Student class by ourself
+     
+  6. Rule: If a class is implementing Serializable interface, this class must contain 
+     serialVersionUID variable to allow adding or removing members in this class and to continue 
+     deserialization. If we donot create serialVersionUID variable, no CE, but we will get
+     exception InvalidClassException during deserizalization if we modify the class after 
+     serialization.  
+        
+             
+ 
+/                Test case #1
+		//in Student class remove serialVersionUID variable
+				//and run this class, O/P: InvalidClassException
+				
+			//Test Case #2: 	
+				//in Student class remove serialVersionUID variable
+				//run OOS class and then this class, O/P: no exception
+
+			//Test Case #3: 	
+				//in Student class add new field
+				//run only this class, O/P: InvalidClassException
+            
+ 
+

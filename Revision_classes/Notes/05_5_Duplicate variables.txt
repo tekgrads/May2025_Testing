@@ -1,0 +1,20 @@
+Duplicate Variable
+===================
+	- A new variable that is declared with an existing variable name 
+	  in the same scope is called duplicate variable.
+
+	- To confirm whether a variable is duplicate or not 
+	  we must consider only 'variable name and scope'
+	  we no need to consider other parts 
+	  either value or data type or modifier
+	
+	- Same name and same scope, choose error,
+	  because it is a duplicate variable 
+	  
+class A {
+	static int      a = 10;
+	static int      a = 20;
+	static double   a = 30;
+	       String   a = "a";
+}
+

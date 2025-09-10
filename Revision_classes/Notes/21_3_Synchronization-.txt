@@ -1,0 +1,104 @@
+Synchronization:-
+================
+     It is a modifier applicable for methods and blocks but not for classes and variables. If multiple threads are trying to operate on same java object simultaneously  then there may be data inconsistency problem. To overcome this we should use synchronized keyword. If a method or block is declared as synchronized then one  object is allowed to access it and other threads has to wait. So the data inconsistency problem will be resolved.
+But main disadvantage is all other threads has to wait until completion of one thread execution, tis increases the execution time of the program so we should use synchronized keyword very carefully when ever it is necessary.
+    Internally it is implemented with the concept of lock. If a thread wants to execute synchronized method of given object first it has to get lock of that object. Once thread got the lock then it is allowed to execute any synchronized method. After execution of method then thread releases the lock. It process is internally taken care by JVM. If one thread is executing synchronized method other threads can execute non synchronized methods and blocks.
+
+Synchronized block:-
+====================
+
+A local block that is declared with synchronized keyword 
+    is synchronized block
+    
+  - It is used for locking the given argument object or j.l.Class object
+    for executing its block of statements sequentially from multiple threads
+    when same object is shared to multiple threads
+    
+   	class Example {
+  		void m1(Sample s) {
+   			--- 
+   			--- concurrent flow
+   			--- 
+   			synchronized(obj/class){
+   				---
+   				--- 	sequential flow
+   				---
+   			}
+   			---
+   			---	concurrent flow
+  			---
+   		}
+   	}
+   - For locking a current object, pass 'this' keyword as argument
+   		synchronized(this) { }
+
+   
+   - For locking an argument object, pass 'parameter name' as argument
+   		synchronized(s) { }
+   
+
+   - For locking a class, pass 'ClassName.class' as argument
+   		synchronized(Example.class) { }
+   		synchronized(Sample.class) { }
+   
+   - For locking multiple objects or multiple classes, 
+     we must use nested synchronized blocks
+     	
+     
+  	class Example {
+   		void m1(Sample s) {
+   			synchronized(this){ 	//CO is locked
+   				synchronized(s){ 	     //AO is locked
+   					synchronized(Example.class){  //Example class is locked
+   						synchronized(Sample.class){ 	//Sample class is locked
+   							---
+   							--- 	sequential flow
+   							---
+   						}
+   					}
+   				}
+   			}
+   			---
+   			---	concurrent flow
+   			---
+   		}
+   	}
+   
+   - The differences between synchronized method and synchronized block
+     =======================================================================
+   		SM					SB
+     =======================================================================
+   	1. the object is locked for 		1. the object is locked only for 
+          the entire method execution		   the block of statements
+          
+       2. it can lock only current object	2. it can lock either CO/CC/AO/OC
+          or current class, can not lock      based the passed argument
+          argument object or other class      		
+          
+       3. execution is slow because 		3. execution is fast because
+          object is locked for the entire     object is locked only for 
+          method logic  					   the necessary lines of code
+     =======================================================================
+ 
+DeadLock:-
+==========
+
+Deadlock is a situation where 2 threads are depend on each other 
+  and waiting on each other to complete
+  
+  For example Thread1 is waiting for Thread2 to complete and at the same time
+  Thread2 is waiting for Thread1 to complete. Then that situation is called 
+  deadlock situation because both are not completed, application will be hanged.
+   
+  When we make two threads inter-dependent on their execution 
+  deadlock will come automatically
+   
+  We will get deadlock situation in the program in two cases 
+  	1. Calling join() method on two threads each other
+  	2. Calling synchronized method wrongly in two threads on same objects 
+   
+
+Interthread communication:-
+=========================
+     Two threads communicate with eachother by using wait(), notify() and notifyAll(). The thread which is expecting updation is responsible to call wait() then immediately the thread will enter into waiting state. The thread which is responsible to perform  updation is responsible to call notify() then waiting thread will get notification and continue its execution with the updated item. These methods on present in object class but not in thread class. Thread can call these methods on any java object.
+To call these methods on any object thread should be owner of that object i.e., the thread should have lock of that object so these methods should be called inside synchronised area if not we will get IllegalMonitorStateException .
